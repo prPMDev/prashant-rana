@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const imageSlider = document.querySelector('.image-slider');
-    const testimonialGrid = document.querySelector('.testimonial-grid');
+    const testimonialSection = document.querySelector('.testimonials');
 
     // Image slider setup
     const images = [
@@ -11,16 +11,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentImageIndex = 0;
 
     function changeImage() {
-        const img = document.createElement('img');
-        img.src = images[currentImageIndex];
-        img.onload = function() {
-            console.log('Image loaded successfully:', img.src);
+        const newImg = document.createElement('img');
+        newImg.src = images[currentImageIndex];
+        newImg.style.opacity = '0';
+
+        newImg.onload = function() {
+            imageSlider.appendChild(newImg);
+            setTimeout(() => {
+                newImg.style.opacity = '1';
+                if (imageSlider.children.length > 1) {
+                    imageSlider.removeChild(imageSlider.children[0]);
+                }
+            }, 50);
         };
-        img.onerror = function() {
-            console.error('Error loading image:', img.src);
-        };
-        imageSlider.innerHTML = '';
-        imageSlider.appendChild(img);
+
         currentImageIndex = (currentImageIndex + 1) % images.length;
     }
 
@@ -41,7 +45,13 @@ document.addEventListener('DOMContentLoaded', function() {
             text: "Prashant is an all rounder. May it be coding, understanding the critical aspects of business or testing and deployment, Prashant is the guy you would be looking out for. His ability to take keen interest in the domain that he is working in and his ever curious mind makes him an excellent addition to a team. Prashant has a deep rooted sense of responsibility that ensures his reliability in the team. I had a pleasure of working with Prashant for last one year and would not hesitate to work with him any time in future.",
             author: "Hrishikesh Deshmukh, Director User Experience Design at Salesforce"
         },
+        // Add more testimonials here
     ];
+
+    const testimonialCarousel = document.createElement('div');
+    testimonialCarousel.className = 'testimonial-carousel';
+    const testimonialContainer = document.createElement('div');
+    testimonialContainer.className = 'testimonial-container';
 
     testimonials.forEach(testimonial => {
         const testimonialElement = document.createElement('div');
@@ -50,8 +60,37 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="testimonial-text">${testimonial.text}</p>
             <p class="testimonial-author">- ${testimonial.author}</p>
         `;
-        testimonialGrid.appendChild(testimonialElement);
+        testimonialContainer.appendChild(testimonialElement);
     });
 
-    console.log('Script executed. Check if images and testimonials are added to the DOM.');
+    testimonialCarousel.appendChild(testimonialContainer);
+    testimonialSection.appendChild(testimonialCarousel);
+
+    let currentTestimonialIndex = 0;
+
+    function moveTestimonials(direction) {
+        currentTestimonialIndex = (currentTestimonialIndex + direction + testimonials.length) % testimonials.length;
+        testimonialContainer.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
+    }
+
+    function autoMoveTestimonials() {
+        moveTestimonials(1);
+    }
+
+    // Set up auto-rotating carousel
+    setInterval(autoMoveTestimonials, 10000); // Change testimonial every 10 seconds
+
+    // Set up manual controls
+    const leftControl = document.createElement('div');
+    leftControl.className = 'carousel-control left';
+    leftControl.innerHTML = '❮';
+    leftControl.addEventListener('click', () => moveTestimonials(-1));
+
+    const rightControl = document.createElement('div');
+    rightControl.className = 'carousel-control right';
+    rightControl.innerHTML = '❯';
+    rightControl.addEventListener('click', () => moveTestimonials(1));
+
+    testimonialCarousel.appendChild(leftControl);
+    testimonialCarousel.appendChild(rightControl);
 });
