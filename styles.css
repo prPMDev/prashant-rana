@@ -1,37 +1,49 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
     color: #333;
 }
 
+/* Header Styles */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: #f8f8f8;
 }
 
 .logo {
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 nav a {
     margin-left: 20px;
     text-decoration: none;
     color: #333;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
 }
 
 nav a.active {
     border-bottom: 2px solid #333;
 }
 
+/* Main Content Styles */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Hero Section Styles */
 .hero {
     display: flex;
     align-items: flex-start;
@@ -51,23 +63,110 @@ main {
     margin-bottom: 20px;
 }
 
+.hero-content p {
+    margin-bottom: 15px;
+}
+
+.hero-content a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hero-content a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Testimonials Section Styles */
 .testimonials {
     text-align: center;
 }
 
-.stars {
-    font-size: 24px;
-    margin: 20px 0;
+.testimonials h2 {
+    margin-bottom: 30px;
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+.testimonial {
+    background-color: #f8f8f8;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    text-align: right;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Footer Styles */
 footer {
     text-align: center;
     padding: 20px;
-    font-size: 0.9em;
+    background-color: #f8f8f8;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image {
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        padding: 10px;
+    }
+
+    .testimonial {
+        padding: 20px;
+    }
+
+    .prev, .next {
+        padding: 10px;
+        font-size: 16px;
+    }
 }
