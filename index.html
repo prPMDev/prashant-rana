@@ -13,13 +13,14 @@
             <a href="#" class="active">about</a>
             <a href="#">work</a>
             <a href="community.html">community</a>
-            <a href="#">contact</a>
+             <a href="reading-list.html">reading list</a>
+              <a href="#">contact</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <img src="path-to-your-image.jpg" alt="Prashant Rana" class="profile-image">
+            <img src="images/profile-photo.jpg" alt="Prashant Rana" class="profile-image">
             <div class="hero-content">
                 <h1>Hi, I'm Prashant!</h1>
                 <p>I'm a Senior Product Manager based in Seattle, WA. 🏙️</p>
@@ -87,12 +88,12 @@
         let currentTestimonial = 0;
 
         function showTestimonial(index) {
-            const testimonial = testimonials[index];
-            document.querySelector('.testimonial-container').innerHTML = `
-                <div class="testimonial">
-                    <p class="testimonial-text">"${testimonial.text}"</p>
-                    <p class="testimonial-author">- ${testimonial.name}, ${testimonial.title}</p>
-                </div>
+    const testimonial = testimonials[index];
+    document.querySelector('.testimonial-container').innerHTML = `
+        <div class="testimonial">
+            <p class="testimonial-text">"${testimonial.text}"</p>
+            <p class="testimonial-author">- ${testimonial.name}, ${testimonial.title}</p>
+        </div>
             `;
         }
 
