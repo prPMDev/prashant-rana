@@ -70,3 +70,35 @@ footer {
     background-color: #f8f8f8;
     font-size: 0.9rem;
 }
+
+.skills-section, .education-section, .certifications-section, .contact-section {
+    margin-top: 2rem;
+}
+
+.skills-section ul, .education-section ul, .certifications-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.skills-section li, .education-section li, .certifications-section li {
+    margin-bottom: 0.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #007bff;
+}
