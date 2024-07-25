@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Image slider setup
     const images = [
-        'path/to/image1.jpg',
-        'path/to/image2.jpg',
-        'path/to/image3.jpg',
+        'images/pr-at-seattle.jpg',
+        'images/pr-painting.jpg',
         // Add more image paths as needed
     ];
 
