@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const imageSlider = document.querySelector('.image-slider');
-    const testimonialContainer = document.querySelector('.testimonial-container');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
+    const testimonialGrid = document.querySelector('.testimonial-grid');
 
     // Image slider setup
     const images = [
@@ -41,37 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="testimonial-text">${testimonial.text}</p>
             <p class="testimonial-author">- ${testimonial.author}</p>
         `;
-        testimonialContainer.appendChild(testimonialElement);
-    });
-
-    let currentTestimonialIndex = 0;
-
-    function showTestimonials() {
-        const testimonialElements = document.querySelectorAll('.testimonial');
-        testimonialElements.forEach((el, index) => {
-            el.style.display = index >= currentTestimonialIndex && index < currentTestimonialIndex + 3 ? 'block' : 'none';
-        });
-    }
-
-    function nextTestimonial() {
-        currentTestimonialIndex = (currentTestimonialIndex + 1) % (testimonials.length - 2);
-        showTestimonials();
-    }
-
-    function prevTestimonial() {
-        currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % (testimonials.length - 2);
-        showTestimonials();
-    }
-
-    nextButton.addEventListener('click', nextTestimonial);
-    prevButton.addEventListener('click', prevTestimonial);
-
-    showTestimonials(); // Initial display
-
-    // Expand testimonial text on click
-    testimonialContainer.addEventListener('click', function(e) {
-        if (e.target.classList.contains('testimonial-text')) {
-            e.target.classList.toggle('expanded');
-        }
+        testimonialGrid.appendChild(testimonialElement);
     });
 });
