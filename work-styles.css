@@ -12,12 +12,33 @@
     align-items: center;
     border-radius: 8px;
     overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+    transform: scale(1.05);
 }
 
 .work-item img {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 60%;
+    max-height: 60%;
     object-fit: contain;
+}
+
+.avalara {
+    background-color: #FF6600;
+}
+
+.oracle {
+    background-color: #C74634;
+}
+
+.datafi-labs {
+    background-color: #0056B3;
+}
+
+.zs-associates {
+    background-color: #00A0DF;
 }
 
 @media (max-width: 768px) {
