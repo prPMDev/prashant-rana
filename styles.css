@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
     color: #333;
@@ -10,35 +9,34 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f8f8f8;
+    padding: 20px;
 }
 
 .logo {
     font-weight: bold;
-    font-size: 1.2rem;
 }
 
-nav {
-    display: flex;
-    gap: 1rem;
-}
-
-.nav-link {
+nav a {
+    margin-left: 20px;
     text-decoration: none;
     color: #333;
 }
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+nav a.active {
+    border-bottom: 2px solid #333;
 }
 
-.profile-section {
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero {
     display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 60px;
 }
 
 .profile-image {
@@ -48,57 +46,28 @@ main {
     object-fit: cover;
 }
 
-.profile-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.testimonials-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .testimonials {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
+    text-align: center;
+}
+
+.stars {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 footer {
     text-align: center;
-    padding: 1rem;
-    background-color: #f8f8f8;
-    font-size: 0.9rem;
-}
-
-.skills-section, .education-section, .certifications-section, .contact-section {
-    margin-top: 2rem;
-}
-
-.skills-section ul, .education-section ul, .certifications-section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.skills-section li, .education-section li, .certifications-section li {
-    margin-bottom: 0.5rem;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 1rem;
-}
-
-.social-links {
-    margin-top: 1rem;
-}
-
-.social-links a {
-    text-decoration: none;
-    color: #007bff;
+    padding: 20px;
+    font-size: 0.9em;
 }
