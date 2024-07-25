@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prashant Rana - Product Manager</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">prashant rana</div>
         <nav>
             <a href="#" class="active">about</a>
-            <a href="#">work</a>
+            <a href="work.html">work</a>
             <a href="community.html">community</a>
             <a href="reading-list.html">reading list</a>
             <a href="#">contact</a>
@@ -20,29 +21,24 @@
 
     <main>
         <section class="hero">
-            <h1>Hi, I'm Prashant!</h1>
-            <p>I'm a Senior Product Manager based in Seattle, WA. 🏙️</p>
-            <p>I like 🏔️ hiking, 🎨 making paintings, and ⚽ playing soccer.</p>
-            <p>I've worked as a software developer for many years before pivoting to functional roles such as pre-sales and program management, ultimately finding my calling in product management.</p>
-            <p>I spend a significant time <a href="community.html">mentoring aspiring product managers</a>, with a keen focus on finding the 'why' before the 'how', even for career aspirations. 🚀</p>
+            <div class="image-slider">
+                <!-- Images will be dynamically added here -->
+            </div>
+            <div class="hero-content">
+                <h1>Hi, I'm Prashant!</h1>
+                <p>I'm a Senior Product Manager based in Seattle, WA. 🏙️</p>
+                <p>I like 🏔️ hiking, 🎨 making paintings, and ⚽ playing soccer.</p>
+                <p>I've worked as a software developer for many years before pivoting to functional roles such as pre-sales and program management, ultimately finding my calling in product management.</p>
+                <p>I spend a significant time <a href="community.html">mentoring aspiring product managers</a>, with a keen focus on finding the 'why' before the 'how', even for career aspirations. 🚀</p>
+            </div>
         </section>
 
         <section class="testimonials">
             <h2>Valued Perspectives from Colleagues</h2>
+            <div class="stars">★★★★★</div>
             <div class="carousel">
                 <div class="testimonial-container">
-                    <div class="testimonial">
-                        <p class="testimonial-text">Prashant is an exceptionally talented Product Manager and I am super glad we hired him at the right time to help us out on the CX Platform team. He comes with an MBA Background which is super valuable and he uses a lot of strategic and analytical thinking into the product management lifecycle and process. He is definitely one of the very smart PMs I have worked with in my Career. He is well respected, extremely dedicated and a motivated and self driven individual. He has done an awesome job managing his products, backlogs and owning feature deliverables on our Oracle CX Releases. He always believes in overseeing and leading from the front, delivering on several critical Projects which added Business Value and Increased Revenue for our company. Prashant will be a great asset to any company that hires him. He has my highest recommendation.</p>
-                        <p class="testimonial-author">- Ram Prabhakaran, Technology Leader and Product Champion</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">Prashant was a summer graduate intern on my team. I really appreciated his strategic mindset as well as his ability to get into the weeds to get work done. He quickly got up to speed on what we asked of him carrying a long-term vision forward during his short time on the team. I would highly recommend Prashant.</p>
-                        <p class="testimonial-author">- Dana Toy, Principal Program Manager at SAP Concur</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">Prashant is an all rounder. May it be coding, understanding the critical aspects of business or testing and deployment, Prashant is the guy you would be looking out for. His ability to take keen interest in the domain that he is working in and his ever curious mind makes him an excellent addition to a team. Prashant has a deep rooted sense of responsibility that ensures his reliability in the team. I had a pleasure of working with Prashant for last one year and would not hesitate to work with him any time in future.</p>
-                        <p class="testimonial-author">- Hrishikesh Deshmukh, Director User Experience Design at Salesforce</p>
-                    </div>
+                    <!-- Testimonials will be dynamically added here -->
                 </div>
                 <button class="prev">❮</button>
                 <button class="next">❯</button>
@@ -51,39 +47,9 @@
     </main>
 
     <footer>
-        prashant rana | product manager
+        <p>&copy; 2024 Prashant Rana. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('.carousel');
-            const container = carousel.querySelector('.testimonial-container');
-            const testimonials = container.querySelectorAll('.testimonial');
-            const prevButton = carousel.querySelector('.prev');
-            const nextButton = carousel.querySelector('.next');
-            let currentIndex = 0;
-
-            function showTestimonial(index) {
-                testimonials.forEach((testimonial, i) => {
-                    testimonial.style.display = i === index ? 'block' : 'none';
-                });
-            }
-
-            function nextTestimonial() {
-                currentIndex = (currentIndex + 1) % testimonials.length;
-                showTestimonial(currentIndex);
-            }
-
-            function prevTestimonial() {
-                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-                showTestimonial(currentIndex);
-            }
-
-            nextButton.addEventListener('click', nextTestimonial);
-            prevButton.addEventListener('click', prevTestimonial);
-
-            showTestimonial(currentIndex);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
