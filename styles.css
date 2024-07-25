@@ -1,117 +1,72 @@
-/* styles.css */
-
-/* Global Styles */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
     color: #333;
 }
 
 header {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f8f8f8;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-header p {
-    font-size: 1.2em;
-    color: #666;
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 nav {
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #ddd;
+    gap: 1rem;
 }
 
-nav a {
-    margin: 0 15px;
+.nav-link {
     text-decoration: none;
-    color: #007bff;
-}
-
-nav a:hover {
-    text-decoration: underline;
+    color: #333;
 }
 
 main {
     max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-section {
-    margin-bottom: 40px;
+.profile-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-h2 {
-    font-size: 1.8em;
-    color: #333;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-.profile-photo {
-    width: 150px;
-    height: 150px;
+.profile-image {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-    display: block;
-    margin: 0 auto 20px;
+    object-fit: cover;
 }
 
-.social-links {
+.profile-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.testimonials-section h2 {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 2rem;
 }
 
-.social-links a {
-    margin: 0 10px;
-}
-
-.social-links img {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    background: #e9ecef;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 4px;
+.testimonials {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
 }
 
 footer {
-    background-color: #f8f9fa;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    border-top: 1px solid #ddd;
-}
-
-footer p {
-    margin: 0;
-    color: #666;
-    font-size: 0.9em;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    font-size: 0.9rem;
 }
