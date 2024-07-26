@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    font-size: 18px;
 }
 
 header {
@@ -12,7 +11,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f8f8f8;
 }
 
 .logo {
@@ -24,11 +22,7 @@ nav a {
     margin-left: 20px;
     text-decoration: none;
     color: #333;
-    transition: color 0.3s ease;
-}
-
-nav a:hover, nav a.active {
-    color: #007bff;
+    text-transform: lowercase;
 }
 
 main {
@@ -39,203 +33,57 @@ main {
 
 .hero {
     display: flex;
-    margin-bottom: 60px;
     align-items: center;
+    margin-bottom: 60px;
 }
 
-.image-slider {
+.hero-image {
     width: 300px;
     height: 300px;
-    overflow: hidden;
-    margin-right: 40px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.image-slider img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.5s ease-in-out;
+    margin-right: 40px;
 }
 
-.hero-content {
-    flex: 1;
-}
-
-.hero h1 {
-    font-size: 3em;
+.hero-content h1 {
+    font-size: 2.5em;
     margin-bottom: 20px;
-}
-
-.hero p {
-    margin-bottom: 15px;
-}
-
-.hero a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.hero a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-.testimonials {
-    margin-top: 60px;
-    text-align: center;
 }
 
 .testimonials h2 {
-    margin-bottom: 10px;
-    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.stars {
-    color: #ffd700;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.testimonial-carousel {
-  position: relative;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-.testimonial-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+#testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .testimonial {
-  flex: 0 0 100%;
-  padding: 20px;
-  box-sizing: border-box;
+    flex-basis: calc(33% - 20px);
+    margin-bottom: 30px;
 }
 
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 18px;
+.testimonial h3 {
+    margin-bottom: 5px;
 }
 
-.carousel-control.left { left: 0; }
-.carousel-control.right { right: 0; }
+.testimonial .title {
+    font-style: italic;
+    margin-bottom: 10px;
+}
 
+.testimonial blockquote {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-left: 3px solid #333;
+}
 
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #f8f8f8;
-    margin-top: 40px;
-}
-
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .image-slider {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-}
-
-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-label {
-    display: block;
-    margin-top: 20px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-:root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --header-bg: #f8f8f8;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --header-bg: #2a2a2a;
-}
-
-header {
-    background-color: var(--header-bg);
-}
-
-.dark-mode-toggle {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    font-size: 1.5em;
-    padding: 5px;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--bg-color);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: var(--text-color);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+    font-size: 0.8em;
 }

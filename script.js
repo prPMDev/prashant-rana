@@ -9,7 +9,79 @@ function includeHTML(file, elementId) {
 }
 
 // Function to set active navigation link
+function setActiveNavLink() {// Function to include HTML content
+function includeHTML(file, elementId) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById(elementId).innerHTML = data;
+      setActiveNavLink();
+    });
+}
+
+// Function to set active navigation link
 function setActiveNavLink() {
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+// Load testimonials from JSON
+function loadTestimonials() {
+  const testimonialContainer = document.getElementById('testimonial-container');
+
+  fetch('testimonials.json')
+    .then(response => response.json())
+    .then(data => {
+      data.testimonials.forEach(testimonial => {
+        const [name, title] = testimonial.author.split(',');
+        const testimonialElement = document.createElement('div');
+        testimonialElement.className = 'testimonial';
+        testimonialElement.innerHTML = `
+          <h3>${name.trim()}</h3>
+          <p class="title">${title.trim()}</p>
+          <blockquote>${testimonial.text}</blockquote>
+        `;
+        testimonialContainer.appendChild(testimonialElement);
+      });
+    })
+    .catch(error => console.error('Error loading testimonials:', error));
+}
+
+// Dark mode functions
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
+
+function applyDarkMode() {
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+  }
+}
+
+// Main initialization function
+function initializeWebsite() {
+  includeHTML('header.html', 'header-placeholder');
+  includeHTML('footer.html', 'footer-placeholder');
+  loadTestimonials();
+  applyDarkMode();
+
+  // Add dark mode toggle functionality to the button
+  const darkModeToggle = document.querySelector('.dark-mode-toggle');
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+  }
+}
+
+// Event listener for DOM content loaded
+document.addEventListener('DOMContentLoaded', initializeWebsite);
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
