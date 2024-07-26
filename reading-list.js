@@ -9,11 +9,19 @@ const books = [
     currentlyReading: true
   },
   {
+    title: "Freakonomics",
+    author: "Steven D. Levitt, Stephen J. Dubner",
+    rating: 5,
+    learnings: "Key insights and practical advice for product managers.",
+    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1550917827i/1202.jpg",
+    currentlyReading: true
+  },
+  {
     title: "The Lean Startup",
     author: "Eric Ries",
     rating: 4,
     learnings: "Principles and methodologies for building successful products.",
-    coverUrl: "https://books.google.com/books/content?id=fAoutGwJX_IC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1629999184i/10127019.jpg",
     currentlyReading: false
   }
   // Add more book objects here
