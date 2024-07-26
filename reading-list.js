@@ -41,14 +41,6 @@ function generateBookItems() {
     bookCover.src = book.coverUrl;
     bookCover.alt = "Book Cover";
 
-    const overlay = document.createElement("div");
-    overlay.className = "overlay";
-
-    const bookLearnings = document.createElement("p");
-    bookLearnings.textContent = book.learnings;
-
-    overlay.appendChild(bookLearnings);
-
     const bookTitle = document.createElement("h3");
     bookTitle.textContent = book.title;
 
@@ -60,7 +52,6 @@ function generateBookItems() {
     bookRating.textContent = generateStarRating(book.rating);
 
     bookItem.appendChild(bookCover);
-    bookItem.appendChild(overlay);
     bookItem.appendChild(bookTitle);
     bookItem.appendChild(bookAuthor);
     bookItem.appendChild(bookRating);
