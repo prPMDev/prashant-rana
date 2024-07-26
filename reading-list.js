@@ -17,6 +17,14 @@ const books = [
     currentlyReading: true
   },
   {
+    title: "The Mom Test",
+    author: "Rob Fitzpatrick",
+    rating: 4,
+    learnings: "Key insights and practical advice for product managers.",
+    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1566473431l/52283963.jpg",
+    currentlyReading: true
+  },
+  {
     title: "The Lean Startup",
     author: "Eric Ries",
     rating: 4,
