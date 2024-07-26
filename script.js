@@ -1,3 +1,30 @@
+function includeHTML(file, elementId) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById(elementId).innerHTML = data;
+      setActiveNavLink();
+    });
+}
+
+function setActiveNavLink() {
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  includeHTML('header.html', 'header-placeholder');
+  includeHTML('footer.html', 'footer-placeholder');
+  // ... (rest of your existing code)
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const imageSlider = document.querySelector('.image-slider');
     const testimonialSection = document.querySelector('.testimonials');
@@ -11,22 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentImageIndex = 0;
 
     function changeImage() {
-        const newImg = document.createElement('img');
-        newImg.src = images[currentImageIndex];
-        newImg.style.opacity = '0';
+    const newImg = document.createElement('img');
+    newImg.src = images[currentImageIndex];
+    newImg.loading = 'lazy';
+    newImg.style.opacity = '0';
 
-        newImg.onload = function() {
-            imageSlider.appendChild(newImg);
-            setTimeout(() => {
-                newImg.style.opacity = '1';
-                if (imageSlider.children.length > 1) {
-                    imageSlider.removeChild(imageSlider.children[0]);
-                }
-            }, 50);
-        };
+    newImg.onload = function() {
+        imageSlider.appendChild(newImg);
+        setTimeout(() => {
+            newImg.style.opacity = '1';
+            if (imageSlider.children.length > 1) {
+                imageSlider.removeChild(imageSlider.children[0]);
+            }
+        }, 50);
+    };
 
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+}
 
     changeImage(); // Initial image
     setInterval(changeImage, 10000); // Change image every 10 seconds
@@ -93,4 +121,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     testimonialCarousel.appendChild(leftControl);
     testimonialCarousel.appendChild(rightControl);
+});
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
+
+function applyDarkMode() {
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (existing code)
+    applyDarkMode();
 });
