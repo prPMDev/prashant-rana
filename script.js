@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const span = document.getElementsByClassName('close')[0];
     const form = document.getElementById('contactForm');
     const reasonSelect = document.getElementById('reason');
+    const helpText = document.getElementById('helpText');
     const otherReason = document.getElementById('otherReason');
     const otherReasonLabel = document.getElementById('otherReasonLabel');
-    const messageField = document.getElementById('message');
-    const emailField = document.getElementById('email');
 
     btn.onclick = function() {
         modal.style.display = 'block';
@@ -26,45 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
     reasonSelect.addEventListener('change', function() {
         switch (reasonSelect.value) {
             case 'job':
-                messageField.placeholder = 'Tell me more about the job opening you have in mind.';
+                helpText.textContent = 'Looking for an exciting career opportunity? Let\'s talk about the job opening.';
                 otherReason.style.display = 'none';
                 otherReasonLabel.style.display = 'none';
-                otherReason.required = false;
                 break;
             case 'collaboration':
-                messageField.placeholder = 'Share your project idea and how you think we can collaborate.';
+                helpText.textContent = 'Got a cool project idea? I\'m interested in hearing about it!';
                 otherReason.style.display = 'none';
                 otherReasonLabel.style.display = 'none';
-                otherReason.required = false;
                 break;
             case 'mentoring':
-                messageField.placeholder = 'Tell me what you are looking for in a mentorship.';
+                helpText.textContent = 'Seeking guidance? I\'m here to help.';
                 otherReason.style.display = 'none';
                 otherReasonLabel.style.display = 'none';
-                otherReason.required = false;
                 break;
             case 'other':
-                messageField.placeholder = '';
+                helpText.textContent = '';
                 otherReason.style.display = 'block';
                 otherReasonLabel.style.display = 'block';
-                otherReason.required = true;
                 break;
             default:
-                messageField.placeholder = '';
+                helpText.textContent = '';
                 otherReason.style.display = 'none';
                 otherReasonLabel.style.display = 'none';
-                otherReason.required = false;
                 break;
-        }
-    });
-
-    emailField.addEventListener('input', function() {
-        const email = emailField.value;
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        if (!emailPattern.test(email)) {
-            emailField.setCustomValidity('Please enter a valid email address.');
-        } else {
-            emailField.setCustomValidity('');
         }
     });
 
@@ -95,4 +79,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         window.location.href = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        modal.style.display =
+        modal.style.display = 'none';
+    });
+
+    fetchTestimonials();
+    // Auto-scroll functionality
+    setInterval(() => {
+        moveCarousel(1);
+    }, 3000); // Change the interval as needed
+});
+
+function fetchTestimonials() {
+    fetch('testimonials.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('testimonial-container');
+            data.forEach(testimonial => {
+                const testimonialElement = createTestimonialElement(testimonial);
+                container.appendChild(testimonialElement);
+            });
+        })
+        .catch(error => console.error('Error loading testimonials:', error));
+}
+
+function createTestimonialElement(testimonial) {
+    const element = document.createElement('div');
+    element.className = 'testimonial';
+    element.innerHTML = `
+        <h3>${testimonial.name}</h3>
+        <p class="title">${testimonial.title}</p>
+        <blockquote>${testimonial.quote}</blockquote>
+    `;
+    return element;
+}
+
+let currentIndex = 0;
+
+function moveCarousel(direction) {
+    const carouselInner = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.testimonial');
+    const totalItems = items.length;
+    const itemsPerView = window.innerWidth < 768 ? 1 : 2;
+    const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
+
+    currentIndex += direction;
+    if (currentIndex < 0) {
+        currentIndex = maxIndex;
+    } else if (currentIndex > maxIndex) {
+        currentIndex = 0;
+    }
+
+    const offset = -currentIndex * 100 / itemsPerView;
+    carouselInner.style.transform = `translateX(${offset}%)`;
+}
