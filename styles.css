@@ -75,7 +75,7 @@ main {
 .cta-buttons .btn,
 .cta-buttons .linkedin-logo-link {
     display: inline-block;
-    height: 40px; /* Adjust to match the height of the LinkedIn logo */
+    height: 25px; /* Adjust to match the height of the LinkedIn logo */
 }
 
 .btn {
