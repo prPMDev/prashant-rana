@@ -1,17 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
+    const container = document.getElementById('testimonial-container');
+
+    if (!container) {
+        console.error('Testimonial container not found');
+        return;
+    }
+
     fetch('testimonials.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
-            const container = document.getElementById('testimonial-container');
-            data.forEach(testimonial => {
-                const testimonialElement = createTestimonialElement(testimonial);
-                container.appendChild(testimonialElement);
-            });
+            console.log('Testimonials data:', data);
+            if (data && data.length > 0) {
+                data.forEach(testimonial => {
+                    const testimonialElement = createTestimonialElement(testimonial);
+                    container.appendChild(testimonialElement);
+                });
+                console.log('Testimonials added to DOM');
+            } else {
+                console.log('No testimonials data found');
+                container.innerHTML = '<p>No testimonials available at the moment.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading testimonials:', error);
+            container.innerHTML = '<p>Error loading testimonials. Please try again later.</p>';
         });
-        .catch(error => console.error('Error loading testimonials:', error));
 });
 
 function createTestimonialElement(testimonial) {
+    console.log('Creating testimonial element for:', testimonial.name);
     const element = document.createElement('div');
     element.className = 'testimonial';
     element.innerHTML = `

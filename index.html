@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <!-- Header content will be loaded here -->
-    </header>
+    <div id="header-placeholder"></div>
 
     <main>
         <section class="hero">
@@ -23,7 +21,7 @@
                 <p>I'm passionate about contributing to the local community, volunteering at food banks, and mentoring aspiring product managers.</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn">Contact Me</a>
-                    <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/prashant-rana/" class="btn btn-secondary" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -35,9 +33,7 @@
         </section>
     </main>
 
-    <footer>
-        <!-- Footer content will be loaded here -->
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="script.js"></script>
     <script>
@@ -45,13 +41,13 @@
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
-                document.querySelector('header').innerHTML = data;
+                document.getElementById('header-placeholder').innerHTML = data;
             });
 
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
-                document.querySelector('footer').innerHTML = data;
+                document.getElementById('footer-placeholder').innerHTML = data;
             });
     </script>
 </body>
