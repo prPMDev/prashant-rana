@@ -12,17 +12,22 @@ header, .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Reduced padding to reduce height */
+    padding: 10px 20px;
     background-color: #fff;
 }
 
 .navigation {
-    margin-left: auto; /* Move navigation to the far right */
+    margin-left: auto;
 }
 
 .logo {
     font-weight: bold;
     font-size: 1.2em;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
 }
 
 nav a {
@@ -80,7 +85,7 @@ main {
 .cta-buttons .btn,
 .cta-buttons .linkedin-logo-link {
     display: inline-block;
-    height: 25px; /* Adjust to match the height of the LinkedIn logo */
+    height: 25px;
 }
 
 .btn {
@@ -102,6 +107,60 @@ main {
 .linkedin-logo {
     height: 30px;
     object-fit: contain;
+}
+
+/* Testimonials styles */
+.testimonials {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.rating {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonial {
+    flex: 0 0 calc(50% - 20px);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.carousel-control {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
 }
 
 /* Responsive design */
@@ -126,7 +185,7 @@ main {
     }
 
     .testimonial {
-        flex: 0 0 100%; /* One item per view on small screens */
+        flex: 0 0 100%;
         margin-right: 0;
     }
 }
@@ -138,132 +197,3 @@ footer {
     font-size: 0.8em;
     background-color: #f0f0f0;
 }
-
-/* Modal Styles */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto; /* 5% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 600px; /* Max width for large screens */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.modal-content h2 {
-  margin-top: 0;
-}
-
-.modal-content .form-group {
-  margin-bottom: 15px;
-}
-
-.modal-content .form-group label {
-  display: block;
-  font-weight: bold;
-}
-
-.modal-content .form-group input,
-.modal-content .form-group select,
-.modal-content .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.modal-content textarea {
-  height: 100px;
-}
-
-.modal-content .btn {
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: block;
-  text-align: center;
-}
-
-.modal-content .btn:hover {
-  background-color: #555;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Add this for required fields indication */
-.required {
-  color: red;
-}
-
-/* Testimonial tiles */
-.testimonial {
-    flex: 0 0 calc(50% - 10px); /* Adjust for margin */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-}
-
-/* Carousel navigation buttons */
-.carousel-control {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.carousel-control.prev {
-    left: 10px;
-}
-
-.carousel-control.next {
-    right: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .testimonial {
-        flex: 0 0 100%; /* One item per view on small screens */
-        margin: 10px 0;
-    }
-}
-
-

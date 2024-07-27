@@ -37,7 +37,7 @@
                 <p>I'm entrepreneurial and enjoy building things like this very website, which I'm creating on my own.</p>
                 <p>I'm passionate about contributing to the local community, volunteering at food banks, and mentoring aspiring product managers.</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn" id="contactBtn">Get in touch</a>
+                    <a href="contact.html" class="btn">Get in touch</a>
                     <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank" class="linkedin-logo-link">
                         <img src="images/linkedin-logo.png" alt="LinkedIn" class="linkedin-logo">
                     </a>
@@ -56,21 +56,17 @@
         </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer>
+        <p>© 2024 Prashant Rana. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
     <script>
-        // Load header and footer
+        // Load header
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
-            });
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
             });
     </script>
 </body>
