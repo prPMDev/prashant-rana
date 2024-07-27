@@ -57,16 +57,22 @@
     </main>
 
     <footer>
-        <p>© 2024 Prashant Rana. All rights reserved.</p>
+        <div id="footer-placeholder"></div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Load header
+        // Load header and footer
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
             });
     </script>
 </body>
