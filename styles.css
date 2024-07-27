@@ -39,7 +39,6 @@ nav a {
     text-transform: lowercase;
 }
 
-
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -158,6 +157,8 @@ main {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    height: 30px; /* Ensure height is consistent */
+    width: 30px; /* Ensure width is consistent */
 }
 
 .carousel-control.prev {
