@@ -19,6 +19,7 @@ header, .header-content {
 .navigation {
     margin-left: auto;
     display: flex;
+    justify-content: flex-end;
     gap: 20px; /* Space between links */
 }
 
@@ -37,6 +38,7 @@ nav a {
     color: #333;
     text-transform: lowercase;
 }
+
 
 main {
     max-width: 1200px;
@@ -114,6 +116,7 @@ main {
 .testimonials {
     margin-top: 60px;
     text-align: center;
+    position: relative; /* Add relative positioning */
 }
 
 .rating {
@@ -132,12 +135,13 @@ main {
     display: flex;
     overflow: hidden;
     width: 100%;
+    justify-content: space-between; /* Ensure space between items */
 }
 
 .testimonial {
-    flex: 0 0 calc(47% - 20px);
+    flex: 0 0 calc(50% - 20px);
     background-color: #fff;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 10px;
@@ -157,11 +161,11 @@ main {
 }
 
 .carousel-control.prev {
-    left: 10px;
+    left: -40px; /* Move outside the carousel */
 }
 
 .carousel-control.next {
-    right: 10px;
+    right: -40px; /* Move outside the carousel */
 }
 
 /* Responsive design */

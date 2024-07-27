@@ -48,7 +48,7 @@ function moveCarousel(direction) {
     const items = document.querySelectorAll('.testimonial');
     const totalItems = items.length;
     const itemsPerView = 1; // Ensure only one item is visible per view
-    const maxIndex = totalItems - itemsPerView;
+    const maxIndex = totalItems - 1;
 
     currentIndex += direction;
     if (currentIndex < 0) {
