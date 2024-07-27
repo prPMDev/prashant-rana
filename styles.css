@@ -12,17 +12,12 @@ header, .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px; /* Reduced padding to reduce height */
     background-color: #fff;
 }
 
-.sticky-header {
-    position: -webkit-sticky; /* For Safari */
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.navigation {
+    margin-left: auto; /* Move navigation to the far right */
 }
 
 .logo {
