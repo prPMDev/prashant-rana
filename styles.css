@@ -1,46 +1,153 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed');
-    const container = document.getElementById('testimonial-container');
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f0f0f0;
+}
 
-    if (!container) {
-        console.error('Testimonial container not found');
-        return;
+/* Header styles */
+header, .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    text-transform: lowercase;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero section styles */
+.hero {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.hero-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 40px;
+    border-radius: 50%; /* Ensures the image is perfectly circular */
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+}
+
+/* Testimonials section styles */
+.testimonials {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rating {
+    text-align: center;
+    font-size: 24px;
+    color: #ffd700;
+    margin-bottom: 30px;
+}
+
+#testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    flex-basis: calc(33% - 20px);
+    margin-bottom: 30px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added for better visibility */
+}
+
+.testimonial h3 {
+    margin-bottom: 5px;
+}
+
+.testimonial .title {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial blockquote {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 10px;
+    border-left: 3px solid #333;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    background-color: #f0f0f0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
     }
 
-    fetch('testimonials.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Testimonials data:', data);
-            if (data && data.length > 0) {
-                data.forEach(testimonial => {
-                    const testimonialElement = createTestimonialElement(testimonial);
-                    container.appendChild(testimonialElement);
-                });
-                console.log('Testimonials added to DOM');
-            } else {
-                console.log('No testimonials data found');
-                container.innerHTML = '<p>No testimonials available at the moment.</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Error loading testimonials:', error);
-            container.innerHTML = '<p>Error loading testimonials. Please try again later.</p>';
-        });
-});
+    .hero-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 
-function createTestimonialElement(testimonial) {
-    console.log('Creating testimonial element for:', testimonial.name);
-    const element = document.createElement('div');
-    element.className = 'testimonial';
-    element.innerHTML = `
-        <h3>${testimonial.name}</h3>
-        <p class="title">${testimonial.title}</p>
-        <blockquote>${testimonial.quote}</blockquote>
-    `;
-    return element;
+    .testimonial {
+        flex-basis: 100%;
+    }
 }
