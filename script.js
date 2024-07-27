@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error loading testimonials:', error);
             container.innerHTML = '<p>Error loading testimonials. Please try again later.</p>';
         });
+
+    // Auto-scroll functionality
+    setInterval(() => {
+        moveCarousel(1);
+    }, 3000); // Change the interval as needed
 });
 
 function createTestimonialElement(testimonial) {
