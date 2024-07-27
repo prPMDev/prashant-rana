@@ -116,7 +116,7 @@ main {
 }
 
 .testimonial {
-    flex: 0 0 calc(45% - 20px); /* Adjust the 50% to change the width of each tile */
+    flex: 0 0 calc(48% - 20px); /* Adjust the 50% to change the width of each tile */
     margin-right: 15px; /* Adjust the 20px to change the spacing between tiles */
     background-color: #fff;
     padding: 20px;
