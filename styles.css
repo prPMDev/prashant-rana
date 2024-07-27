@@ -78,6 +78,18 @@ main {
     height: 40px; /* Adjust to match the height of the LinkedIn logo */
 }
 
+.btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
 .linkedin-logo-link {
     margin-left: 10px; /* Add space between the buttons */
 }
@@ -219,29 +231,20 @@ footer {
 }
 
 .modal-content .form-group {
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-.modal-content .form-group label,
-.modal-content .form-group input {
-  width: 48%;
-}
-
-.modal-content label {
+.modal-content .form-group label {
   display: block;
-  margin-top: 10px;
   font-weight: bold;
 }
 
-.modal-content input,
-.modal-content select,
-.modal-content textarea,
-.modal-content button {
+.modal-content .form-group input,
+.modal-content .form-group select,
+.modal-content .form-group textarea {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -257,6 +260,10 @@ footer {
   text-decoration: none;
   border: none;
   cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
 }
 
 .modal-content .btn:hover {
