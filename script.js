@@ -61,4 +61,6 @@ function moveCarousel(direction) {
         currentIndex = 0;
     }
 
-    const offset = -currentIndex
+    const offset = -currentIndex * 100 / itemsPerView;
+    carouselInner.style.transform = `translateX(${offset}%)`;
+}
