@@ -90,6 +90,7 @@ main {
     background-color: #fff;
     padding: 40px;
     border-radius: 10px;
+    position: relative;
 }
 
 .testimonials h2 {
@@ -104,25 +105,24 @@ main {
     margin-bottom: 30px;
 }
 
-#testimonial-container {
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    transition: transform 0.5s ease;
 }
 
 .testimonial {
-    flex: 1 1 calc(50% - 20px); /* Ensure two columns */
-    margin-bottom: 30px;
+    flex: 1 0 50%; /* Two items per view */
+    margin-right: 20px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Slightly larger shadow for tile effect */
-    border: 1px solid #ddd; /* Border to enhance tile look */
-    transition: transform 0.3s; /* Smooth hover effect */
-}
-
-.testimonial:hover {
-    transform: translateY(-5px); /* Hover effect to lift the tile */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
 }
 
 .testimonial h3 {
@@ -141,12 +141,27 @@ main {
     border-left: 3px solid #333;
 }
 
-@media (max-width: 992px) {
-    .testimonial {
-        flex: 1 1 calc(50% - 10px); /* 2 columns for medium screens */
-    }
+.carousel-control {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
+.carousel-control.prev {
+    left: 0;
+}
+
+.carousel-control.next {
+    right: 0;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -159,7 +174,7 @@ main {
     }
 
     .testimonial {
-        flex: 1 1 100%; /* 1 column for small screens */
+        flex: 1 0 100%; /* One item per view on small screens */
     }
 }
 

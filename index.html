@@ -11,10 +11,10 @@
 
     <main>
         <section class="hero">
-           <div class="hero-image-wrapper">
-            <img src="images/pr-painting.jpg" alt="Prashant Rana" class="hero-image">
+            <div class="hero-image-wrapper">
+                <img src="images/pr-painting.jpg" alt="Prashant Rana" class="hero-image">
             </div>
-               <div class="hero-content">
+            <div class="hero-content">
                 <h1>Hi, I'm Prashant!</h1>
                 <p>I'm a Senior Product Manager based in Seattle, WA. 🏙️</p>
                 <p>I like 🏔️ hiking, 🎨 making paintings, and ⚽ playing soccer.</p>
@@ -31,7 +31,11 @@
         <section class="testimonials">
             <h2>Here's what coworkers say about me (spoiler: they're rave reviews)!</h2>
             <div class="rating">★★★★★</div>
-            <div id="testimonial-container"></div>
+            <div class="carousel">
+                <div class="carousel-inner" id="testimonial-container"></div>
+            </div>
+            <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
         </section>
     </main>
 

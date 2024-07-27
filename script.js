@@ -44,3 +44,21 @@ function createTestimonialElement(testimonial) {
     `;
     return element;
 }
+
+let currentIndex = 0;
+
+function moveCarousel(direction) {
+    const carouselInner = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.testimonial');
+    const totalItems = items.length;
+    const itemsPerView = window.innerWidth < 768 ? 1 : 2;
+    const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
+
+    currentIndex += direction;
+    if (currentIndex < 0) {
+        currentIndex = maxIndex;
+    } else if (currentIndex > maxIndex) {
+        currentIndex = 0;
+    }
+
+    const offset = -currentIndex
