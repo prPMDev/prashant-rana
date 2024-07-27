@@ -283,3 +283,8 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Add this for required fields indication */
+.required {
+  color: red;
+}
