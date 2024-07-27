@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    background-color: #f0f0f0;
 }
 
 header {
@@ -11,6 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: #fff;
 }
 
 .logo {
@@ -35,6 +37,9 @@ main {
     display: flex;
     align-items: center;
     margin-bottom: 60px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
 }
 
 .hero-image {
@@ -42,6 +47,7 @@ main {
     height: 300px;
     object-fit: cover;
     margin-right: 40px;
+    border-radius: 50%;
 }
 
 .hero-content h1 {
@@ -49,8 +55,41 @@ main {
     margin-bottom: 20px;
 }
 
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.testimonials {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
 .testimonials h2 {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.rating {
+    text-align: center;
+    font-size: 24px;
+    color: #ffd700;
     margin-bottom: 30px;
 }
 
@@ -63,6 +102,9 @@ main {
 .testimonial {
     flex-basis: calc(33% - 20px);
     margin-bottom: 30px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .testimonial h3 {
@@ -78,7 +120,6 @@ main {
     font-size: 0.9em;
     margin: 0;
     padding: 10px;
-    background-color: #f8f8f8;
     border-left: 3px solid #333;
 }
 
@@ -86,4 +127,49 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 0.8em;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .testimonial {
+        flex-basis: 100%;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    text-transform: lowercase;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    background-color: #f0f0f0;
 }

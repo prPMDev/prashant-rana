@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashant Rana - Product Manager</title>
+    <title>Prashant Rana - Senior Product Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <header>
+        <!-- Header content will be loaded here -->
+    </header>
 
     <main>
         <section class="hero">
@@ -16,19 +18,41 @@
                 <h1>Hi, I'm Prashant!</h1>
                 <p>I'm a Senior Product Manager based in Seattle, WA. 🏙️</p>
                 <p>I like 🏔️ hiking, 🎨 making paintings, and ⚽ playing soccer.</p>
-                <p>I've worked as a software developer for many years before pivoting to functional roles such as pre-sales and program management, ultimately finding my calling in product management.</p>
-                <p>I spend a significant time <a href="community.html">mentoring aspiring product managers</a>, with a keen focus on finding the 'why' before the 'how', even for career aspirations. 🚀</p>
+                <p>I've been a product manager for 7+ years now, finding my calling through a path that started with software engineering, pre-sales, and program management.</p>
+                <p>I'm entrepreneurial and enjoy building things like this very website, which I'm creating on my own.</p>
+                <p>I'm passionate about contributing to the local community, volunteering at food banks, and mentoring aspiring product managers.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn">Contact Me</a>
+                    <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                </div>
             </div>
         </section>
 
         <section class="testimonials">
             <h2>Here's what coworkers say about me (spoiler: they're rave reviews)!</h2>
+            <div class="rating">★★★★★</div>
             <div id="testimonial-container"></div>
         </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer>
+        <!-- Footer content will be loaded here -->
+    </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('header').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('footer').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

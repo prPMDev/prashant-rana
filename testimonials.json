@@ -1,16 +1,37 @@
-{
-  "testimonials": [
+[
     {
-      "text": "Prashant is an all rounder. May it be coding, understanding the critical aspects of business or testing and deployment, Prashant is the guy you would be looking out for. His ability to take keen interest in the domain that he is working in and his ever curious mind makes him an excellent addition to a team. Prashant has a deep rooted sense of responsibility that ensures his reliability in the team. I had a pleasure of working with Prashant for last one year and would not hesitate to work with him any time in future.",
-      "author": "Hrishikesh Deshmukh, Director User Experience Design at Salesforce"
+        "name": "Ram Prabhakaran",
+        "title": "Technology Leader and Product Champion",
+        "quote": "Prashant is an exceptionally talented Product Manager and I am super glad we hired him at the right time to help us out on the CX Platform team. He comes with an MBA Background which is super valuable and he uses a lot of strategic and analytical thinking into the product management lifecycle and process. He is definitely one of the very smart PMs I have worked with in my Career. He is well respected, extremely dedicated and a motivated and self driven individual. He has done an awesome job managing his products, backlogs and owning feature deliverables on our Oracle CX Releases. He always believes in overseeing and leading from the front, delivering on several critical Projects which added Business Value and Increased Revenue for our company. Prashant will be a great asset to any company that hires him. He has my highest recommendation."
     },
     {
-      "text": "Prashant is an exceptionally talented Product Manager and I am super glad we hired him at the right time to help us out on the CX Platform team. He comes with an MBA Background which is super valuable and he uses a lot of strategic and analytical thinking into the product management lifecycle and process. He is definitely one of the very smart PMs I have worked with in my Career. He is well respected, extremely dedicated and a motivated and self driven individual.",
-      "author": "Ram Prabhakaran, Technology Leader and Product Champion"
+        "name": "Dana Toy",
+        "title": "Principal Program Manager at SAP Concur",
+        "quote": "Prashant was a summer graduate intern on my team. I really appreciated his strategic mindset as well as his ability to get into the weeds to get work done. He quickly got up to speed on what we asked of him carrying a long-term vision forward during his short time on the team. I would highly recommend Prashant."
     },
     {
-      "text": "Prashant was a summer graduate intern on my team. I really appreciated his strategic mindset as well as his ability to get into the weeds to get work done. He quickly got up to speed on what we asked of him carrying a long-term vision forward during his short time on the team. I would highly recommend Prashant.",
-      "author": "Dana Toy, Principal Program Manager at SAP Concur"
+        "name": "Hrishikesh Deshmukh",
+        "title": "Director User Experience Design at Salesforce",
+        "quote": "Prashant is an all rounder. May it be coding, understanding the critical aspects of business or testing and deployment, Prashant is the guy you would be looking out for. His ability to take keen interest in the domain that he is working in and his ever curious mind makes him an excellent addition to a team. Prashant has a deep rooted sense of responsibility that ensures his reliability in the team. I had a pleasure of working with Prashant for last one year and would not hesitate to work with him any time in future."
+    },
+    {
+        "name": "Bhushan Bandekar",
+        "title": "Program Director - Cloud.AI | Enterprise Data Architect | AI & ML Specialist | Generative AI Practitioner",
+        "quote": "Prashant is undoubtedly one of the most enterprising person I have known. As a Data Management CoE lead I use to often interact with Prashant for User Experience consultation. One such incident which stands-out is where I had to make a time-bound powerful but compact presentation to a Telecom customer and Prashant helped me to build a product flyer for a Hadoop based product which I had architected. Prashant showed exemplary skill in understanding the Technical intricacies and use his creative talent to articulate & design the flyer cum presentation. Prashant stands out for his commitment to work, never-give-up attitude. This makes him an asset to any team, group & organization."
+    },
+    {
+        "name": "Swapnil Godambe",
+        "title": "Senior Engineer at Wayfair",
+        "quote": "We had worked together on our final Engineering project which was 'Image Recognition and Classification', wherein we had implemented a clustering algorithm for recognition and classification purposes. Prashant played a key role in successful implementation of the project. He is very meticulous in understanding the fine grained concepts, is a quick learner, and comes to me as a highly professional person in all aspects of work. Working with him on this project was a very nice experience for me and I wish him all the very best for his future endeavors."
+    },
+    {
+        "name": "Rohit Nayal",
+        "title": "Customer Success Lead - Forecasting & Supply Chain | AI | Data Analytics | Software Solutions",
+        "quote": "First impression is the last impression" and the first impression of Prashant when he joined my team was of an enthusiastic and inquisitive person. I was particularly impressed by his in -depth analysis and the quality of delivery. Prashant would be an asset to any team ."
+    },
+    {
+        "name": "Abhijit Sawant",
+        "title": "Data Scientist - Daimler Truck",
+        "quote": "I have had the opportunity to collaborate with Prashant on number of occasions. Prashant comes across as a very intelligent individual who can grasp the situation at hand, identify the core issues and take action. He is a quick learner and I always find him eager to expand his intellectual horizons.He is a thorough professional and working with him has always been a pleasure."
     }
-  ]
-}
+]
