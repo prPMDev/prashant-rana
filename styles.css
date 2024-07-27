@@ -208,7 +208,7 @@ footer {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 10% auto; /* 10% from the top and centered */
+  margin: 5% auto; /* 5% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
@@ -219,6 +219,16 @@ footer {
 
 .modal-content h2 {
   margin-top: 0;
+}
+
+.modal-content .form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-content .form-group label,
+.modal-content .form-group input {
+  width: 48%;
 }
 
 .modal-content label {
