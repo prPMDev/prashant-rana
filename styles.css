@@ -228,12 +228,12 @@ footer {
 
 /* Testimonial tiles */
 .testimonial {
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 calc(50% - 10px); /* Adjust for margin */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
+    margin: 10px;
 }
 
 /* Carousel navigation buttons */
@@ -261,8 +261,9 @@ footer {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .testimonial {
-        flex: 0 0 100%;
-        margin-right: 0;
+        flex: 0 0 100%; /* One item per view on small screens */
+        margin: 10px 0;
     }
 }
+
 

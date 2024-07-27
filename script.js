@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 otherReason.required = true;
                 messageField.value = '';
                 break;
+           ```javascript
             default:
                 helpText.textContent = '';
                 otherReasonGroup.style.display = 'none';
