@@ -106,16 +106,16 @@ main {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px; /* Reduces space between testimonials */
+    gap: 20px;
 }
 
 .testimonial {
-    flex-basis: calc(33.333% - 14px); /* Subtracting the gap to fit 3 columns */
+    flex-basis: calc(33.333% - 20px); /* Adjusted for a three-column layout */
     margin-bottom: 30px;
     background-color: #f8f8f8;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added for better visibility */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .testimonial h3 {
