@@ -112,7 +112,7 @@ main {
 }
 
 .testimonial {
-    flex-basis: calc(50% - 20px); /* Adjusted for a two-column layout */
+    flex-basis: calc(50% - 10px); /* Adjusted for a two-column layout */
     margin-bottom: 30px;
     background-color: #fff;
     padding: 20px;
@@ -148,15 +148,6 @@ main {
     }
 }
 
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.8em;
-    background-color: #f0f0f0;
-}
-
-/* Responsive design */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -169,6 +160,14 @@ footer {
     }
 
     .testimonial {
-        flex-basis: 100%;
+        flex-basis: 100%; /* 1 column for small screens */
     }
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    background-color: #f0f0f0;
 }
