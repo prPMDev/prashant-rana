@@ -1,36 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed');
-    const container = document.getElementById('testimonial-container');
+    const modal = document.getElementById('contactModal');
+    const btn = document.getElementById('contactBtn');
+    const span = document.getElementsByClassName('close')[0];
+    const form = document.getElementById('contactForm');
 
-    if (!container) {
-        console.error('Testimonial container not found');
-        return;
+    btn.onclick = function() {
+        modal.style.display = 'block';
     }
 
-    fetch('testimonials.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Testimonials data:', data);
-            if (data && data.length > 0) {
-                data.forEach(testimonial => {
-                    const testimonialElement = createTestimonialElement(testimonial);
-                    container.appendChild(testimonialElement);
-                });
-                console.log('Testimonials added to DOM');
-            } else {
-                console.log('No testimonials data found');
-                container.innerHTML = '<p>No testimonials available at the moment.</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Error loading testimonials:', error);
-            container.innerHTML = '<p>Error loading testimonials. Please try again later.</p>';
-        });
+    span.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const reason = document.getElementById('reason').value;
+        const message = document.getElementById('message').value;
+
+        let subject = 'Contact from Website';
+        let body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+
+        if (reason === 'job') {
+            subject = 'Job Opening Inquiry';
+            body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AI am reaching out regarding a job opening. Here are the details:%0D%0A%0D%0A${message}`;
+        } else if (reason === 'collaboration') {
+            subject = 'Project Collaboration Opportunity';
+            body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AI am interested in collaborating on a project. Here are the details:%0D%0A%0D%0A${message}`;
+        } else if (reason === 'mentoring') {
+            subject = 'Mentoring Request';
+            body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AI am seeking mentorship. Here are the details:%0D%0A%0D%0A${message}`;
+        }
+
+        window.location.href = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        modal.style.display = 'none';
+    });
 
     // Auto-scroll functionality
     setInterval(() => {

@@ -22,8 +22,10 @@
                 <p>I'm entrepreneurial and enjoy building things like this very website, which I'm creating on my own.</p>
                 <p>I'm passionate about contributing to the local community, volunteering at food banks, and mentoring aspiring product managers.</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn">Contact Me</a>
-                    <a href="https://www.linkedin.com/in/prashant-rana/" class="btn btn-secondary" target="_blank">LinkedIn</a>
+                    <a href="#" class="btn" id="contactBtn">Contact Me</a>
+                    <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank">
+                        <img src="images/linkedin-logo.png" alt="LinkedIn" class="linkedin-logo">
+                    </a>
                 </div>
             </div>
         </section>
@@ -40,6 +42,35 @@
     </main>
 
     <div id="footer-placeholder"></div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="reason">Reason for Contact:</label>
+                <select id="reason" name="reason" required>
+                    <option value="">Select an option</option>
+                    <option value="job">Job Opening</option>
+                    <option value="collaboration">Project Collaboration</option>
+                    <option value="mentoring">Mentoring Request</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <script>
