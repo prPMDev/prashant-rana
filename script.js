@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('contactBtn');
     const span = document.getElementsByClassName('close')[0];
     const form = document.getElementById('contactForm');
+    const reasonSelect = document.getElementById('reason');
+    const helpText = document.getElementById('helpText');
 
     btn.onclick = function() {
         modal.style.display = 'block';
@@ -17,6 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     }
+
+    reasonSelect.addEventListener('change', function() {
+        switch (reasonSelect.value) {
+            case 'job':
+                helpText.textContent = 'Looking for an exciting career opportunity? Let\'s talk about the job opening.';
+                break;
+            case 'collaboration':
+                helpText.textContent = 'Got a cool project idea? I\'m interested in hearing about it!';
+                break;
+            case 'mentoring':
+                helpText.textContent = 'Seeking guidance? I\'m here to help.';
+                break;
+            case 'other':
+                helpText.textContent = 'Something else on your mind? Feel free to share!';
+                break;
+            default:
+                helpText.textContent = '';
+                break;
+        }
+    });
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
