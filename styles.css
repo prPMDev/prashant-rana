@@ -67,10 +67,15 @@ main {
 
 .cta-buttons {
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.btn, .linkedin-logo {
+    display: inline-block;
 }
 
 .btn {
-    display: inline-block;
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -79,10 +84,10 @@ main {
     margin-right: 10px;
 }
 
-.btn-secondary {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #333;
+.linkedin-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 /* Testimonials section styles */
@@ -116,8 +121,8 @@ main {
 }
 
 .testimonial {
-    flex: 0 0 calc(47% - 20px); /* Adjust the 50% to change the width of each tile */
-    margin-right: 15px; /* Adjust the 20px to change the spacing between tiles */
+    flex: 0 0 calc(50% - 20px); /* Adjust the 50% to change the width of each tile */
+    margin-right: 20px; /* Adjust the 20px to change the spacing between tiles */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -224,11 +229,3 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
-
-.linkedin-logo {
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
-    border-radius: 5px;
-    margin-left: 10px;
-}
-

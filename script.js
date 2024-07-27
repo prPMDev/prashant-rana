@@ -43,14 +43,27 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = 'none';
     });
 
+    fetchTestimonials();
     // Auto-scroll functionality
     setInterval(() => {
         moveCarousel(1);
     }, 3000); // Change the interval as needed
 });
 
+function fetchTestimonials() {
+    fetch('testimonials.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('testimonial-container');
+            data.forEach(testimonial => {
+                const testimonialElement = createTestimonialElement(testimonial);
+                container.appendChild(testimonialElement);
+            });
+        })
+        .catch(error => console.error('Error loading testimonials:', error));
+}
+
 function createTestimonialElement(testimonial) {
-    console.log('Creating testimonial element for:', testimonial.name);
     const element = document.createElement('div');
     element.className = 'testimonial';
     element.innerHTML = `
