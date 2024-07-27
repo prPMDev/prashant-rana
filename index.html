@@ -37,7 +37,7 @@
                 <p>I'm entrepreneurial and enjoy building things like this very website, which I'm creating on my own.</p>
                 <p>I'm passionate about contributing to the local community, volunteering at food banks, and mentoring aspiring product managers.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="btn" id="contactBtn">Get in touch</a>
+                    <a href="contact.html" class="btn" id="contactBtn">Get in touch</a>
                     <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank" class="linkedin-logo-link">
                         <img src="images/linkedin-logo.png" alt="LinkedIn" class="linkedin-logo">
                     </a>
@@ -57,44 +57,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-content">
-            <span class="close" role="button" aria-label="Close modal">&times;</span>
-            <h2 id="contactModalLabel">Get in touch!</h2>
-            <form id="contactForm" aria-labelledby="contactModalLabel">
-                <div class="form-group">
-                    <label for="firstName">Name: <span class="required">*</span></label>
-                    <input type="text" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Your email address: <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="reason">Why are you reaching out?</label>
-                    <select id="reason" name="reason" required>
-                        <option value="">Select an option</option>
-                        <option value="job">Job Opening</option>
-                        <option value="collaboration">Project Collaboration</option>
-                        <option value="mentoring">Mentoring Request</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group" id="otherReasonGroup" style="display: none;">
-                    <label for="otherReason">Please specify:</label>
-                    <input type="text" id="otherReason" name="otherReason" required>
-                </div>
-                <div id="helpText" style="margin-bottom: 10px;"></div>
-                <div class="form-group">
-                    <label for="message">I'd love to hear more: <span class="required">*</span></label>
-                    <textarea id="message" name="message" minlength="100" required></textarea>
-                </div>
-                <button type="submit" class="btn">Reach out</button>
-            </form>
-        </div>
-    </div>
 
     <script src="script.js"></script>
     <script>
