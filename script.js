@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-scroll functionality
     setInterval(() => {
         moveCarousel(1);
-    }, 3000); // Change the interval as needed
+    }, 5000); // Adjusted interval to 5 seconds for smoother scrolling
 
     // Image rotation functionality
     const images = ['images/pr-painting.jpg', 'images/pr-at-seattle.jpg']; // Add all image paths here
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         currentImageIndex = (currentImageIndex + 1) % images.length;
         profileImage.src = images[currentImageIndex];
-    }, 3000);
+    }, 5000); // Adjusted interval to 5 seconds for smoother rotation
 });
 
 function fetchTestimonials() {
@@ -47,8 +47,8 @@ function moveCarousel(direction) {
     const carouselInner = document.querySelector('.carousel-inner');
     const items = document.querySelectorAll('.testimonial');
     const totalItems = items.length;
-    const itemsPerView = window.innerWidth < 768 ? 1 : 2;
-    const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
+    const itemsPerView = 1; // Ensure only one item is visible per view
+    const maxIndex = totalItems - itemsPerView;
 
     currentIndex += direction;
     if (currentIndex < 0) {
@@ -57,6 +57,6 @@ function moveCarousel(direction) {
         currentIndex = 0;
     }
 
-    const offset = -currentIndex * 100 / itemsPerView;
+    const offset = -currentIndex * 100;
     carouselInner.style.transform = `translateX(${offset}%)`;
 }
