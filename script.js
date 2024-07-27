@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.appendChild(testimonialElement);
             });
         });
+        .catch(error => console.error('Error loading testimonials:', error));
 });
 
 function createTestimonialElement(testimonial) {
