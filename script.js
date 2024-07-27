@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     reasonSelect.addEventListener('change', function() {
         switch (reasonSelect.value) {
             case 'job':
-                helpText.textContent = 'Looking for an exciting career opportunity? Let\'s talk about the job opening.';
+                helpText.textContent = 'Think I may a good fit for a role? Let\'s talk about it.';
                 otherReason.style.display = 'none';
                 otherReasonLabel.style.display = 'none';
                 break;
@@ -83,10 +83,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fetchTestimonials();
+
     // Auto-scroll functionality
     setInterval(() => {
         moveCarousel(1);
     }, 3000); // Change the interval as needed
+
+    // Image rotation functionality
+    const images = ['images/pr-painting.jpg', 'images/pr-at-seattle.jpg']; // Add all image paths here
+    let currentImageIndex = 0;
+    const profileImage = document.getElementById('profileImage');
+
+    setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        profileImage.src = images[currentImageIndex];
+    }, 3000);
 });
 
 function fetchTestimonials() {
