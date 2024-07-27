@@ -16,6 +16,15 @@ header, .header-content {
     background-color: #fff;
 }
 
+.sticky-header {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .logo {
     font-weight: bold;
     font-size: 1.2em;
@@ -42,6 +51,7 @@ main {
     background-color: #fff;
     padding: 40px;
     border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .hero-image-wrapper {
@@ -91,92 +101,73 @@ main {
 }
 
 .linkedin-logo-link {
-    margin-left: 10px; /* Add space between the buttons */
+    margin-left: 15px;
 }
 
 .linkedin-logo {
-    height: 100%;
+    height: 30px;
     object-fit: contain;
 }
 
-/* Testimonials section styles */
-.testimonials {
+/* Blog section styles */
+.blog {
     background-color: #fff;
     padding: 40px;
     border-radius: 10px;
-    position: relative;
+    margin-top: 40px;
 }
 
-.testimonials h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+.blog-container {
+   ### Updated `styles.css` Continuation
+Continue from where the `styles.css` left off to include the blog section and other necessary styles:
 
-.rating {
-    text-align: center;
-    font-size: 24px;
-    color: #ffd700;
-    margin-bottom: 30px;
-}
-
-.carousel {
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.testimonial {
-    flex: 0 0 calc(47% - 15px); /* Adjust the 50% to change the width of each tile */
-    margin-right: 20px; /* Adjust the 20px to change the spacing between tiles */
+```css
+/* Blog section styles */
+.blog {
     background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.blog-post {
+    flex: 0 0 calc(50% - 20px);
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.testimonial h3 {
-    margin-bottom: 5px;
-}
-
-.testimonial .title {
-    font-style: italic;
+.blog-post h3 {
     margin-bottom: 10px;
 }
 
-.testimonial blockquote {
-    font-size: 0.9em;
-    margin: 0;
-    padding: 10px;
-    border-left: 3px solid #333;
+.blog-post p {
+    margin-bottom: 10px;
 }
 
-.carousel-control {
-    background-color: rgba(0, 0, 0, 0.1);
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 1;
-}
-
-.carousel-control.prev {
-    left: 0;
-}
-
-.carousel-control.next {
-    right: 0;
+.blog-post a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Responsive design */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -188,7 +179,7 @@ main {
         margin-bottom: 20px;
     }
 
-    .testimonial {
+    .testimonial, .blog-post {
         flex: 0 0 100%; /* One item per view on small screens */
         margin-right: 0;
     }
