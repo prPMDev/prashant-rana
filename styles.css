@@ -116,8 +116,8 @@ main {
 }
 
 .testimonial {
-    flex: 0 0 calc(50% - 20px); /* Two items per view with margin */
-    margin-right: 20px;
+    flex: 0 0 calc(50% - 17px); /* Adjust the 50% to change the width of each tile */
+    margin-right: 20px; /* Adjust the 20px to change the spacing between tiles */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
