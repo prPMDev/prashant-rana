@@ -11,7 +11,7 @@ body {
 header, .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: right;
+    align-items: center;
     padding: 10px 20px;
     background-color: #fff;
 }
@@ -20,6 +20,7 @@ header, .header-content {
     margin-left: auto;
     display: flex;
     justify-content: flex-end; /* Ensure links are right-aligned */
+    aligh-items: right;
     gap: 20px; /* Space between links */
 }
 
