@@ -29,6 +29,11 @@ function fetchTestimonials() {
 
             // Adjust the carousel settings after testimonials are loaded
             const itemsPerView = window.innerWidth <= 768 ? 1 : 2; // Show 1 item per view on small screens
+            // Duplicate first few items to create infinite scroll illusion
+            for (let i = 0; i < itemsPerView; i++) {
+                const clone = container.children[i].cloneNode(true);
+                container.appendChild(clone);
+            }
             const totalItems = data.length;
             const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
 
@@ -58,17 +63,31 @@ let currentIndex = 0;
 function moveCarousel(direction) {
     const carouselInner = document.querySelector('.carousel-inner');
     const itemsPerView = parseInt(carouselInner.dataset.itemsPerView);
+    const totalItems = carouselInner.children.length;
     const maxIndex = parseInt(carouselInner.dataset.maxIndex);
 
     currentIndex += direction;
-    if (currentIndex < 0) {
-        currentIndex = maxIndex;
-    } else if (currentIndex > maxIndex) {
-        currentIndex = 0;
-    }
-
     const offset = -currentIndex * 100 / itemsPerView;
-    carouselInner.style.transform = `translateX(${offset}%)`;
+
+    if (currentIndex >= totalItems - itemsPerView) {
+        carouselInner.style.transition = 'none';
+        currentIndex = maxIndex;
+        carouselInner.style.transform = `translateX(${-currentIndex * 100 / itemsPerView}%)`;
+        setTimeout(() => {
+            carouselInner.style.transition = 'transform 0.5s ease';
+            moveCarousel(1);
+        }, 50);
+    } else if (currentIndex < 0) {
+        carouselInner.style.transition = 'none';
+        currentIndex = 0;
+        carouselInner.style.transform = `translateX(${-currentIndex * 100 / itemsPerView}%)`;
+        setTimeout(() => {
+            carouselInner.style.transition = 'transform 0.5s ease';
+            moveCarousel(-1);
+        }, 50);
+    } else {
+        carouselInner.style.transform = `translateX(${offset}%)`;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
