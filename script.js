@@ -28,11 +28,11 @@ function fetchTestimonials() {
             });
 
             // Adjust the carousel settings after testimonials are loaded
-            const carouselInner = document.querySelector('.carousel-inner');
-            const itemsPerView = calculateItemsPerView();
+            const itemsPerView = 2; // Show 2 items per view
             const totalItems = data.length;
             const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
 
+            const carouselInner = document.querySelector('.carousel-inner');
             carouselInner.dataset.maxIndex = maxIndex;
             carouselInner.dataset.itemsPerView = itemsPerView;
         })
@@ -66,10 +66,4 @@ function moveCarousel(direction) {
 
     const offset = -currentIndex * 100 / itemsPerView;
     carouselInner.style.transform = `translateX(${offset}%)`;
-}
-
-function calculateItemsPerView() {
-    const containerWidth = document.querySelector('.carousel-inner').offsetWidth;
-    const itemWidth = document.querySelector('.testimonial').offsetWidth;
-    return Math.floor(containerWidth / itemWidth);
 }

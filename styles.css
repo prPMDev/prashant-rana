@@ -138,7 +138,7 @@ main {
 }
 
 .testimonial {
-    flex: 0 0 16%; /* Adjust to show more testimonials */
+    flex: 0 0 calc(47% - 15px); /* Adjust to show 2 items per view */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -168,6 +168,7 @@ main {
 .carousel-control.next {
     right: -40px;
 }
+
 /* Responsive design */
 @keyframes fadeIn {
     from {
