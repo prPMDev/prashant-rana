@@ -139,12 +139,13 @@ main {
 }
 
 .testimonial {
-    flex: 0 0 calc(47% - 15px); /* Adjust to show 2 items per view */
+    flex: 0 0 calc(50% - 20px); /* Adjust to show 2 items per view */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 10px;
+    box-sizing: border-box;
 }
 
 .carousel-control {
@@ -160,6 +161,9 @@ main {
     z-index: 10;
     height: 30px;
     width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-control.prev {
@@ -168,6 +172,11 @@ main {
 
 .carousel-control.next {
     right: -40px;
+}
+
+.carousel-control svg {
+    width: 15px;
+    height: 15px;
 }
 
 /* Responsive design */

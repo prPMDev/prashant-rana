@@ -35,6 +35,9 @@ function fetchTestimonials() {
             const carouselInner = document.querySelector('.carousel-inner');
             carouselInner.dataset.maxIndex = maxIndex;
             carouselInner.dataset.itemsPerView = itemsPerView;
+
+            // Ensure carousel is correctly initialized
+            moveCarousel(0);
         })
         .catch(error => console.error('Error loading testimonials:', error));
 }
