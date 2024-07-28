@@ -116,7 +116,7 @@ main {
 .testimonials {
     margin-top: 60px;
     text-align: center;
-    position: relative; /* Add relative positioning */
+    position: relative;
 }
 
 .rating {
@@ -135,11 +135,10 @@ main {
     display: flex;
     overflow: hidden;
     width: 100%;
-    justify-content: space-between; /* Ensure space between items */
 }
 
 .testimonial {
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 16%; /* Adjust to show more testimonials */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -158,18 +157,17 @@ main {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    height: 30px; /* Ensure height is consistent */
-    width: 30px; /* Ensure width is consistent */
+    height: 30px;
+    width: 30px;
 }
 
 .carousel-control.prev {
-    left: -40px; /* Move outside the carousel */
+    left: -40px;
 }
 
 .carousel-control.next {
-    right: -40px; /* Move outside the carousel */
+    right: -40px;
 }
-
 /* Responsive design */
 @keyframes fadeIn {
     from {

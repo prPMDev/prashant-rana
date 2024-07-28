@@ -4,17 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-scroll functionality
     setInterval(() => {
         moveCarousel(1);
-    }, 5000); // Adjusted interval to 5 seconds for smoother scrolling
+    }, 5000);
 
     // Image rotation functionality
-    const images = ['images/pr-painting.jpg', 'images/pr-at-seattle.jpg']; // Add all image paths here
+    const images = ['images/pr-painting.jpg', 'images/pr-at-seattle.jpg'];
     let currentImageIndex = 0;
     const profileImage = document.getElementById('profileImage');
 
     setInterval(() => {
         currentImageIndex = (currentImageIndex + 1) % images.length;
         profileImage.src = images[currentImageIndex];
-    }, 5000); // Adjusted interval to 5 seconds for smoother rotation
+    }, 5000);
 });
 
 function fetchTestimonials() {
@@ -26,6 +26,15 @@ function fetchTestimonials() {
                 const testimonialElement = createTestimonialElement(testimonial);
                 container.appendChild(testimonialElement);
             });
+
+            // Adjust the carousel settings after testimonials are loaded
+            const itemsPerView = 6; // Show up to 6 items
+            const totalItems = data.length;
+            const carouselInner = document.querySelector('.carousel-inner');
+            const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
+
+            carouselInner.dataset.maxIndex = maxIndex;
+            carouselInner.dataset.itemsPerView = itemsPerView;
         })
         .catch(error => console.error('Error loading testimonials:', error));
 }
@@ -45,10 +54,9 @@ let currentIndex = 0;
 
 function moveCarousel(direction) {
     const carouselInner = document.querySelector('.carousel-inner');
-    const items = document.querySelectorAll('.testimonial');
-    const totalItems = items.length;
-    const itemsPerView = 1; // Ensure only one item is visible per view
-    const maxIndex = totalItems - 1;
+    const totalItems = document.querySelectorAll('.testimonial').length;
+    const itemsPerView = parseInt(carouselInner.dataset.itemsPerView);
+    const maxIndex = parseInt(carouselInner.dataset.maxIndex);
 
     currentIndex += direction;
     if (currentIndex < 0) {
