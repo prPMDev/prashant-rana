@@ -28,9 +28,9 @@ function fetchTestimonials() {
             });
 
             // Adjust the carousel settings after testimonials are loaded
-            const itemsPerView = 6; // Show up to 6 items
-            const totalItems = data.length;
             const carouselInner = document.querySelector('.carousel-inner');
+            const itemsPerView = calculateItemsPerView();
+            const totalItems = data.length;
             const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
 
             carouselInner.dataset.maxIndex = maxIndex;
@@ -54,7 +54,6 @@ let currentIndex = 0;
 
 function moveCarousel(direction) {
     const carouselInner = document.querySelector('.carousel-inner');
-    const totalItems = document.querySelectorAll('.testimonial').length;
     const itemsPerView = parseInt(carouselInner.dataset.itemsPerView);
     const maxIndex = parseInt(carouselInner.dataset.maxIndex);
 
@@ -67,4 +66,10 @@ function moveCarousel(direction) {
 
     const offset = -currentIndex * 100 / itemsPerView;
     carouselInner.style.transform = `translateX(${offset}%)`;
+}
+
+function calculateItemsPerView() {
+    const containerWidth = document.querySelector('.carousel-inner').offsetWidth;
+    const itemWidth = document.querySelector('.testimonial').offsetWidth;
+    return Math.floor(containerWidth / itemWidth);
 }
