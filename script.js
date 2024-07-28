@@ -6,15 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
         moveCarousel(1);
     }, 5000);
 
-    // Image rotation functionality
-    const images = ['images/pr-painting.jpg', 'images/pr-at-seattle.jpg'];
-    let currentImageIndex = 0;
-    const profileImage = document.getElementById('profileImage');
-
-    setInterval(() => {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        profileImage.src = images[currentImageIndex];
-    }, 5000);
+    // Fetch profile images dynamically from JSON file
+    fetch('profile-pictures.json')
+        .then(response => response.json())
+        .then(images => {
+            if (images.length > 0) {
+                let currentImageIndex = 0;
+                const profileImage = document.getElementById('profileImage');
+                profileImage.src = images[currentImageIndex];
+                setInterval(() => {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    profileImage.src = images[currentImageIndex];
+                }, 5000);
+            }
+        })
+        .catch(error => console.error('Error loading profile images:', error));
 });
 
 function fetchTestimonials() {
@@ -27,15 +33,15 @@ function fetchTestimonials() {
                 container.appendChild(testimonialElement);
             });
 
-            // Adjust the carousel settings after testimonials are loaded
-            const itemsPerView = window.innerWidth <= 768 ? 1 : 2; // Show 1 item per view on small screens
             // Duplicate first few items to create infinite scroll illusion
+            const itemsPerView = window.innerWidth <= 768 ? 1 : 2; // Show 1 item per view on small screens
             for (let i = 0; i < itemsPerView; i++) {
                 const clone = container.children[i].cloneNode(true);
                 container.appendChild(clone);
             }
+
             const totalItems = data.length;
-            const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
+            const maxIndex = totalItems;
 
             const carouselInner = document.querySelector('.carousel-inner');
             carouselInner.dataset.maxIndex = maxIndex;
