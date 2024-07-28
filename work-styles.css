@@ -1,12 +1,43 @@
+/* Hero section */
+.hero {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    justify-content: flex-start; /* Align items to the left */
+    text-align: left;
+    margin: 20px auto;
+    padding: 10px 20px; /* Reduced padding for less height */
+    max-width: 1200px; /* Set max width to match the work grid width */
+    height: auto; /* Adjust height */
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 2em;
+    margin: 0 20px 0 0; /* Add more spacing to the right */
+    font-weight: 300;
+    display: inline-block; /* Ensure text is inline */
+    line-height: 1.2; /* Adjust line height for better alignment */
+}
+
+.hero p {
+    font-size: 1em;
+    color: #666;
+    margin: 0; /* Remove margins for proper alignment */
+    display: inline-block; /* Ensure text is inline */
+    line-height: 1.2; /* Adjust line height for better alignment */
+}
+
+/* Work grid */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
 .work-item {
-    aspect-ratio: 16 / 9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +45,7 @@
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
+    height: 200px;
 }
 
 .work-item:hover {
@@ -26,22 +58,24 @@
     object-fit: contain;
 }
 
-.avalara {
-    background-color: #FF6600;
+/* Specific background colors */
+.work-item.avalara {
+    background-color: #ff6f00; /* Avalara orange */
 }
 
-.oracle {
-    background-color: #C74634;
+.work-item.oracle {
+    background-color: #f80000; /* Oracle red */
 }
 
-.tata {
-    background-color: #0056B3;
+.work-item.tata {
+    background-color: #0078d4; /* Tata blue */
 }
 
-.zs-associates {
-    background-color: #008080; /* Teal */
+.work-item.zs-associates {
+    background-color: #00b4b4; /* ZS Associates teal */
 }
 
+/* Popup modal */
 .popup {
     display: none;
     position: fixed;
@@ -51,18 +85,47 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .popup-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: #fff;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
     position: relative;
+}
+
+.popup-scroll {
+    display: flex;
+    overflow-x: auto;
+}
+
+.popup-item {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.popup-item h2 {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.popup-item p {
+    margin-top: 10px;
+    font-size: 1em;
+    text-align: center;
 }
 
 .close {
@@ -80,13 +143,21 @@
     cursor: pointer;
 }
 
-.popup-body {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
 @media (max-width: 768px) {
     .work-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero {
+        max-width: 100%; /* Full width for mobile */
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .hero p {
+        font-size: 0.9em;
     }
 }
