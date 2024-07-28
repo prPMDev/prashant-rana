@@ -94,7 +94,9 @@ main {
 }
 
 .cta-buttons .btn,
-.cta-buttons .linkedin-logo-link {
+.cta-buttons .linkedin-logo-link,
+.cta-buttons .github-logo-link,
+.cta-buttons .instagram-logo-link {
     display: inline-block;
     height: 25px;
 }
@@ -111,11 +113,15 @@ main {
     margin-right: 10px;
 }
 
-.linkedin-logo-link {
+.linkedin-logo-link,
+.github-logo-link,
+.instagram-logo-link {
     margin-left: 15px;
 }
 
-.linkedin-logo {
+.linkedin-logo,
+.github-logo,
+.instagram-logo {
     height: 30px;
     object-fit: contain;
 }
@@ -152,7 +158,7 @@ main {
 
 .carousel-inner {
     display: flex;
-    width: 100%; /* Ensure the width is 100% */
+    width: 100%; /* Ensure the width is 100% */ /* Ensure the width is 100% on mobile */
     transition: transform 0.5s ease;
 }
 
@@ -197,7 +203,7 @@ main {
     }
 
     .testimonial {
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Show 1 item per view on mobile */
         margin-right: 0;
     }
 }

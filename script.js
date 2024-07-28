@@ -28,7 +28,7 @@ function fetchTestimonials() {
             });
 
             // Adjust the carousel settings after testimonials are loaded
-            const itemsPerView = 2; // Show 2 items per view
+            const itemsPerView = window.innerWidth <= 768 ? 1 : 2; // Show 1 item per view on small screens
             const totalItems = data.length;
             const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
 
