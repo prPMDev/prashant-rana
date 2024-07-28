@@ -20,10 +20,9 @@ header, .header-content {
     margin-left: auto;
     display: flex;
     justify-content: flex-end; /* Ensure links are right-aligned */
-    aligh-items: right;
+    align-items: right;
     gap: 20px; /* Space between links */
 }
-
 
 .logo {
     font-weight: bold;
@@ -130,53 +129,33 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.carousel-inner {
-    display: flex;
     overflow: hidden;
     width: 100%;
 }
 
+.carousel-inner {
+    display: flex;
+    width: 100%; /* Ensure the width is 100% */
+    transition: transform 0.5s ease;
+}
+
 .testimonial {
-    flex: 0 0 calc(50% - 20px); /* Adjust to show 2 items per view */
+    flex: 0 0 48%; /* Adjust to show 2 items per view, with a small margin */
+    box-sizing: border-box;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    box-sizing: border-box;
+    margin: 0 1%; /* Ensure proper margin without overflow */
+    overflow: hidden; /* Prevent content overflow */
+    text-align: left;
 }
 
-.carousel-control {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-control.prev {
-    left: -40px;
-}
-
-.carousel-control.next {
-    right: -40px;
-}
-
-.carousel-control svg {
-    width: 15px;
-    height: 15px;
+.testimonial blockquote {
+    margin: 0;
+    padding-left: 20px;
+    border-left: 5px solid #ccc;
+    font-style: italic;
 }
 
 /* Responsive design */
