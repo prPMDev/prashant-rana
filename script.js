@@ -28,12 +28,17 @@ function fetchTestimonials() {
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById('testimonial-container');
+            if (!container) {
+                console.error('Testimonial container not found');
+                return;
+            }
+
             data.forEach(testimonial => {
                 const testimonialElement = createTestimonialElement(testimonial);
                 container.appendChild(testimonialElement);
             });
 
-            // Duplicate first few items to create infinite scroll illusion
+            // Duplicate first few items to create an infinite scroll illusion
             const itemsPerView = window.innerWidth <= 768 ? 1 : 2; // Show 1 item per view on small screens
             for (let i = 0; i < itemsPerView; i++) {
                 const clone = container.children[i].cloneNode(true);
@@ -41,17 +46,22 @@ function fetchTestimonials() {
             }
 
             const totalItems = data.length;
-            const maxIndex = totalItems;
+            const maxIndex = totalItems + itemsPerView;
 
             const carouselInner = document.querySelector('.carousel-inner');
-            carouselInner.dataset.maxIndex = maxIndex;
-            carouselInner.dataset.itemsPerView = itemsPerView;
+            if (carouselInner) {
+                carouselInner.dataset.maxIndex = maxIndex;
+                carouselInner.dataset.itemsPerView = itemsPerView;
 
-            // Ensure carousel is correctly initialized
-            moveCarousel(0);
+                // Ensure carousel is correctly initialized
+                moveCarousel(0);
+            } else {
+                console.error('Carousel inner container not found');
+            }
         })
         .catch(error => console.error('Error loading testimonials:', error));
 }
+
 
 function createTestimonialElement(testimonial) {
     const element = document.createElement('div');

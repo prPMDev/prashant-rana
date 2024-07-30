@@ -1,31 +1,189 @@
-/* Hero section */
+/* Popup modal */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.popup-content {
+    position: relative; /* Relative positioning for the content area */
+    background-color: #fff;
+    margin: 0 auto;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: visible;
+}
+
+.popup-body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+/* Sidebar styling */
+.popup-sidebar {
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.popup-sidebar .sidebar-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.popup-sidebar .sidebar-item:hover, .popup-sidebar .sidebar-item.active {
+    background-color: #f0f0f0;
+}
+
+/* Content styling */
+.popup-scroll {
+    width: 80%;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-item {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.popup-item.active {
+    display: flex;
+}
+
+.popup-item .top-half {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    overflow: hidden; /* Prevent horizontal scroll */
+}
+
+.popup-item .top-half img, .popup-item .top-half iframe {
+    width: 50%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.popup-item .top-half div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    justify-content: flex-start; /* Align content at the top */
+    padding: 0 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.popup-item .top-half h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px 0; /* Spacing between h2 and p */
+    text-align: left;
+}
+
+.popup-item .top-half p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+.popup-item .bottom-half {
+    width: 100%;
+    height: 50%;
+    padding: 20px; /* Add padding for better spacing */
+    text-align: left;
+    box-sizing: border-box; /* Include padding in width and height */
+    overflow-y: auto; /* Allow vertical scroll if content overflows */
+}
+
+.popup-item .bottom-half h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+}
+
+.popup-item .bottom-half p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.close {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    font-size: 2em; /* Increased size for better visibility */
+    cursor: pointer;
+    z-index: 10; /* Ensure it's above other elements */
+    background: transparent; /* No background color */
+    color: #000000; /* Contour color, matching the Avalara theme */
+    /*border: 2px solid #ff6f00; /* Contour outline */
+    border-radius: 50%; /* Ensures circular shape */
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close:hover,
+.close:focus {
+    color: #5f696e; /* Lighter contour color on hover */
+    border-color: #9fcfe3; /* Change border color on hover */
+}
+
+/* Other styling */
 .hero {
     display: flex;
-    align-items: center; /* Center align items vertically */
-    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    justify-content: flex-start;
     text-align: left;
     margin: 20px auto;
-    padding: 10px 20px; /* Reduced padding for less height */
-    max-width: 1200px; /* Set max width to match the work grid width */
-    height: auto; /* Adjust height */
+    padding: 10px 20px;
+    max-width: 1200px;
+    height: auto;
     background-color: #f7f7f7;
     border-radius: 10px;
 }
 
 .hero h1 {
     font-size: 2em;
-    margin: 0 20px 0 0; /* Add more spacing to the right */
+    margin: 0 20px 0 0;
     font-weight: 300;
-    display: inline-block; /* Ensure text is inline */
-    line-height: 1.2; /* Adjust line height for better alignment */
+    display: inline-block;
+    line-height: 1.2;
 }
 
 .hero p {
     font-size: 1em;
     color: #666;
-    margin: 0; /* Remove margins for proper alignment */
-    display: inline-block; /* Ensure text is inline */
-    line-height: 1.2; /* Adjust line height for better alignment */
+    margin: 0;
+    display: inline-block;
+    line-height: 1.2;
 }
 
 /* Work grid */
@@ -60,87 +218,19 @@
 
 /* Specific background colors */
 .work-item.avalara {
-    background-color: #ff6f00; /* Avalara orange */
+    background-color: #ff6f00;
 }
 
 .work-item.oracle {
-    background-color: #f80000; /* Oracle red */
+    background-color: #f80000;
 }
 
 .work-item.tata {
-    background-color: #0078d4; /* Tata blue */
+    background-color: #0078d4;
 }
 
 .work-item.zs-associates {
-    background-color: #00b4b4; /* ZS Associates teal */
-}
-
-/* Popup modal */
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.popup-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 10px;
-    position: relative;
-}
-
-.popup-scroll {
-    display: flex;
-    overflow-x: auto;
-}
-
-.popup-item {
-    flex: 0 0 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.popup-item img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.popup-item h2 {
-    margin-top: 20px;
-    font-size: 1.5em;
-}
-
-.popup-item p {
-    margin-top: 10px;
-    font-size: 1em;
-    text-align: center;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+    background-color: #00b4b4;
 }
 
 @media (max-width: 768px) {
@@ -149,7 +239,7 @@
     }
 
     .hero {
-        max-width: 100%; /* Full width for mobile */
+        max-width: 100%;
         padding: 20px;
     }
 
@@ -159,5 +249,26 @@
 
     .hero p {
         font-size: 0.9em;
+    }
+
+    .popup-content {
+        flex-direction: column;
+    }
+
+    .popup-sidebar, .popup-scroll {
+        width: 100%;
+    }
+
+    .popup-item {
+        flex-direction: column;
+    }
+
+    .popup-item img, .popup-item div {
+        width: 100%;
+    }
+
+    .popup-item img {
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 }

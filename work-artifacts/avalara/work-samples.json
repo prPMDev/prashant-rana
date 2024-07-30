@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Avalara x Shopify",
+        "description": "Streamlining tax compliance for businesses of all sizes.",
+        "media": {
+            "type": "image",
+            "src": "shopify+avalara.png"
+        }
+    },
+    {
+        "title": "Avalara Project 2",
+        "description": "Tax automation solutions for SMBs.",
+        "media": {
+            "type": "video",
+            "src": "https://www.youtube.com/embed/example-video-id"
+        }
+    }
+]
