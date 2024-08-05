@@ -1,0 +1,110 @@
+/* General styles for the contact form container */
+.contact-form-container {
+    max-width: 600px;
+    margin: 20px auto; /* Margin for spacing from header */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form layout and field styles */
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensuring full width usage */
+}
+
+.contact-form-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form-container .required {
+    color: red;
+}
+
+.contact-form-container input,
+.contact-form-container select,
+.contact-form-container textarea {
+    width: calc(100% - 20px); /* Full width minus padding */
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.contact-form-container textarea#user-message {
+    overflow: hidden; /* Hide the scrollbar */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    height: auto; /* Allow auto height for content */
+}
+
+/* Button styling */
+.contact-form-container button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 10px; /* Ensure space between button and error message */
+}
+
+.contact-form-container button:hover {
+    background-color: #45a049;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 0.8rem; /* Smaller text size */
+    margin-top: -5px; /* Space above error message */
+    margin-bottom: 10px;
+    text-align: left; /* Align text to the left */
+    display: block; /* Ensure it takes the full width */
+}
+
+/* Confirmation popup */
+.confirmation-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.confirmation-popup.visible {
+    opacity: 1;
+}
+
+.message-non-editable {
+    padding: 10px;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: none;
+    display: block;
+}
+
+.g-recaptcha {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
