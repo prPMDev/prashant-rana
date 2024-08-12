@@ -18,9 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const userMessageError = document.getElementById('user-message-error');
 
     // Query Type Selection
-    queryType.addEventListener('change', function() {
-        updateMessageDisplay();
-    });
+    queryType.addEventListener('change', updateMessageDisplay);
 
     // Update message display based on query type
     function updateMessageDisplay() {
@@ -90,18 +88,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Form submission event
-    // Form submission event
-contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent default form submission
     formErrorMessage.textContent = ''; // Clear any previous form error messages
 
     if (validateForm()) {
         // Prepare form data
         const formData = new FormData(contactForm);
-        formData.append('g-recaptcha-response', grecaptcha.getResponse());
+        const recaptchaToken = grecaptcha.getResponse();
+
+        if (!recaptchaToken) {
+            formErrorMessage.textContent = 'Please complete the reCAPTCHA.';
+            console.error('reCAPTCHA token missing');
+            return;
+        }
+
+        formData.append('g-recaptcha-response', recaptchaToken);
 
         // Send form data via AJAX
-        fetch('https://formspree.io/f/xrbzqdpw', {
+        fetch('https://formspree.io/f/xrbzqdpw?debug=true', {
             method: 'POST',
             body: formData,
             headers: {
@@ -116,10 +121,12 @@ contactForm.addEventListener('submit', function(e) {
                 contactForm.style.display = 'none'; // Hide the form after submission
             } else {
                 return response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        formErrorMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
+                    if (data.errors) {
+                        formErrorMessage.textContent = data.errors.map(error => error.message).join(", ");
+                        console.error('Formspree errors:', data.errors);
                     } else {
                         formErrorMessage.textContent = "Oops! There was a problem submitting your form.";
+                        console.error('Unexpected error:', data);
                     }
                 });
             }
@@ -132,6 +139,7 @@ contactForm.addEventListener('submit', function(e) {
         formErrorMessage.textContent = 'Please correct the errors above before submitting.';
     }
 });
+
 
     // Show confirmation popup
     function showConfirmationPopup(type) {
