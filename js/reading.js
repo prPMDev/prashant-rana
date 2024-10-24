@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadReadingList() {
     try {
-        const response = await fetch('/data/books.json');
-        if (!response.ok) throw new Error('Failed to load books data');
+        // Try relative path without leading slash
+        const response = await fetch('./data/books.json');  // Changed from '/data/books.json'
+        if (!response.ok) {
+            console.error('Response not ok:', response.status, response.statusText);
+            throw new Error('Failed to load books data');
+        }
 
         const data = await response.json();
         console.log('Books data loaded:', data);
 
-        // Filter books based on status
         const currentlyReading = data.books.filter(book => book.status === 'reading')
             .sort((a, b) => new Date(b.lastStarted) - new Date(a.lastStarted));
 
@@ -22,7 +25,7 @@ async function loadReadingList() {
 
     } catch (error) {
         console.error('Error loading reading list:', error);
-        showError('Failed to load reading list.');
+        showError('Failed to load reading list. Check console for details.');
     }
 }
 
