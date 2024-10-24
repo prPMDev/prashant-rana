@@ -3,32 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prashant Rana - Senior Product Manager based in Seattle, WA. Discover my journey, projects, and insights.">
-    <title>Prashant Rana - Senior Product Manager</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Prashant Rana",
-        "jobTitle": "Senior Product Manager",
-        "url": "https://prpmdev.github.io/prashant-rana/",
-        "sameAs": [
-            "https://www.linkedin.com/in/prashant-rana/"
-        ]
-    }
-    </script>
+    <title>Prashant Rana - Product Manager</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <header class="sticky-header">
-        <div id="header-placeholder"></div>
-    </header>
+    <div id="header-placeholder"></div>
 
-    <main>
+    <main role="main">
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-image-wrapper">
-                <img src="" alt="Prashant Rana" class="hero-image" id="profileImage">
+                <img id="profileImage" src="images/profile-pictures/pr-at-seattle.jpg" alt="Prashant Rana" class="hero-image">
             </div>
+
             <div class="hero-content">
                 <h1>Hi, I'm Prashant!</h1>
                 <p>I'm a Senior Product Manager based in Seattle, WA. 🏙️</p>
@@ -36,63 +23,36 @@
                 <p>I've been a product manager for 7+ years now, finding my calling through a path that started with software engineering, pre-sales, and program management over 13+ years.</p>
                 <p>I'm entrepreneurial and enjoy building things like this very website, which I'm creating on my own.</p>
                 <p>I'm passionate about contributing to the local community, volunteering at food banks, and mentoring aspiring product managers.</p>
+
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn">Get in touch</a>
-                    <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank" class="linkedin-logo-link">
-                        <img src="images/linkedin-logo.png" alt="LinkedIn" class="linkedin-logo">
+                    <a href="https://www.linkedin.com/in/prashant-rana/" class="linkedin-logo-link" target="_blank">
+                        <img src="images/social-media/linkedin-logo.png" alt="LinkedIn" class="linkedin-logo">
                     </a>
-                    <a href="https://github.com/prashant-rana" target="_blank" class="github-logo-link">
-                        <img src="images/github-logo.png" alt="GitHub" class="github-logo">
+                    <a href="https://github.com/prashant-rana" class="github-logo-link" target="_blank">
+                        <img src="images/social-media/github-logo.png" alt="GitHub" class="github-logo">
                     </a>
-                    <a href="https://www.instagram.com/prashant-rana/" target="_blank" class="instagram-logo-link">
-                        <img src="images/instagram-logo.png" alt="Instagram" class="instagram-logo">
+                    <a href="https://www.instagram.com/prashant-rana/" class="instagram-logo-link" target="_blank">
+                        <img src="images/social-media/instagram-logo.png" alt="Instagram" class="instagram-logo">
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- Testimonials Section -->
         <section class="testimonials">
             <h2>Here's what coworkers say about me (spoiler: they're rave reviews)!</h2>
             <div class="rating">★★★★★</div>
             <div class="carousel">
-                <div class="carousel-inner" id="testimonial-container"></div>
+                <div id="testimonial-container" class="carousel-inner"></div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div id="footer-placeholder"></div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <script src="script.js"></script>
-    <script>
-        // Load header and footer
-        fetch('header.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-    </script>
-<script src="headerFooter.js"></script>
-<script src="analytics.js"></script>
-
+    <!-- Scripts -->
+    <script type="text/javascript" src="/prashant-rana/js/script.js"></script>
+    <script type="text/javascript" src="/prashant-rana/js/headerfooter.js"></script>
 </body>
 </html>

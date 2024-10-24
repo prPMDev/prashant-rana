@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -7,7 +8,14 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Header styles */
+/* Layout */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
 header {
     background-color: #fff;
 }
@@ -17,18 +25,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-}
-
-.navigation {
-    display: flex;
-    margin-left: auto;
-    gap: 20px; /* Space between links */
-}
-
-.navigation a {
-    text-decoration: none;
-    color: #333;
-    text-transform: lowercase;
 }
 
 .logo {
@@ -41,20 +37,19 @@ header {
     color: #333;
 }
 
+.navigation {
+    display: flex;
+    margin-left: auto;
+    gap: 20px;
+}
 
-nav a {
+.navigation a {
     text-decoration: none;
     color: #333;
     text-transform: lowercase;
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Hero section styles */
+/* Hero Section */
 .hero {
     display: flex;
     align-items: center;
@@ -86,19 +81,11 @@ main {
     margin-bottom: 20px;
 }
 
-/* .cta-buttons styles */
+/* CTA Buttons */
 .cta-buttons {
     display: flex;
     align-items: center;
     margin-top: 15px;
-}
-
-.cta-buttons .btn,
-.cta-buttons .linkedin-logo-link,
-.cta-buttons .github-logo-link,
-.cta-buttons .instagram-logo-link {
-    display: inline-block;
-    height: 25px;
 }
 
 .btn {
@@ -107,9 +94,6 @@ main {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-right: 10px;
 }
 
@@ -126,92 +110,130 @@ main {
     object-fit: contain;
 }
 
+/* Testimonials Section */
 .testimonials {
-    margin-top: 60px;
+    margin: 60px auto;
     text-align: center;
+    max-width: 1200px;
+    padding: 0;  /* Removed padding here */
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .testimonials h2 {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Add space between text and stars */
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+    padding: 0 20px;  /* Moved padding to heading */
 }
 
 .rating {
-    font-size: 1.5em;
-    color: gold; /* Set the star color to gold */
-   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle shadow for pop-out effect */
+    color: #f8d64e;
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Carousel */
 .carousel {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
 }
 
 .carousel-inner {
     display: flex;
-    width: 100%; /* Ensure the width is 100% */ /* Ensure the width is 100% on mobile */
     transition: transform 0.5s ease;
+    width: 100%;
+    padding: 0 20px;  /* Add padding to inner container */
+    box-sizing: border-box;
 }
 
 .testimonial {
-    flex: 0 0 48%; /* Adjust to show 2 items per view, with a small margin */
+    flex: 0 0 50%;  /* Exactly half width */
+    width: 50%;     /* Reinforcing width */
+    padding: 0 15px;  /* Padding between cards */
     box-sizing: border-box;
-    background-color: #fff;
-    padding: 20px;
+    height: 400px;
+}
+
+.testimonial-content {
+    background: white;
+    padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 1%; /* Ensure proper margin without overflow */
-    overflow: hidden; /* Prevent content overflow */
-    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.testimonial .title {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.4;
 }
 
 .testimonial blockquote {
-    margin: 0;
-    padding-left: 20px;
-    border-left: 5px solid #ccc;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #444;
     font-style: italic;
+    margin: 0;
+    padding: 0 0 0 25px;
+    border-left: 3px solid #f8d64e;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Responsive design */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-image {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .testimonial {
-        flex: 0 0 100%; /* Show 1 item per view on mobile */
-        margin-right: 0;
-    }
-}
-
-/* Footer styles */
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     font-size: 1.0em;
     background-color: #f0f0f0;
 }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 0 15px;
+    }
+
+    .testimonial {
+        flex: 0 0 calc(100% - 30px);
+        min-width: calc(100% - 30px);
+        height: 350px;  /* Slightly shorter on mobile */
+    }
+
+    .testimonial-content {
+        padding: 30px;  /* Less padding on mobile */
+    }
+
+    .testimonial h3 {
+        font-size: 1.4em;
+    }
+
+    .testimonial blockquote {
+        font-size: 1.1em;
+        -webkit-line-clamp: 6;  /* Fewer lines on mobile */
+    }
+}
+
