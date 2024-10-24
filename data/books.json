@@ -1,0 +1,127 @@
+{
+  "config": {
+    "imageBaseUrl": "https://books.google.com/books/content",
+    "imageParams": "printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "imageFallbackUrl": "https://placehold.co/400x600/e9ecef/495057?text=",
+    "defaultImageSize": "zoom=1"
+  },
+  "books": [
+    {
+      "title": "The Lean Product Playbook",
+      "author": "Dan Olsen",
+      "googleBooksId": "dCOsBwAAQBAJ",
+      "rating": 4.5,
+      "blurb": "A practical guide that helped me structure my approach to product development. The value proposition framework is something I use regularly.",
+      "category": "professional",
+      "status": "reading",
+      "lastStarted": "2024-01-15",
+      "readCount": 1
+    },
+    {
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "googleBooksId": "TnrrDwAAQBAJ",
+      "rating": 4.5,
+      "blurb": "Changed my perspective on wealth building and financial decision making. The concept of room for error has influenced my approach to personal finance.",
+      "category": "personal",
+      "status": "reading",
+      "lastStarted": "2024-02-01",
+      "readCount": 1
+    },
+    {
+      "title": "10% Happier",
+      "author": "Dan Harris",
+      "googleBooksId": "ycEKAgAAQBAJ",
+      "rating": 4,
+      "blurb": "A skeptic's journey into meditation and mindfulness, offering practical insights into managing stress and improving mental clarity.",
+      "category": "personal",
+      "status": "reading",
+      "lastStarted": "2024-02-15",
+      "readCount": 1
+    },
+    {
+      "title": "Inspired: How to Create Tech Products Customers Love",
+      "author": "Marty Cagan",
+      "googleBooksId": "QkY_DwAAQBAJ",
+      "rating": 5,
+      "blurb": "Changed my perspective on product management. The emphasis on customer problems over solutions has deeply influenced my product thinking.",
+      "category": "professional",
+      "status": "completed",
+      "lastStarted": "2023-11-01",
+      "readCount": 2,
+      "lastCompleted": "2024-01-10"
+    },
+    {
+      "title": "Football, Bloody Hell!: The Biography of Alex Ferguson",
+      "author": "Patrick Barclay",
+      "googleBooksId": "5aNERulnsF0C",
+      "rating": 4.5,
+      "blurb": "A fascinating look into the mind of one of football's greatest managers. His leadership principles and resilience in building successful teams has been truly inspiring.",
+      "category": "personal",
+      "status": "completed",
+      "lastStarted": "2023-09-15",
+      "lastCompleted": "2023-10-20",
+      "readCount": 1
+    },
+    {
+      "title": "Wings of Fire",
+      "author": "A.P.J. Abdul Kalam",
+      "googleBooksId": "c3qmIZtWUjAC",
+      "rating": 5,
+      "blurb": "Dr. Kalam's journey from humble beginnings to becoming India's leading scientist and president is a testament to perseverance and lifelong learning.",
+      "category": "personal",
+      "status": "completed",
+      "lastStarted": "2023-08-01",
+      "lastCompleted": "2023-09-05",
+      "readCount": 2
+    },
+    {
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "googleBooksId": "FmyBAwAAQBAJ",
+      "rating": 5,
+      "blurb": "A thought-provoking exploration of human history that changed my perspective on society, culture, and our collective future.",
+      "category": "personal",
+      "status": "completed",
+      "lastStarted": "2023-06-15",
+      "lastCompleted": "2023-07-30",
+      "readCount": 1
+    },
+    {
+      "title": "The Tipping Point",
+      "author": "Malcolm Gladwell",
+      "googleBooksId": "yBDBEGBIUmgC",
+      "rating": 4,
+      "blurb": "Fascinating insights into how small changes can have massive impacts. The concepts of connectors and sticky messages influence my approach to product adoption.",
+      "category": "professional",
+      "status": "completed",
+      "lastStarted": "2023-05-01",
+      "lastCompleted": "2023-06-10",
+      "readCount": 1
+    },
+    {
+      "title": "Freakonomics",
+      "author": "Steven D. Levitt, Stephen J. Dubner",
+      "googleBooksId": "mXQVbIRkHegC",
+      "rating": 4.5,
+      "blurb": "A unique way of looking at problem-solving through the lens of incentives. Has influenced how I think about user behavior and motivation.",
+      "category": "professional",
+      "status": "completed",
+      "lastStarted": "2023-03-15",
+      "lastCompleted": "2023-04-20",
+      "readCount": 1
+    },
+    {
+      "title": "The Dalai Lama's Cat",
+      "author": "David Michie",
+      "googleBooksId": "lRyAlTuFMDoC",
+      "rating": 4.5,
+      "blurb": "A charming perspective on mindfulness and happiness through the eyes of a cat. Offers valuable lessons on contentment and understanding.",
+      "category": "personal",
+      "status": "completed",
+      "lastStarted": "2023-02-01",
+      "lastCompleted": "2023-03-10",
+      "readCount": 1
+    }
+  ]
+}
