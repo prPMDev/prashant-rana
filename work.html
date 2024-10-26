@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Work - Prashant Rana</title>
+    <title>Work Experience - Prashant Rana</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="work-styles.css">
 </head>
@@ -16,52 +16,24 @@
             <p>Explore some of the projects and contributions I have made over the years.</p>
         </section>
 
-        <div class="work-grid">
-    <div class="work-item avalara" data-company="avalara">
-        <img src="images/company-logos/avalara-logo.jpg"
-             data-category="companies"
-             data-filename="avalara-logo.jpg"
-             alt="Avalara">
-    </div>
-
-    <div class="work-item oracle" data-company="oracle">
-        <img src="images/company-logos/oracle-logo.jpg"
-             data-category="companies"
-             data-filename="oracle-logo.jpg"
-             alt="Oracle">
-    </div>
-
-    <div class="work-item tata" data-company="tata">
-        <img src="images/company-logos/tcs-logo-white.png"
-             data-category="companies"
-             data-filename="tcs-logo-white.png"
-             alt="Tata">
-    </div>
-
-    <div class="work-item zs-associates" data-company="zs-associates">
-        <img src="images/company-logos/zs-logo.jpg"
-             data-category="companies"
-             data-filename="zs-logo.jpg"
-             alt="ZS Associates">
-    </div>
-</div>
-
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close">×</span>
-                <div class="popup-body">
-                    <div class="popup-sidebar"></div>
-                    <div class="popup-scroll"></div>
-                </div>
-            </div>
-        </div>
+        <section class="work-grid">
+            <!-- Tiles will be inserted here by JavaScript -->
+        </section>
     </main>
 
     <div id="footer-placeholder"></div>
 
-    <script src="js/config.js" type="module"></script>
-    <script src="js/work.js" type="module"></script>
-    <script src="js/headerfooter.js"></script>
-    <script src="js/analytics.js"></script>
+    <div id="companyDetails" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <!-- Company details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add the required scripts -->
+    <script src="/js/headerfooter.js"></script>
+    <script src="/js/work.js"></script>
 </body>
 </html>

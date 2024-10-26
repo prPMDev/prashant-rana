@@ -1,0 +1,33 @@
+{
+  "config": {
+    "imagePaths": {
+      "logos": "/images/company-logos",
+      "artifacts": "/work-artifacts"
+    }
+  },
+  "companies": [
+    {
+      "id": "avalara",
+      "name": "Avalara",
+      "branding": {
+        "logos": {
+          "default": "/images/company-logos/avalara-logo.jpg",
+          "white": "/work-artifacts/avalara/avalara-logo-white.png"
+        },
+        "colors": {
+          "primary": "#FF6F00",
+          "text": "#FFFFFF"
+        }
+      },
+      "timeline": {
+        "start": "2022-09",
+        "end": "present"
+      },
+      "role": {
+        "title": "Senior Product Manager",
+        "level": "Senior"
+      },
+      "scope": "Leading API-first tax compliance solutions for global e-commerce platforms. Driving integration partnerships, developer experience improvements, and platform scalability initiatives."
+    }
+  ]
+}
