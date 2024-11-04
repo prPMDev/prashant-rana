@@ -9,6 +9,9 @@
     {
       "id": "avalara",
       "name": "Avalara",
+      "companyDescription": "Leading SaaS provider of tax compliance solutions, serving 30K+ businesses globally",
+      "detailsLink": "#avalara-details",
+      "importance": 1,
       "branding": {
         "logos": {
           "default": "/images/company-logos/avalara-logo.jpg",
@@ -28,6 +31,126 @@
         "level": "Senior"
       },
       "scope": "Leading API-first tax compliance solutions for global e-commerce platforms. Driving integration partnerships, developer experience improvements, and platform scalability initiatives."
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "importance": 2,
+      "branding": {
+        "logos": {
+          "default": "/images/company-logos/oracle-logo.jpg",
+          "white": "/work-artifacts/oracle/oracle-logo-white.png"
+        },
+        "colors": {
+          "primary": "#C74634",
+          "text": "#FFFFFF"
+        }
+      },
+      "timeline": {
+        "start": "2021-05",
+        "end": "2022-08"
+      },
+      "role": {
+        "title": "Product Manager",
+        "level": "Mid"
+      },
+      "scope": "Managed product strategy and execution for Oracle's B2B CRM data platform processing millions of records daily. Enhanced API framework and launched ML-powered features improving operational efficiency."
+    },
+    {
+      "id": "spacelabs",
+      "name": "Spacelabs Healthcare",
+      "importance": 3,
+      "branding": {
+        "logos": {
+          "default": "/images/company-logos/spacelabs-logo.jpg",
+          "white": "/work-artifacts/spacelabs/spacelabs-logo-white.png"
+        },
+        "colors": {
+          "primary": "#005EB8",
+          "text": "#FFFFFF"
+        }
+      },
+      "timeline": {
+        "start": "2020-08",
+        "end": "2021-04"
+      },
+      "role": {
+        "title": "Product Owner",
+        "level": "Mid"
+      },
+      "scope": "Owned product execution strategy for healthcare data exchange and monitoring products. Developed centralized health data exchange system and remote access tools during COVID-19."
+    },
+    {
+      "id": "datafi",
+      "name": "Datafi Labs",
+      "importance": 5,
+      "branding": {
+        "logos": {
+          "default": "/images/company-logos/datafi-logo.jpg",
+          "white": "/work-artifacts/datafi/datafi-logo-white.png"
+        },
+        "colors": {
+          "primary": "#2E7D32",
+          "text": "#FFFFFF"
+        }
+      },
+      "timeline": {
+        "start": "2020-07",
+        "end": "2021-01"
+      },
+      "role": {
+        "title": "Product Consultant",
+        "level": "Mid"
+      },
+      "scope": "Designed product strategy for an innovative data access control platform. Developed startup's first unified data platform from concept to MVP securing pilot customers."
+    },
+    {
+      "id": "zs",
+      "name": "ZS Associates",
+      "importance": 4,
+      "branding": {
+        "logos": {
+          "default": "/images/company-logos/zs-logo.jpg",
+          "white": "/work-artifacts/zs/zs-logo-white.png"
+        },
+        "colors": {
+          "primary": "#1565C0",
+          "text": "#FFFFFF"
+        }
+      },
+      "timeline": {
+        "start": "2018-06",
+        "end": "2020-06"
+      },
+      "role": {
+        "title": "Associate Product Manager",
+        "level": "Junior"
+      },
+      "scope": "Drove strategy and execution for enterprise analytics platform in healthcare. Launched REVO™ Analytics Workbench on AWS and developed rapid application development platform."
+    },
+    {
+      "id": "tcs",
+      "name": "Tata Consultancy Services",
+      "importance": 6,
+      "branding": {
+        "logos": {
+          "default": "/images/company-logos/tcs-logo.jpg",
+          "white": "/work-artifacts/tcs/tcs-logo-white.png"
+        },
+        "colors": {
+          "primary": "#0033A0",
+          "text": "#FFFFFF"
+        }
+      },
+      "timeline": {
+        "start": "2010-11",
+        "end": "2018-06"
+      },
+      "role": {
+        "title": "Program Manager & Developer",
+        "level": "Mid"
+      },
+      "scope": "Led presales, delivery, and implementation of TCS TAP™ P2P automation SaaS product. Built and led technical strategy for enterprise documentation platform."
     }
   ]
 }

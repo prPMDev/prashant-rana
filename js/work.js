@@ -1,7 +1,15 @@
-// Wait for DOM to be fully loaded before initializing
-document.addEventListener('DOMContentLoaded', function() {
-    initializeWork();
-});
+// Constants and Configurations
+const CONFIG = {
+    FETCH_TIMEOUT: 5000,
+    ANIMATION_DURATION: 500,
+    PATHS: {
+        WORK_DATA: '/data/work.json',
+        WORK_ARTIFACTS: '/work-artifacts'
+    }
+};
+
+// Initialization
+document.addEventListener('DOMContentLoaded', initializeWork);
 
 async function initializeWork() {
     try {
@@ -15,19 +23,51 @@ async function initializeWork() {
 
 // Data Fetching
 async function fetchWorkData() {
-    const response = await fetch('/data/work.json');
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
+
+        const response = await fetch(CONFIG.PATHS.WORK_DATA, {
+            signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        if (error.name === 'AbortError') {
+            throw new Error('Request timed out. Please check your connection and try again.');
+        }
+        throw error;
     }
-    return await response.json();
 }
 
 async function fetchCompanyDetails(companyId) {
-    const response = await fetch(`/work-artifacts/${companyId}/work-samples.json`);
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
+
+        const response = await fetch(`${CONFIG.PATHS.WORK_ARTIFACTS}/${companyId}/work-samples.json`, {
+            signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        if (error.name === 'AbortError') {
+            throw new Error('Request timed out. Please check your connection and try again.');
+        }
+        throw error;
     }
-    return await response.json();
 }
 
 // Rendering Functions
@@ -40,20 +80,25 @@ function renderWorkSection(companies) {
 }
 
 function createCompanyTile(company) {
+    const { id, companyDescription, branding, name, role, timeline, scope } = company;
+
     return `
-        <div class="company-tile fade-in" data-company-id="${company.id}">
-            <div class="logo-section" style="background-color: ${company.branding.colors.primary}">
+        <div class="company-tile fade-in" data-company-id="${id}">
+            <div class="company-tooltip">${companyDescription}</div>
+            <div class="logo-section" style="background-color: ${branding.colors.primary}">
                 <img
-                    src="${company.branding.logos.white}"
-                    alt="${company.name} logo"
+                    src="${branding.logos.white}"
+                    alt="${name} logo"
                     class="company-logo"
+                    loading="lazy"
                 >
             </div>
             <div class="content-section">
-                <h2 class="company-name">${company.name}</h2>
-                <p class="role-title">${company.role.title}</p>
-                <p class="timeline">${formatTimeline(company.timeline)}</p>
-                <p class="scope">${company.scope}</p>
+                <div class="role-header">
+                    <p class="role-title">${role.title}</p>
+                    <p class="timeline">${formatTimeline(timeline)}</p>
+                </div>
+                <p class="scope">${scope}</p>
             </div>
         </div>
     `;
@@ -61,30 +106,45 @@ function createCompanyTile(company) {
 
 // Event Listeners
 function initializeEventListeners() {
-    // Company tile click handlers
+    initializeTileListeners();
+    initializeModalListeners();
+}
+
+function initializeTileListeners() {
     document.querySelectorAll('.company-tile').forEach(tile => {
         tile.addEventListener('click', handleTileClick);
     });
-
-    // Modal close handlers
-    const modal = document.getElementById('companyDetails');
-    if (modal) {
-        const closeBtn = modal.querySelector('.close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => closeModal(modal));
-        }
-
-        // Close on outside click
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal(modal);
-            }
-        });
-    }
 }
 
+function initializeModalListeners() {
+    const modal = document.getElementById('companyDetails');
+    if (!modal) return;
+
+    // Close button listener
+    const closeBtn = modal.querySelector('.close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => closeModal(modal));
+    }
+
+    // Outside click listener
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal(modal);
+        }
+    });
+
+    // Escape key listener
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            closeModal(modal);
+        }
+    });
+}
+
+// Event Handlers
 async function handleTileClick(event) {
     const companyId = event.currentTarget.dataset.companyId;
+
     try {
         const details = await fetchCompanyDetails(companyId);
         showCompanyDetails(details);
@@ -96,58 +156,70 @@ async function handleTileClick(event) {
 // Modal Functions
 function showCompanyDetails(details) {
     const modal = document.getElementById('companyDetails');
+    if (!modal) return;
+
     const modalBody = modal.querySelector('.modal-body');
+    if (!modalBody) return;
 
     modalBody.innerHTML = createDetailsContent(details);
-    modal.style.display = 'block';
 
-    // Prevent body scrolling when modal is open
+    modal.style.display = 'block';
+    modal.classList.add('open');
     document.body.style.overflow = 'hidden';
 }
 
 function closeModal(modal) {
+    modal.classList.remove('open');
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = '';
 }
 
 function createDetailsContent(details) {
+    const { overview, achievements } = details;
+
     return `
         <div class="details-container">
             <div class="details-header">
-                <h2>${details.overview.industry}</h2>
-                <p class="focus-areas">${details.overview.productFocus.join(' • ')}</p>
+                <h2>${overview.industry}</h2>
+                <p class="focus-areas">${overview.productFocus.join(' • ')}</p>
             </div>
             <div class="achievements-section">
-                ${details.achievements.map(createAchievementCard).join('')}
+                ${achievements.map(createAchievementCard).join('')}
             </div>
         </div>
     `;
 }
 
 function createAchievementCard(achievement) {
+    const { title, period, description, details, media } = achievement;
+
     return `
         <div class="achievement-card">
-            <h3>${achievement.title}</h3>
-            <p class="period">${achievement.period}</p>
-            <p class="description">${achievement.description}</p>
+            <h3>${title}</h3>
+            <p class="period">${period}</p>
+            <p class="description">${description}</p>
             <div class="details">
                 <ul>
-                    ${achievement.details.map(detail => `<li>${detail}</li>`).join('')}
+                    ${details.map(detail => `<li>${detail}</li>`).join('')}
                 </ul>
             </div>
-            ${createMediaSection(achievement.media)}
+            ${media ? createMediaSection(media) : ''}
         </div>
     `;
 }
 
 function createMediaSection(media) {
-    if (!media || !media.length) return '';
+    if (!media?.length) return '';
 
     return `
         <div class="media-section">
             ${media.map(item => `
                 <figure>
-                    <img src="${item.src}" alt="${item.alt}">
+                    <img
+                        src="${item.src}"
+                        alt="${item.alt}"
+                        loading="lazy"
+                    >
                     ${item.caption ? `<figcaption>${item.caption}</figcaption>` : ''}
                 </figure>
             `).join('')}
@@ -158,20 +230,34 @@ function createMediaSection(media) {
 // Utility Functions
 function sortCompaniesByDate(companies) {
     return companies.sort((a, b) => {
+        // Primary sort by importance
+        if (a.importance !== b.importance) {
+            return a.importance - b.importance;
+        }
+
+        // Secondary sort by date
         if (a.timeline.end === 'present') return -1;
         if (b.timeline.end === 'present') return 1;
+
         return new Date(b.timeline.start) - new Date(a.timeline.start);
     });
 }
 
 function formatTimeline(timeline) {
-    return `${formatDate(timeline.start)} - ${timeline.end === 'present' ? 'Present' : formatDate(timeline.end)}`;
+    const formattedStart = formatDate(timeline.start);
+    const formattedEnd = timeline.end === 'present' ? 'Present' : formatDate(timeline.end);
+
+    return `${formattedStart} - ${formattedEnd}`;
 }
 
 function formatDate(dateStr) {
     const [year, month] = dateStr.split('-');
     const date = new Date(year, parseInt(month) - 1);
-    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric'
+    });
 }
 
 // Error Handling
@@ -187,5 +273,6 @@ function showErrorMessage(message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
     errorDiv.textContent = message;
+
     workGrid.insertAdjacentElement('beforebegin', errorDiv);
 }
