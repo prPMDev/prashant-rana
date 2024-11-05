@@ -2,10 +2,10 @@
 const CONFIG = {
     FETCH_TIMEOUT: 5000,
     ANIMATION_DURATION: 500,
-    BASE_PATH: '/prashant-rana', // Add base path
+    BASE_PATH: '/prashant-rana',
     PATHS: {
-        WORK_DATA: '/prashant-rana/data/work.json',        // Update path
-        WORK_ARTIFACTS: '/prashant-rana/work-artifacts'    // Update path
+        WORK_DATA: '/prashant-rana/data/work.json',
+        WORK_ARTIFACTS: '/prashant-rana/work-artifacts'
     }
 };
 
@@ -14,10 +14,18 @@ document.addEventListener('DOMContentLoaded', initializeWork);
 
 async function initializeWork() {
     try {
+        console.log('Initializing work section...');
         const workData = await fetchWorkData();
+        console.log('Work data received:', workData);
+
+        if (!workData || !workData.companies) {
+            throw new Error('Invalid work data format');
+        }
+
         renderWorkSection(workData.companies);
         initializeEventListeners();
     } catch (error) {
+        console.error('Initialization error:', error);
         handleError('Failed to initialize work section', error);
     }
 }
@@ -28,7 +36,7 @@ async function fetchWorkData() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
 
-        console.log('Fetching from:', CONFIG.PATHS.WORK_DATA); // Debug log
+        console.log('Fetching from:', CONFIG.PATHS.WORK_DATA);
 
         const response = await fetch(CONFIG.PATHS.WORK_DATA, {
             signal: controller.signal
@@ -37,15 +45,15 @@ async function fetchWorkData() {
         clearTimeout(timeoutId);
 
         if (!response.ok) {
-            console.error('Response not ok:', response.status, response.statusText); // Debug log
+            console.error('Response not ok:', response.status, response.statusText);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('Fetched data:', data); // Debug log
+        console.log('Fetched data:', data);
         return data;
     } catch (error) {
-        console.error('Fetch error:', error); // Debug log
+        console.error('Fetch error:', error);
         if (error.name === 'AbortError') {
             throw new Error('Request timed out. Please check your connection and try again.');
         }
@@ -58,18 +66,25 @@ async function fetchCompanyDetails(companyId) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
 
-        const response = await fetch(`${CONFIG.PATHS.WORK_ARTIFACTS}/${companyId}/work-samples.json`, {
+        const url = `${CONFIG.PATHS.WORK_ARTIFACTS}/${companyId}/work-samples.json`;
+        console.log('Fetching company details from:', url);
+
+        const response = await fetch(url, {
             signal: controller.signal
         });
 
         clearTimeout(timeoutId);
 
         if (!response.ok) {
+            console.error('Company details response not ok:', response.status, response.statusText);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        return await response.json();
+        const data = await response.json();
+        console.log('Fetched company details:', data);
+        return data;
     } catch (error) {
+        console.error('Company details fetch error:', error);
         if (error.name === 'AbortError') {
             throw new Error('Request timed out. Please check your connection and try again.');
         }
@@ -80,8 +95,12 @@ async function fetchCompanyDetails(companyId) {
 // Rendering Functions
 function renderWorkSection(companies) {
     const workGrid = document.querySelector('.work-grid');
-    if (!workGrid) return;
+    if (!workGrid) {
+        console.error('Work grid element not found');
+        return;
+    }
 
+    console.log('Rendering companies:', companies);
     const sortedCompanies = sortCompaniesByDate(companies);
     workGrid.innerHTML = sortedCompanies.map(createCompanyTile).join('');
 }
@@ -94,7 +113,7 @@ function createCompanyTile(company) {
             <div class="company-tooltip">${companyDescription}</div>
             <div class="logo-section" style="background-color: ${branding.colors.primary}">
                 <img
-                    src="${branding.logos.white}"
+                    src="${CONFIG.BASE_PATH}${branding.logos.white}"
                     alt="${name} logo"
                     class="company-logo"
                     loading="lazy"
@@ -156,6 +175,7 @@ async function handleTileClick(event) {
         const details = await fetchCompanyDetails(companyId);
         showCompanyDetails(details);
     } catch (error) {
+        console.error('Error handling tile click:', error);
         handleError('Failed to load company details', error);
     }
 }
@@ -163,13 +183,18 @@ async function handleTileClick(event) {
 // Modal Functions
 function showCompanyDetails(details) {
     const modal = document.getElementById('companyDetails');
-    if (!modal) return;
+    if (!modal) {
+        console.error('Modal element not found');
+        return;
+    }
 
     const modalBody = modal.querySelector('.modal-body');
-    if (!modalBody) return;
+    if (!modalBody) {
+        console.error('Modal body not found');
+        return;
+    }
 
     modalBody.innerHTML = createDetailsContent(details);
-
     modal.style.display = 'block';
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -223,7 +248,7 @@ function createMediaSection(media) {
             ${media.map(item => `
                 <figure>
                     <img
-                        src="${item.src}"
+                        src="${CONFIG.BASE_PATH}${item.src}"
                         alt="${item.alt}"
                         loading="lazy"
                     >
