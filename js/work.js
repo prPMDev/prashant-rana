@@ -2,9 +2,10 @@
 const CONFIG = {
     FETCH_TIMEOUT: 5000,
     ANIMATION_DURATION: 500,
+    BASE_PATH: '/prashant-rana', // Add base path
     PATHS: {
-        WORK_DATA: '/data/work.json',
-        WORK_ARTIFACTS: '/work-artifacts'
+        WORK_DATA: '/prashant-rana/data/work.json',        // Update path
+        WORK_ARTIFACTS: '/prashant-rana/work-artifacts'    // Update path
     }
 };
 
@@ -27,6 +28,8 @@ async function fetchWorkData() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
 
+        console.log('Fetching from:', CONFIG.PATHS.WORK_DATA); // Debug log
+
         const response = await fetch(CONFIG.PATHS.WORK_DATA, {
             signal: controller.signal
         });
@@ -34,11 +37,15 @@ async function fetchWorkData() {
         clearTimeout(timeoutId);
 
         if (!response.ok) {
+            console.error('Response not ok:', response.status, response.statusText); // Debug log
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        return await response.json();
+        const data = await response.json();
+        console.log('Fetched data:', data); // Debug log
+        return data;
     } catch (error) {
+        console.error('Fetch error:', error); // Debug log
         if (error.name === 'AbortError') {
             throw new Error('Request timed out. Please check your connection and try again.');
         }
