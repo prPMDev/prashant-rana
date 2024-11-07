@@ -4,24 +4,36 @@ const CONFIG = {
     ANIMATION_DURATION: 500,
     BASE_PATH: '/prashant-rana',
     PATHS: {
-        WORK_DATA: '/prashant-rana/data/work.json',
-        WORK_ARTIFACTS: '/prashant-rana/work-artifacts'
+        WORK_DATA: '/prashant-rana/data/work.json'
     }
 };
 
-// Initialization
+const ErrorTypes = {
+    FILE_NOT_FOUND: 'FILE_NOT_FOUND',
+    DATA_INVALID: 'DATA_INVALID',
+    IMAGE_LOAD_ERROR: 'IMAGE_LOAD_ERROR',
+    NETWORK_ERROR: 'NETWORK_ERROR',
+    UNKNOWN_ERROR: 'UNKNOWN_ERROR'
+};
+
+// Main Initialization
 document.addEventListener('DOMContentLoaded', initializeWork);
 
 async function initializeWork() {
     try {
         console.log('Initializing work section...');
         const workData = await fetchWorkData();
-        console.log('Work data received:', workData);
 
-        if (!workData || !workData.companies) {
-            throw new Error('Invalid work data format');
+        if (!workData?.companies || !Array.isArray(workData.companies)) {
+            throw new Error(createErrorMessage(ErrorTypes.DATA_INVALID, 'missing companies array'));
         }
 
+        if (!validateCompanyData(workData.companies)) {
+            throw new Error(createErrorMessage(ErrorTypes.DATA_INVALID, 'work.json'));
+        }
+
+        window.workData = workData; // Store for modal use
+        console.log('Valid work data received, rendering section...');
         renderWorkSection(workData.companies);
         initializeEventListeners();
     } catch (error) {
@@ -36,57 +48,32 @@ async function fetchWorkData() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
 
-        console.log('Fetching from:', CONFIG.PATHS.WORK_DATA);
+        console.log(`Attempting to fetch work data from: ${CONFIG.PATHS.WORK_DATA}`);
 
-        const response = await fetch(CONFIG.PATHS.WORK_DATA, {
+        const response = await fetch(`${CONFIG.BASE_PATH}/data/work.json`, {
             signal: controller.signal
         });
 
         clearTimeout(timeoutId);
 
         if (!response.ok) {
-            console.error('Response not ok:', response.status, response.statusText);
+            if (response.status === 404) {
+                throw new Error(createErrorMessage(ErrorTypes.FILE_NOT_FOUND, 'work.json'));
+            }
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('Fetched data:', data);
+        console.log('Successfully fetched work data');
         return data;
     } catch (error) {
-        console.error('Fetch error:', error);
+        console.error('Fetch error details:', error);
+
         if (error.name === 'AbortError') {
-            throw new Error('Request timed out. Please check your connection and try again.');
+            throw new Error(createErrorMessage(ErrorTypes.NETWORK_ERROR, 'request timeout'));
         }
-        throw error;
-    }
-}
-
-async function fetchCompanyDetails(companyId) {
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
-
-        const url = `${CONFIG.PATHS.WORK_ARTIFACTS}/${companyId}/work-samples.json`;
-        console.log('Fetching company details from:', url);
-
-        const response = await fetch(url, {
-            signal: controller.signal
-        });
-
-        clearTimeout(timeoutId);
-
-        if (!response.ok) {
-            console.error('Company details response not ok:', response.status, response.statusText);
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Fetched company details:', data);
-        return data;
-    } catch (error) {
-        console.error('Company details fetch error:', error);
-        if (error.name === 'AbortError') {
-            throw new Error('Request timed out. Please check your connection and try again.');
+        if (error.name === 'SyntaxError') {
+            throw new Error(createErrorMessage(ErrorTypes.DATA_INVALID, 'invalid JSON format in work.json'));
         }
         throw error;
     }
@@ -100,23 +87,26 @@ function renderWorkSection(companies) {
         return;
     }
 
-    console.log('Rendering companies:', companies);
     const sortedCompanies = sortCompaniesByDate(companies);
     workGrid.innerHTML = sortedCompanies.map(createCompanyTile).join('');
 }
 
 function createCompanyTile(company) {
-    const { id, companyDescription, branding, name, role, timeline, scope } = company;
+    const { id, companyDescription, branding, name, role, timeline } = company;
+
+    const imagePath = `${CONFIG.BASE_PATH}/images/company-logos/${id}-logo-transparent.png`;
+    console.log(`Loading company logo from: ${imagePath}`);
 
     return `
         <div class="company-tile fade-in" data-company-id="${id}">
             <div class="company-tooltip">${companyDescription}</div>
             <div class="logo-section" style="background-color: ${branding.colors.primary}">
                 <img
-                    src="${CONFIG.BASE_PATH}${branding.logos.white}"
+                    src="${imagePath}"
                     alt="${name} logo"
                     class="company-logo"
                     loading="lazy"
+                    onerror="handleImageError(this, '${id}')"
                 >
             </div>
             <div class="content-section">
@@ -124,7 +114,64 @@ function createCompanyTile(company) {
                     <p class="role-title">${role.title}</p>
                     <p class="timeline">${formatTimeline(timeline)}</p>
                 </div>
-                <p class="scope">${scope}</p>
+                <p class="scope">${company.overview.description}</p>
+            </div>
+        </div>
+    `;
+}
+
+function createDetailsContent(details) {
+    const { overview, achievements } = details;
+
+    return `
+        <div class="details-container">
+            <div class="details-header">
+                <div class="skillset-container">
+                    <div class="technical-skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-tags">
+                            ${overview.skillset.technical.map(skill => `
+                                <span class="skill-tag technical">${skill}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="functional-skills">
+                        <h3>Functional Skills</h3>
+                        <div class="skill-tags">
+                            ${overview.skillset.functional.map(skill => `
+                                <span class="skill-tag functional">${skill}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements-section">
+                ${achievements.map(achievement => `
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <div>
+                                <h3>${achievement.title}</h3>
+                                <span class="period">${achievement.period}</span>
+                            </div>
+                            ${achievement.projectUrl ? `
+                                <a href="${achievement.projectUrl}"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="project-link"
+                                   title="View Project">
+                                    <span class="link-icon">→</span>
+                                </a>
+                            ` : ''}
+                        </div>
+                        <p class="description">${achievement.description}</p>
+                        <ul class="impact-list">
+                            ${achievement.impact.map(item => `
+                                <li>${item}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `).join('')}
             </div>
         </div>
     `;
@@ -144,39 +191,48 @@ function initializeTileListeners() {
 
 function initializeModalListeners() {
     const modal = document.getElementById('companyDetails');
-    if (!modal) return;
+    if (!modal) {
+        console.error('Modal element not found');
+        return;
+    }
 
-    // Close button listener
     const closeBtn = modal.querySelector('.close');
     if (closeBtn) {
         closeBtn.addEventListener('click', () => closeModal(modal));
     }
 
-    // Outside click listener
+    // Close on outside click
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             closeModal(modal);
         }
     });
 
-    // Escape key listener
+    // Close on escape key
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.style.display === 'block') {
+        if (event.key === 'Escape' && modal.classList.contains('open')) {
             closeModal(modal);
         }
     });
 }
 
 // Event Handlers
-async function handleTileClick(event) {
+function handleTileClick(event) {
     const companyId = event.currentTarget.dataset.companyId;
+    const companies = document.querySelectorAll('.company-tile');
+    const clickedCompany = Array.from(companies).find(
+        company => company.dataset.companyId === companyId
+    );
 
-    try {
-        const details = await fetchCompanyDetails(companyId);
-        showCompanyDetails(details);
-    } catch (error) {
-        console.error('Error handling tile click:', error);
-        handleError('Failed to load company details', error);
+    if (clickedCompany) {
+        const companyData = window.workData.companies.find(
+            company => company.id === companyId
+        );
+        if (companyData) {
+            showCompanyDetails(companyData);
+        } else {
+            console.error(`Company data not found for ID: ${companyId}`);
+        }
     }
 }
 
@@ -190,7 +246,7 @@ function showCompanyDetails(details) {
 
     const modalBody = modal.querySelector('.modal-body');
     if (!modalBody) {
-        console.error('Modal body not found');
+        console.error('Modal body element not found');
         return;
     }
 
@@ -206,68 +262,93 @@ function closeModal(modal) {
     document.body.style.overflow = '';
 }
 
-function createDetailsContent(details) {
-    const { overview, achievements } = details;
+// Validation Functions
+function validateCompanyData(companies) {
+    const validationErrors = [];
 
-    return `
-        <div class="details-container">
-            <div class="details-header">
-                <h2>${overview.industry}</h2>
-                <p class="focus-areas">${overview.productFocus.join(' • ')}</p>
-            </div>
-            <div class="achievements-section">
-                ${achievements.map(createAchievementCard).join('')}
-            </div>
-        </div>
-    `;
+    companies.forEach(company => {
+        const errors = [];
+
+        // Check required fields
+        if (!company.id) errors.push('Missing company ID');
+        if (!company.name) errors.push('Missing company name');
+        if (!company.branding?.colors?.primary) errors.push('Missing branding colors');
+        if (!company.role?.title) errors.push('Missing role title');
+        if (!company.timeline?.start) errors.push('Missing timeline start');
+
+        // Check data structure
+        if (!company.overview?.description) errors.push('Missing overview description');
+        if (!company.overview?.skillset?.technical) errors.push('Missing technical skillset');
+        if (!company.overview?.skillset?.functional) errors.push('Missing functional skillset');
+        if (!Array.isArray(company.achievements)) errors.push('Missing or invalid achievements array');
+
+        if (errors.length > 0) {
+            validationErrors.push({
+                company: company.id || 'Unknown Company',
+                errors
+            });
+        }
+    });
+
+    if (validationErrors.length > 0) {
+        console.error('Company Data Validation Errors:', validationErrors);
+        return false;
+    }
+
+    return true;
 }
 
-function createAchievementCard(achievement) {
-    const { title, period, description, details, media } = achievement;
-
-    return `
-        <div class="achievement-card">
-            <h3>${title}</h3>
-            <p class="period">${period}</p>
-            <p class="description">${description}</p>
-            <div class="details">
-                <ul>
-                    ${details.map(detail => `<li>${detail}</li>`).join('')}
-                </ul>
-            </div>
-            ${media ? createMediaSection(media) : ''}
-        </div>
-    `;
+// Error Handling Functions
+function createErrorMessage(type, details) {
+    switch (type) {
+        case ErrorTypes.FILE_NOT_FOUND:
+            return `Failed to load ${details}. Please verify the file exists in the correct location.`;
+        case ErrorTypes.DATA_INVALID:
+            return `Invalid data structure in ${details}. Please check the console for specific validation errors.`;
+        case ErrorTypes.IMAGE_LOAD_ERROR:
+            return `Failed to load image for ${details}. Please verify image exists and is correctly named.`;
+        case ErrorTypes.NETWORK_ERROR:
+            return `Network error while fetching ${details}. Please check your connection.`;
+        default:
+            return `An unexpected error occurred: ${details}`;
+    }
 }
 
-function createMediaSection(media) {
-    if (!media?.length) return '';
+function handleImageError(img, companyId) {
+    console.error(`Failed to load image for company: ${companyId}`);
+    img.onerror = null; // Prevent infinite loop
+    img.src = `${CONFIG.BASE_PATH}/images/placeholder.txt`;
+    showErrorMessage(createErrorMessage(ErrorTypes.IMAGE_LOAD_ERROR, companyId), 'warning');
+}
 
-    return `
-        <div class="media-section">
-            ${media.map(item => `
-                <figure>
-                    <img
-                        src="${CONFIG.BASE_PATH}${item.src}"
-                        alt="${item.alt}"
-                        loading="lazy"
-                    >
-                    ${item.caption ? `<figcaption>${item.caption}</figcaption>` : ''}
-                </figure>
-            `).join('')}
+function handleError(message, error) {
+    console.error(message, error);
+    showErrorMessage(`${message}. Please try again later.`);
+}
+
+function showErrorMessage(message, type = 'error') {
+    const workGrid = document.querySelector('.work-grid');
+    if (!workGrid) return;
+
+    const errorDiv = document.createElement('div');
+    errorDiv.className = `error-message ${type}`;
+    errorDiv.innerHTML = `
+        <div class="error-content">
+            <span class="error-icon">${type === 'error' ? '❌' : '⚠️'}</span>
+            <span class="error-text">${message}</span>
         </div>
     `;
+
+    workGrid.insertAdjacentElement('beforebegin', errorDiv);
 }
 
 // Utility Functions
 function sortCompaniesByDate(companies) {
     return companies.sort((a, b) => {
-        // Primary sort by importance
         if (a.importance !== b.importance) {
             return a.importance - b.importance;
         }
 
-        // Secondary sort by date
         if (a.timeline.end === 'present') return -1;
         if (b.timeline.end === 'present') return 1;
 
@@ -284,27 +365,9 @@ function formatTimeline(timeline) {
 
 function formatDate(dateStr) {
     const [year, month] = dateStr.split('-');
-    const date = new Date(year, parseInt(month) - 1);
-
-    return date.toLocaleDateString('en-US', {
-        month: 'short',
-        year: 'numeric'
-    });
+    // Just return the year
+    return year;
 }
 
-// Error Handling
-function handleError(message, error) {
-    console.error(message, error);
-    showErrorMessage(`${message}. Please try again later.`);
-}
-
-function showErrorMessage(message) {
-    const workGrid = document.querySelector('.work-grid');
-    if (!workGrid) return;
-
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-
-    workGrid.insertAdjacentElement('beforebegin', errorDiv);
-}
+// Add this for debugging purposes
+console.log('Work.js loaded successfully');

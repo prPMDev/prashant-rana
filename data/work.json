@@ -1,25 +1,22 @@
 {
   "config": {
     "imagePaths": {
-      "logos": "/images/company-logos",
-      "artifacts": "/work-artifacts"
+      "logos": "/images/company-logos"
     }
   },
   "companies": [
     {
       "id": "avalara",
       "name": "Avalara",
+      "companyUrl": "https://avalara.com",
       "companyDescription": "Leading SaaS provider of tax compliance solutions, serving 30K+ businesses globally",
-      "detailsLink": "#avalara-details",
       "importance": 1,
       "branding": {
         "logos": {
-          "default": "/images/company-logos/avalara-logo.jpg",
-          "white": "/work-artifacts/avalara/avalara-logo-white.png"
+          "white": "/images/company-logos/avalara-logo-transparent.png"
         },
         "colors": {
-          "primary": "#FF6F00",
-          "text": "#FFFFFF"
+          "primary": "#FF6F00"
         }
       },
       "timeline": {
@@ -30,20 +27,64 @@
         "title": "Senior Product Manager",
         "level": "Senior"
       },
-      "scope": "Leading API-first tax compliance solutions for global e-commerce platforms. Driving integration partnerships, developer experience improvements, and platform scalability initiatives."
+      "overview": {
+        "description": "Leading API-first tax compliance solutions for global e-commerce, driving multi-million dollar ARR through major platform integrations. Focus on developer experience, platform scalability, and strategic partnerships.",
+        "skillset": {
+          "technical": [
+            "REST APIs",
+            "AI/ML Integration",
+            "Platform Architecture",
+            "Developer Tools",
+            "Data Processing"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Partner Management",
+            "Revenue Growth",
+            "Platform Scaling",
+            "Team Leadership"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Global Tax Compliance App for Shopify",
+          "period": "2023",
+          "projectUrl": "https://www.prnewswire.com/news-releases/avalara-expands-partnership-with-shopify-to-enable-global-tax-compliance-for-merchants-302141531.html",
+          "description": "Led end-to-end development and launch of Avalara's tax compliance application for Shopify's global merchant base.",
+          "impact": [
+            "Generated multi-million dollar revenue stream through strategic partnership",
+            "Achieved double-digit YoY direct ARR growth",
+            "Significantly reduced merchant integration time",
+            "Implemented automated tax determination for 40+ countries"
+          ]
+        },
+        {
+          "title": "Tax Returns API Enhancement",
+          "period": "2022-2023",
+          "description": "Led product improvements for tax returns API across major e-commerce platforms",
+          "impact": [
+            "Expanded integration portfolio across Square, Squarespace, and Amazon",
+            "Strengthened market leadership in e-commerce tax compliance",
+            "Dramatically improved catalog processing speed through AI-driven classification",
+            "Unlocked mid-market segment through strategic partnership with leading SMB platform"
+          ]
+        }
+      ]
     },
+
     {
       "id": "oracle",
       "name": "Oracle",
+      "companyUrl": "https://www.oracle.com",
+      "companyDescription": "Fortune 100 enterprise software leader in database and cloud solutions",
       "importance": 2,
       "branding": {
         "logos": {
-          "default": "/images/company-logos/oracle-logo.jpg",
-          "white": "/work-artifacts/oracle/oracle-logo-white.png"
+          "white": "/images/company-logos/oracle-logo-transparent.png"
         },
         "colors": {
-          "primary": "#C74634",
-          "text": "#FFFFFF"
+          "primary": "#C74634"
         }
       },
       "timeline": {
@@ -54,20 +95,63 @@
         "title": "Product Manager",
         "level": "Mid"
       },
-      "scope": "Managed product strategy and execution for Oracle's B2B CRM data platform processing millions of records daily. Enhanced API framework and launched ML-powered features improving operational efficiency."
+      "overview": {
+        "description": "Managed product strategy for Oracle's B2B CRM data platform processing millions of records daily. Focus on big data operations and ML-powered solutions.",
+        "skillset": {
+          "technical": [
+            "Big Data Processing",
+            "ML/AI",
+            "OCI Data Lake",
+            "API Framework",
+            "Data Analytics"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Resource Optimization",
+            "Performance Improvements",
+            "Customer Success",
+            "Cost Optimization"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "API Framework Enhancement",
+          "period": "2022",
+          "description": "Enhanced multi-source processing capabilities for big data operations",
+          "impact": [
+            "Substantially improved data processing throughput",
+            "Delivered significant annual cost savings per customer",
+            "Implemented ML-powered prediction engine for large-scale operations",
+            "Substantially reduced resource planning overhead for CRM administrators"
+          ]
+        },
+        {
+          "title": "Data Insights Platform",
+          "period": "2021",
+          "description": "Built advanced data insights functionality using OCI Data Lake technologies",
+          "impact": [
+            "Enabled customers to identify significant data redundancies",
+            "Reduced time-to-insight from months to days",
+            "Improved decision-making capabilities for B2B customers",
+            "Enhanced data quality and processing efficiency"
+          ]
+        }
+      ]
     },
+
     {
       "id": "spacelabs",
       "name": "Spacelabs Healthcare",
+      "companyUrl": "https://www.spacelabshealthcare.com",
+      "companyDescription": "Leading provider of medical devices and healthcare monitoring solutions",
       "importance": 3,
       "branding": {
         "logos": {
-          "default": "/images/company-logos/spacelabs-logo.jpg",
-          "white": "/work-artifacts/spacelabs/spacelabs-logo-white.png"
+          "white": "/images/company-logos/spacelabs-logo-transparent.png"
         },
         "colors": {
-          "primary": "#005EB8",
-          "text": "#FFFFFF"
+          "primary": "#000000"
         }
       },
       "timeline": {
@@ -78,20 +162,63 @@
         "title": "Product Owner",
         "level": "Mid"
       },
-      "scope": "Owned product execution strategy for healthcare data exchange and monitoring products. Developed centralized health data exchange system and remote access tools during COVID-19."
+      "overview": {
+        "description": "Led healthcare data exchange and monitoring products strategy during critical COVID-19 period, driving multi-million dollar ARR while ensuring healthcare compliance.",
+        "skillset": {
+          "technical": [
+            "Healthcare Systems",
+            "Data Exchange",
+            "Compliance",
+            "Remote Access",
+            "Device Integration"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Healthcare Compliance",
+            "Vendor Management",
+            "Cost Optimization",
+            "Remote Operations"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Electronic Health Data Exchange System",
+          "period": "2020-2021",
+          "description": "Developed centralized system for healthcare data exchange while maintaining compliance",
+          "impact": [
+            "Significantly improved device throughput efficiency",
+            "Achieved substantial cost reduction while maintaining compliance",
+            "Enhanced data exchange capabilities across medical devices",
+            "Improved healthcare provider operational efficiency"
+          ]
+        },
+        {
+          "title": "Remote Support Infrastructure",
+          "period": "2020",
+          "description": "Built secure remote access infrastructure during COVID-19 crisis",
+          "impact": [
+            "Enabled remote hardware support operations during pandemic",
+            "Substantially improved support efficiency through vendor partnerships",
+            "Maintained critical healthcare operations during lockdown",
+            "Reduced on-site support requirements while maintaining service quality"
+          ]
+        }
+      ]
     },
+
     {
       "id": "datafi",
       "name": "Datafi Labs",
+      "companyUrl": "https://datafi.co/",
+      "companyDescription": "Innovation-focused startup in data access control and governance",
       "importance": 5,
       "branding": {
         "logos": {
-          "default": "/images/company-logos/datafi-logo.jpg",
-          "white": "/work-artifacts/datafi/datafi-logo-white.png"
+          "white": "/images/company-logos/datafi-logo-transparent.png"
         },
         "colors": {
-          "primary": "#2E7D32",
-          "text": "#FFFFFF"
+          "primary": "#3d9aee"
         }
       },
       "timeline": {
@@ -102,20 +229,51 @@
         "title": "Product Consultant",
         "level": "Mid"
       },
-      "scope": "Designed product strategy for an innovative data access control platform. Developed startup's first unified data platform from concept to MVP securing pilot customers."
+      "overview": {
+        "description": "Drove product strategy for innovative data access control platform from concept to MVP, securing early customer adoption and funding.",
+        "skillset": {
+          "technical": [
+            "Data Platform",
+            "Access Control",
+            "MVP Development",
+            "Platform Architecture",
+            "Security"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Startup Operations",
+            "Customer Acquisition",
+            "Market Validation",
+            "Stakeholder Management"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Unified Data Platform MVP",
+          "period": "2020",
+          "description": "Led development of startup's first unified data platform from concept to MVP",
+          "impact": [
+            "Secured initial pilot customers",
+            "Enabled seed funding round",
+            "Delivered MVP within aggressive timeline",
+            "Established product-market fit through customer validation"
+          ]
+        }
+      ]
     },
     {
       "id": "zs",
       "name": "ZS Associates",
+      "companyUrl": "https://www.zs.com",
+      "companyDescription": "Global management consulting and technology leader in healthcare and life sciences",
       "importance": 4,
       "branding": {
         "logos": {
-          "default": "/images/company-logos/zs-logo.jpg",
-          "white": "/work-artifacts/zs/zs-logo-white.png"
+          "white": "/images/company-logos/zs-logo-transparent.png"
         },
         "colors": {
-          "primary": "#1565C0",
-          "text": "#FFFFFF"
+          "primary": "#eb7200"
         }
       },
       "timeline": {
@@ -126,20 +284,62 @@
         "title": "Associate Product Manager",
         "level": "Junior"
       },
-      "scope": "Drove strategy and execution for enterprise analytics platform in healthcare. Launched REVO™ Analytics Workbench on AWS and developed rapid application development platform."
+      "overview": {
+        "description": "Led enterprise analytics platform development in healthcare domain, delivering multi-million dollar annual revenue through AWS-based solutions.",
+        "skillset": {
+          "technical": [
+            "AWS Cloud",
+            "Analytics Platform",
+            "ML/AI Compute",
+            "Healthcare Analytics",
+            "Application Development"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Cost Optimization",
+            "Platform Development",
+            "Healthcare Domain",
+            "Resource Management"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "REVO™ Analytics Workbench",
+          "period": "2019-2020",
+          "description": "Launched cloud-based analytics platform on AWS",
+          "impact": [
+            "Dramatically reduced ML/AI compute resource access time",
+            "Achieved significant reduction in usage costs",
+            "Enhanced analytics capabilities for healthcare clients",
+            "Improved resource utilization efficiency"
+          ]
+        },
+        {
+          "title": "Rapid Development Platform",
+          "period": "2018-2019",
+          "description": "Developed template-based rapid application development platform",
+          "impact": [
+            "Created new revenue stream through platform offering",
+            "Substantially reduced customer deployment costs",
+            "Accelerated application development lifecycle",
+            "Improved solution delivery efficiency"
+          ]
+        }
+      ]
     },
     {
       "id": "tcs",
       "name": "Tata Consultancy Services",
+      "companyUrl": "https://www.tcs.com",
+      "companyDescription": "Global leader in IT services and digital solutions",
       "importance": 6,
       "branding": {
         "logos": {
-          "default": "/images/company-logos/tcs-logo.jpg",
-          "white": "/work-artifacts/tcs/tcs-logo-white.png"
+          "white": "/images/company-logos/tata-logo-transparent.png"
         },
         "colors": {
-          "primary": "#0033A0",
-          "text": "#FFFFFF"
+          "primary": "#0080c5"
         }
       },
       "timeline": {
@@ -150,7 +350,49 @@
         "title": "Program Manager & Developer",
         "level": "Mid"
       },
-      "scope": "Led presales, delivery, and implementation of TCS TAP™ P2P automation SaaS product. Built and led technical strategy for enterprise documentation platform."
+      "overview": {
+        "description": "Progressed from development to program management, leading P2P automation solutions and enterprise documentation platforms.",
+        "skillset": {
+          "technical": [
+            "Full Stack Development",
+            "P2P Automation",
+            "Enterprise Systems",
+            "Documentation Platform",
+            "System Architecture"
+          ],
+          "functional": [
+            "Program Management",
+            "Pre-sales",
+            "Implementation",
+            "Team Leadership",
+            "Solution Design"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "TCS TAP™ P2P Automation",
+          "period": "2016-2018",
+          "description": "Led implementation of P2P automation solution for major US corporations",
+          "impact": [
+            "Delivered multi-million dollar revenue through successful implementations",
+            "Enhanced process automation efficiency for clients",
+            "Improved solution adoption across enterprises",
+            "Streamlined implementation methodology"
+          ]
+        },
+        {
+          "title": "Enterprise Documentation Platform",
+          "period": "2010-2016",
+          "description": "Developed and led technical strategy for documentation platform",
+          "impact": [
+            "Achieved significant reduction in support costs",
+            "Improved documentation efficiency",
+            "Enhanced system maintainability",
+            "Streamlined documentation processes"
+          ]
+        }
+      ]
     }
   ]
 }
