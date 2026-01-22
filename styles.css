@@ -25,6 +25,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -39,7 +41,6 @@ header {
 
 .navigation {
     display: flex;
-    margin-left: auto;
     gap: 20px;
 }
 
@@ -47,15 +48,20 @@ header {
     text-decoration: none;
     color: #333;
     text-transform: lowercase;
+    transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+    color: #666;
 }
 
 /* Hero Section */
 .hero {
     display: flex;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     background-color: #fff;
-    padding: 40px;
+    padding: 30px;
     border-radius: 10px;
     animation: fadeIn 2s ease-in-out;
 }
@@ -94,13 +100,13 @@ header {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .linkedin-logo-link,
 .github-logo-link,
 .instagram-logo-link {
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .linkedin-logo,
@@ -213,6 +219,45 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header-content {
+        padding: 10px 15px;
+    }
+
+    .navigation {
+        gap: 15px;
+    }
+
+    .navigation a {
+        font-size: 0.9em;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero-image-wrapper {
+        width: 200px;
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn {
+        margin-right: 0;
+    }
+
     .testimonials {
         padding: 0 15px;
     }

@@ -30,7 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeImages();
     initializeTestimonials();
     loadHeaderFooter();
+    calculateYears();
 });
+
+// Calculate dynamic years for experience
+function calculateYears() {
+    const currentYear = new Date().getFullYear();
+    const techYears = currentYear - 2010;
+    const pmYears = currentYear - 2016;
+
+    const techEl = document.getElementById('tech-years');
+    const pmEl = document.getElementById('pm-years');
+
+    if (techEl) techEl.textContent = techYears;
+    if (pmEl) pmEl.textContent = pmYears;
+}
 
 function loadHeaderFooter() {
     log('Loading header and footer');
