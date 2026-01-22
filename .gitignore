@@ -12,3 +12,8 @@ node_modules/
 # Local development
 *.log
 npm-debug.log*
+
+# Claude Code (private, not committed)
+CLAUDE.md
+claude.md
+.claude/
