@@ -12,7 +12,7 @@
       "name": "Avalara",
       "companyUrl": "https://avalara.com",
       "companyDescription": "Leading SaaS provider of tax compliance solutions, serving 30K+ businesses globally",
-      "tags": ["api", "integrations", "platform", "partnerships", "marketplace"],
+      "tags": ["api", "integrations", "platform", "0-to-1", "scale"],
       "branding": {
         "logos": {
           "white": "images/company-logos/avalara-logo-transparent.png"
@@ -204,7 +204,7 @@
       "name": "ZS Associates",
       "companyUrl": "https://www.zs.com",
       "companyDescription": "Global management consulting and technology leader in healthcare and life sciences",
-      "tags": ["healthcare", "analytics", "cloud", "platform"],
+      "tags": ["analytics", "platform", "aws", "0-to-1"],
       "branding": {
         "logos": {
           "white": "images/company-logos/zs-logo-transparent.png"
@@ -218,7 +218,7 @@
         "level": "Junior"
       },
       "overview": {
-        "description": "Led enterprise analytics platform development in healthcare domain, delivering multi-million dollar annual revenue through AWS-based solutions.",
+        "description": "Built enterprise analytics platform products in healthcare/life sciences — from 0-to-1 AWS resource management to rapid application deployment tools.",
         "skillset": {
           "technical": [
             "AWS Cloud",
@@ -238,25 +238,26 @@
       },
       "achievements": [
         {
-          "title": "REVO™ Analytics Workbench",
-          "period": "2019-2020",
-          "description": "Launched cloud-based analytics platform on AWS",
+          "title": "REVO™ Workbench Management Console",
+          "description": "First 0-to-1 product — intelligent AWS resource provisioning for data science teams as part of the REVO Analytics platform",
+          "videoUrl": "https://www.youtube.com/watch?v=lcSU_xVDR30",
+          "links": [
+            {"label": "Press Release", "url": "https://www.prnewswire.com/news-releases/zs-introduces-aws-powered-end-to-end-analytics-platform-for-life-sciences-industry-300453648.html"}
+          ],
           "impact": [
-            "Dramatically reduced ML/AI compute resource access time",
-            "Achieved significant reduction in usage costs",
-            "Enhanced analytics capabilities for healthcare clients",
-            "Improved resource utilization efficiency"
+            "Reduced ML/AI compute resource provisioning time by ~80%",
+            "Cut customer infrastructure costs by ~30%",
+            "Self-service console for project creation, team management, and resource allocation"
           ]
         },
         {
-          "title": "Rapid Development Platform",
-          "period": "2018-2019",
-          "description": "Developed template-based rapid application development platform",
+          "title": "Javelin Application Catalyst",
+          "description": "Prebuilt application templates integrating web frameworks and Iron Python for rapid analytics deployment",
           "impact": [
-            "Created new revenue stream through platform offering",
-            "Substantially reduced customer deployment costs",
-            "Accelerated application development lifecycle",
-            "Improved solution delivery efficiency"
+            "Generated $XXXK in new ARR within first year",
+            "Reduced deployment costs by ~60%",
+            "Accelerated custom analytics application development",
+            "Stabilized platform and transitioned to maintenance mode"
           ]
         }
       ]
