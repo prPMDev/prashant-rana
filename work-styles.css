@@ -105,6 +105,7 @@
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    width: 100%;
 }
 
 .company-tile:hover {
@@ -564,7 +565,6 @@
         margin-bottom: 20px;
         width: 100%;
         margin: 0 auto;
-    }
     }
 
     .achievement-card {
