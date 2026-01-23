@@ -138,6 +138,19 @@ function renderTestimonials(testimonials) {
         container.appendChild(second);
         log('Added clone testimonials for infinite scroll');
     }
+
+    // Check truncation and show "Read more" only when needed
+    setTimeout(checkTruncation, 100);
+}
+
+function checkTruncation() {
+    const blockquotes = document.querySelectorAll('.testimonial blockquote');
+    blockquotes.forEach(bq => {
+        const readMore = bq.parentElement.querySelector('.read-more');
+        if (readMore && bq.scrollHeight > bq.clientHeight) {
+            readMore.classList.add('visible');
+        }
+    });
 }
 
 function createTestimonialElement(testimonial) {
