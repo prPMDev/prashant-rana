@@ -171,38 +171,23 @@ function createItemTile(item) {
 }
 
 function createDetailsContent(details) {
-    const { overview, achievements } = details;
+    const { achievements } = details;
 
     return `
         <div class="details-container">
-            <div class="details-header">
-                <div class="skillset-container">
-                    <div class="technical-skills">
-                        <h3>Technical Skills</h3>
-                        <div class="skill-tags">
-                            ${overview.skillset.technical.map(skill => `
-                                <span class="skill-tag technical">${skill}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="functional-skills">
-                        <h3>Functional Skills</h3>
-                        <div class="skill-tags">
-                            ${overview.skillset.functional.map(skill => `
-                                <span class="skill-tag functional">${skill}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="achievements-section">
                 ${achievements.map(achievement => `
                     <div class="achievement-card">
                         <div class="achievement-header">
                             <div>
                                 <h3>${achievement.title}</h3>
-                                ${achievement.period ? `<span class="period">${achievement.period}</span>` : ''}
+                                ${achievement.links?.length ? `
+                                    <div class="achievement-links">
+                                        ${achievement.links.map((link, i) => `
+                                            <a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label}</a>${i < achievement.links.length - 1 ? '<span class="link-separator">·</span>' : ''}
+                                        `).join('')}
+                                    </div>
+                                ` : ''}
                             </div>
                             ${achievement.projectUrl ? `
                                 <a href="${achievement.projectUrl}"
@@ -214,11 +199,6 @@ function createDetailsContent(details) {
                                 </a>
                             ` : ''}
                         </div>
-                        ${achievement.tags?.length ? `
-                            <div class="achievement-tags">
-                                ${achievement.tags.map(tag => `<span class="achievement-tag">${tag}</span>`).join('')}
-                            </div>
-                        ` : ''}
                         <div class="achievement-body ${achievement.videoUrl ? 'has-video' : ''}">
                             <div class="achievement-content">
                                 <p class="description">${achievement.description}</p>
@@ -243,13 +223,6 @@ function createDetailsContent(details) {
                                 </div>
                             ` : ''}
                         </div>
-                        ${achievement.links?.length ? `
-                            <div class="achievement-links">
-                                ${achievement.links.map((link, i) => `
-                                    <a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label}</a>${i < achievement.links.length - 1 ? '<span class="link-separator">·</span>' : ''}
-                                `).join('')}
-                            </div>
-                        ` : ''}
                     </div>
                 `).join('')}
             </div>

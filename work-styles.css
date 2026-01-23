@@ -381,23 +381,6 @@
     margin-bottom: 0;
 }
 
-/* Achievement Tags */
-.achievement-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 16px;
-}
-
-.achievement-tag {
-    padding: 4px 10px;
-    background: #e8f4f8;
-    border-radius: 12px;
-    font-size: 0.75em;
-    color: #1a6b8a;
-    font-weight: 500;
-}
-
 /* Achievement Body - 70/30 layout when video present */
 .achievement-body {
     display: block;
@@ -438,15 +421,13 @@
     border: 0;
 }
 
-/* Achievement Links */
+/* Achievement Links - positioned under title */
 .achievement-links {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 4px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid #eee;
+    margin-top: 4px;
 }
 
 .achievement-links a {
