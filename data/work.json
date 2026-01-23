@@ -67,7 +67,8 @@
           "title": "Tax Returns App Launches/Upgrades",
           "description": "Led tax returns app launches and upgrades on partner platforms",
           "links": [
-            {"label": "Square Docs", "url": "https://knowledge.avalara.com/bundle/bwu1669465618357_bwu1669465618357/page/oml1708157227716.html"}
+            {"label": "Square Docs", "url": "https://knowledge.avalara.com/bundle/bwu1669465618357_bwu1669465618357/page/oml1708157227716.html"},
+            {"label": "Squarespace", "url": "https://www.squarespace.com/extensions/details/avalara"}
           ],
           "impact": [
             "Generated $XX million additional ARR across Square, Squarespace, and Amazon",
@@ -84,9 +85,9 @@
             {"label": "Press Release", "url": "https://www.xero.com/us/media-releases/xero-avalara-launch-auto-sales-tax/"}
           ],
           "impact": [
+            "Enabled Xero's expansion into the US market with compliant tax solution",
             "Simplified tax compliance for small businesses on Xero platform",
-            "Automated jurisdiction-specific tax calculations",
-            "Reduced manual tax administration overhead"
+            "Automated jurisdiction-specific tax calculations"
           ]
         },
         {
