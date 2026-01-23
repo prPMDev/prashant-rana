@@ -2,9 +2,9 @@
 const CONFIG = {
     FETCH_TIMEOUT: 5000,
     ANIMATION_DURATION: 500,
-    BASE_PATH: '/prashant-rana',
+    BASE_PATH: '',
     PATHS: {
-        WORK_DATA: '/prashant-rana/data/work.json'
+        WORK_DATA: 'data/work.json'
     }
 };
 

@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function calculateYears() {
     const currentYear = new Date().getFullYear();
     const techYears = currentYear - 2010;
-    const pmYears = currentYear - 2016;
+    const pmYears = currentYear - 2018;
 
     const techEl = document.getElementById('tech-years');
     const pmEl = document.getElementById('pm-years');
@@ -87,7 +87,7 @@ function initializeImages() {
 function initializeTestimonials() {
     log('Initializing testimonials');
     // Update path to match your directory structure
-    fetch('/prashant-rana/data/testimonials.json')
+    fetch('data/testimonials.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

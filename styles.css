@@ -88,6 +88,38 @@ header {
     margin-bottom: 10px;
 }
 
+.hero-content .aside {
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.hero-content s {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.hero-content .accent-subtle {
+    color: #c45c5c;
+}
+
+/* Pulsating animation */
+.pulse {
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(5px);
+        opacity: 0.7;
+    }
+}
+
 /* CTA Buttons */
 .cta-buttons {
     display: flex;
