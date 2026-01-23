@@ -25,20 +25,31 @@
 .view-toggle {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 0;
     margin-bottom: 30px;
+    width: 100%;             /* matches parent section width */
 }
 
 .toggle-pill {
-    padding: 10px 24px;
+    flex: 1;
+    padding: 12px 24px;
     border: 2px solid #333;
-    border-radius: 25px;
     background: transparent;
     color: #333;
     font-size: 1em;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
+}
+
+.toggle-pill:first-child {
+    border-radius: 25px 0 0 25px;
+    border-right: 1px solid #333;
+}
+
+.toggle-pill:last-child {
+    border-radius: 0 25px 25px 0;
+    border-left: 1px solid #333;
 }
 
 .toggle-pill:hover {
@@ -50,15 +61,31 @@
     color: #fff;
 }
 
-/* Work Grid - Dynamic columns */
+/* Work Grid - Fluid responsive with percentage padding */
 .work-grid {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 0 5%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 20px;
     transition: opacity 0.2s ease;
+}
+
+/* 3-column on wide screens */
+@media (min-width: 900px) {
+    .work-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile - single column */
+@media (max-width: 600px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+        padding: 0 4%;
+    }
+    /* Toggle stays 100% - no override needed */
 }
 
 .work-grid.hidden {
