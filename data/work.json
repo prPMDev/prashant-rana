@@ -26,7 +26,7 @@
         "level": "Senior"
       },
       "overview": {
-        "description": "Leading API-first tax compliance solutions for global e-commerce, driving multi-million dollar ARR through major platform integrations. Focus on developer experience, platform scalability, and strategic partnerships.",
+        "description": "Led API-first tax compliance solutions for global e-commerce, drove multi-million dollar ARR through major platform integrations. Focused on developer experience, platform scalability, and strategic partnerships.",
         "skillset": {
           "technical": [
             "REST APIs",
@@ -476,6 +476,48 @@
           "impact": [
             "Automated repetitive job search tasks",
             "Integrated AI for application optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elevateli",
+      "type": "personal",
+      "rank": 2,
+      "name": "ElevateLI",
+      "companyUrl": "https://github.com/prPMDev/elevateli",
+      "companyDescription": "LinkedIn profile optimization tool",
+      "tags": ["ai", "chrome-extension", "linkedin"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/elevateli-logo-transparent.png"
+        },
+        "colors": {
+          "primary": "#0077B5"
+        }
+      },
+      "role": {
+        "title": "Creator",
+        "level": "Personal"
+      },
+      "overview": {
+        "description": "Built a Chrome extension that analyzes LinkedIn profiles with AI-powered feedback for career positioning.",
+        "skillset": {
+          "technical": ["Chrome Extensions", "OpenAI API", "JavaScript"],
+          "functional": ["Product Design", "User Research"]
+        }
+      },
+      "achievements": [
+        {
+          "title": "AI-Powered Profile Analysis",
+          "description": "Chrome extension delivering real-time LinkedIn profile optimization",
+          "links": [
+            {"label": "GitHub", "url": "https://github.com/prPMDev/elevateli"}
+          ],
+          "impact": [
+            "GPT-4 powered content quality scoring and recommendations",
+            "Completeness scoring with section-by-section breakdown",
+            "Privacy-first architecture — user-supplied API keys, no data collection"
           ]
         }
       ]

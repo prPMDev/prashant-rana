@@ -148,7 +148,7 @@ function createItemTile(item) {
         : '';
 
     const descriptionHtml = overview?.description
-        ? `<p class="tile-description">${overview.description}</p>`
+        ? `<p class="tile-description" title="${overview.description}">${overview.description}</p>`
         : '';
 
     return `
