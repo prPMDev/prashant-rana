@@ -447,12 +447,12 @@
       "type": "personal",
       "rank": 1,
       "name": "Pursuit",
-      "companyUrl": "",
+      "companyUrl": "https://github.com/prPMDev/pursuit",
       "companyDescription": "AI-powered job search system",
       "tags": ["ai", "tool", "job-search"],
       "branding": {
         "logos": {
-          "white": ""
+          "white": "images/company-logos/pursuit-logo.svg"
         },
         "colors": {
           "primary": "#6366f1"
@@ -473,6 +473,9 @@
         {
           "title": "Job Search Automation",
           "description": "End-to-end system for managing job search workflow",
+          "links": [
+            {"label": "GitHub", "url": "https://github.com/prPMDev/pursuit"}
+          ],
           "impact": [
             "Automated repetitive job search tasks",
             "Integrated AI for application optimization"
@@ -490,7 +493,7 @@
       "tags": ["ai", "chrome-extension", "linkedin"],
       "branding": {
         "logos": {
-          "white": "images/company-logos/elevateli-logo-transparent.png"
+          "white": "images/company-logos/elevateli-logo.svg"
         },
         "colors": {
           "primary": "#0077B5"

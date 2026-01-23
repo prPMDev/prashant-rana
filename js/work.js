@@ -141,7 +141,7 @@ function createItemTile(item) {
     const { id, companyDescription, branding, name, role, tags, overview } = item;
 
     const hasLogo = branding?.logos?.white;
-    const imagePath = hasLogo ? `images/company-logos/${id}-logo-transparent.png` : '';
+    const imagePath = hasLogo ? branding.logos.white : '';
 
     const tagsHtml = tags && tags.length > 0
         ? `<div class="tile-tags">${tags.slice(0, 3).map(tag => `<span class="tile-tag">${tag}</span>`).join('')}</div>`

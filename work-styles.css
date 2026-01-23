@@ -6,7 +6,7 @@
 }
 
 .section-header {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .section-header h1 {
@@ -25,7 +25,7 @@
 .view-toggle {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -63,7 +63,7 @@
 /* Work Grid - Aligned with header section padding */
 .work-grid {
     max-width: clamp(320px, 90vw, 1400px);
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));

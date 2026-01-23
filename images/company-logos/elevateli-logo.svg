@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Profile circle (LinkedIn style) -->
+  <circle cx="60" cy="42" r="18" fill="white"/>
+  <ellipse cx="60" cy="85" rx="28" ry="18" fill="white"/>
+
+  <!-- Upward arrow (elevate) -->
+  <path d="M88 55 L100 40 L112 55" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="100" y1="40" x2="100" y2="70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>
