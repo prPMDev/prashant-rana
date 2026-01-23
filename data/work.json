@@ -91,11 +91,15 @@
           ]
         },
         {
-          "title": "AI-Driven Tax Classification",
-          "description": "Built AI-powered product classification for automated tax code assignment",
+          "title": "AI-Powered Classification Adoption",
+          "description": "Championed integration of AI/ML classification capabilities into partner platform products",
+          "links": [
+            {"label": "Product", "url": "https://www.avalara.com/us/en/products/tariff-code-classification.html"},
+            {"label": "Developer Docs", "url": "https://developer.avalara.com/erp-integration-guide/transactions/item-classification/"}
+          ],
           "impact": [
-            "Dramatically improved catalog processing speed",
-            "Reduced manual tax code mapping effort"
+            "Drove adoption of AI-powered tax code classification in Shopify integration",
+            "Improved catalog processing efficiency across partner platforms"
           ]
         },
         {
