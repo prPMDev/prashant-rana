@@ -177,7 +177,11 @@ header {
     font-size: 1.4em;
     margin-bottom: 8px;
     color: #333;
-    padding: 0 20px;  /* Moved padding to heading */
+    padding: 0 20px;
+}
+
+.star-rating {
+    color: #DAA520;
 }
 
 .rating {
