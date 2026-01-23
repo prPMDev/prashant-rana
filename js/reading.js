@@ -12,7 +12,6 @@ async function loadReadingList() {
         }
 
         const data = await response.json();
-        console.log('Books data loaded:', data);
 
         const currentlyReading = data.books.filter(book => book.status === 'reading')
             .sort((a, b) => new Date(b.lastStarted) - new Date(a.lastStarted));
@@ -36,7 +35,6 @@ async function populateBookList(elementId, books, config) { // Added config para
         return;
     }
 
-    console.log(`Populating ${elementId} with ${books.length} books`);
     container.innerHTML = ''; // Clear existing content
 
     for (const book of books) {
@@ -44,8 +42,7 @@ async function populateBookList(elementId, books, config) { // Added config para
             const bookElement = document.createElement('div');
             bookElement.className = 'book-item';
 
-            const imageUrl = getBookImageUrl(book, config); // Pass config to getBookImageUrl
-            console.log(`Loading image for "${book.title}" from: ${imageUrl}`);
+            const imageUrl = getBookImageUrl(book, config);
 
             bookElement.innerHTML = `
                 <div class="book-container">
@@ -83,9 +80,7 @@ function getBookImageUrl(book, config) {
     }
 
     try {
-        const imageUrl = `${config.imageBaseUrl}?id=${book.googleBooksId}&${config.imageParams}`;
-        console.log(`Generated image URL for "${book.title}":`, imageUrl);
-        return imageUrl;
+        return `${config.imageBaseUrl}?id=${book.googleBooksId}&${config.imageParams}`;
     } catch (error) {
         console.error('Error constructing image URL:', error);
         return `${config.imageFallbackUrl || 'https://placehold.co/120x180/e9ecef/495057?text='}${encodeURIComponent(book.title)}`;

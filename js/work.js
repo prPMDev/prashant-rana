@@ -50,7 +50,7 @@ async function fetchWorkData() {
 
         console.log(`Attempting to fetch work data from: ${CONFIG.PATHS.WORK_DATA}`);
 
-        const response = await fetch(`${CONFIG.BASE_PATH}/data/work.json`, {
+        const response = await fetch(CONFIG.PATHS.WORK_DATA, {
             signal: controller.signal
         });
 

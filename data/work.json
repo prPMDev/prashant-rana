@@ -1,7 +1,7 @@
 {
   "config": {
     "imagePaths": {
-      "logos": "/images/company-logos"
+      "logos": "images/company-logos"
     }
   },
   "companies": [
@@ -13,7 +13,7 @@
       "importance": 1,
       "branding": {
         "logos": {
-          "white": "/images/company-logos/avalara-logo-transparent.png"
+          "white": "images/company-logos/avalara-logo-transparent.png"
         },
         "colors": {
           "primary": "#FF6F00"
@@ -81,7 +81,7 @@
       "importance": 2,
       "branding": {
         "logos": {
-          "white": "/images/company-logos/oracle-logo-transparent.png"
+          "white": "images/company-logos/oracle-logo-transparent.png"
         },
         "colors": {
           "primary": "#C74634"
@@ -148,7 +148,7 @@
       "importance": 3,
       "branding": {
         "logos": {
-          "white": "/images/company-logos/spacelabs-logo-transparent.png"
+          "white": "images/company-logos/spacelabs-logo-transparent.png"
         },
         "colors": {
           "primary": "#000000"
@@ -215,7 +215,7 @@
       "importance": 5,
       "branding": {
         "logos": {
-          "white": "/images/company-logos/datafi-logo-transparent.png"
+          "white": "images/company-logos/datafi-logo-transparent.png"
         },
         "colors": {
           "primary": "#3d9aee"
@@ -270,7 +270,7 @@
       "importance": 4,
       "branding": {
         "logos": {
-          "white": "/images/company-logos/zs-logo-transparent.png"
+          "white": "images/company-logos/zs-logo-transparent.png"
         },
         "colors": {
           "primary": "#eb7200"
@@ -336,7 +336,7 @@
       "importance": 6,
       "branding": {
         "logos": {
-          "white": "/images/company-logos/tata-logo-transparent.png"
+          "white": "images/company-logos/tcs-logo-transparent.png"
         },
         "colors": {
           "primary": "#0080c5"
