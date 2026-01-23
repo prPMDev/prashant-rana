@@ -17,3 +17,6 @@ npm-debug.log*
 CLAUDE.md
 claude.md
 .claude/
+
+# Troubleshooting screenshots
+troubleshooting/
