@@ -4,13 +4,15 @@
       "logos": "images/company-logos"
     }
   },
-  "companies": [
+  "items": [
     {
       "id": "avalara",
+      "type": "professional",
+      "rank": 1,
       "name": "Avalara",
       "companyUrl": "https://avalara.com",
       "companyDescription": "Leading SaaS provider of tax compliance solutions, serving 30K+ businesses globally",
-      "importance": 1,
+      "tags": ["e-commerce", "api", "integrations", "tax"],
       "branding": {
         "logos": {
           "white": "images/company-logos/avalara-logo-transparent.png"
@@ -18,10 +20,6 @@
         "colors": {
           "primary": "#FF6F00"
         }
-      },
-      "timeline": {
-        "start": "2022-09",
-        "end": "present"
       },
       "role": {
         "title": "Senior Product Manager",
@@ -72,13 +70,14 @@
         }
       ]
     },
-
     {
       "id": "oracle",
+      "type": "professional",
+      "rank": 2,
       "name": "Oracle",
       "companyUrl": "https://www.oracle.com",
       "companyDescription": "Fortune 100 enterprise software leader in database and cloud solutions",
-      "importance": 2,
+      "tags": ["crm", "data", "ml", "enterprise"],
       "branding": {
         "logos": {
           "white": "images/company-logos/oracle-logo-transparent.png"
@@ -86,10 +85,6 @@
         "colors": {
           "primary": "#C74634"
         }
-      },
-      "timeline": {
-        "start": "2021-05",
-        "end": "2022-08"
       },
       "role": {
         "title": "Product Manager",
@@ -139,135 +134,14 @@
         }
       ]
     },
-
-    {
-      "id": "spacelabs",
-      "name": "Spacelabs Healthcare",
-      "companyUrl": "https://www.spacelabshealthcare.com",
-      "companyDescription": "Leading provider of medical devices and healthcare monitoring solutions",
-      "importance": 3,
-      "branding": {
-        "logos": {
-          "white": "images/company-logos/spacelabs-logo-transparent.png"
-        },
-        "colors": {
-          "primary": "#000000"
-        }
-      },
-      "timeline": {
-        "start": "2020-08",
-        "end": "2021-04"
-      },
-      "role": {
-        "title": "Product Owner",
-        "level": "Mid"
-      },
-      "overview": {
-        "description": "Led healthcare data exchange and monitoring products strategy during critical COVID-19 period, driving multi-million dollar ARR while ensuring healthcare compliance.",
-        "skillset": {
-          "technical": [
-            "Healthcare Systems",
-            "Data Exchange",
-            "Compliance",
-            "Remote Access",
-            "Device Integration"
-          ],
-          "functional": [
-            "Product Strategy",
-            "Healthcare Compliance",
-            "Vendor Management",
-            "Cost Optimization",
-            "Remote Operations"
-          ]
-        }
-      },
-      "achievements": [
-        {
-          "title": "Electronic Health Data Exchange System",
-          "period": "2020-2021",
-          "description": "Developed centralized system for healthcare data exchange while maintaining compliance",
-          "impact": [
-            "Significantly improved device throughput efficiency",
-            "Achieved substantial cost reduction while maintaining compliance",
-            "Enhanced data exchange capabilities across medical devices",
-            "Improved healthcare provider operational efficiency"
-          ]
-        },
-        {
-          "title": "Remote Support Infrastructure",
-          "period": "2020",
-          "description": "Built secure remote access infrastructure during COVID-19 crisis",
-          "impact": [
-            "Enabled remote hardware support operations during pandemic",
-            "Substantially improved support efficiency through vendor partnerships",
-            "Maintained critical healthcare operations during lockdown",
-            "Reduced on-site support requirements while maintaining service quality"
-          ]
-        }
-      ]
-    },
-
-    {
-      "id": "datafi",
-      "name": "Datafi Labs",
-      "companyUrl": "https://datafi.co/",
-      "companyDescription": "Innovation-focused startup in data access control and governance",
-      "importance": 5,
-      "branding": {
-        "logos": {
-          "white": "images/company-logos/datafi-logo-transparent.png"
-        },
-        "colors": {
-          "primary": "#3d9aee"
-        }
-      },
-      "timeline": {
-        "start": "2020-07",
-        "end": "2021-01"
-      },
-      "role": {
-        "title": "Product Consultant",
-        "level": "Mid"
-      },
-      "overview": {
-        "description": "Drove product strategy for innovative data access control platform from concept to MVP, securing early customer adoption and funding.",
-        "skillset": {
-          "technical": [
-            "Data Platform",
-            "Access Control",
-            "MVP Development",
-            "Platform Architecture",
-            "Security"
-          ],
-          "functional": [
-            "Product Strategy",
-            "Startup Operations",
-            "Customer Acquisition",
-            "Market Validation",
-            "Stakeholder Management"
-          ]
-        }
-      },
-      "achievements": [
-        {
-          "title": "Unified Data Platform MVP",
-          "period": "2020",
-          "description": "Led development of startup's first unified data platform from concept to MVP",
-          "impact": [
-            "Secured initial pilot customers",
-            "Enabled seed funding round",
-            "Delivered MVP within aggressive timeline",
-            "Established product-market fit through customer validation"
-          ]
-        }
-      ]
-    },
     {
       "id": "zs",
+      "type": "professional",
+      "rank": 3,
       "name": "ZS Associates",
       "companyUrl": "https://www.zs.com",
       "companyDescription": "Global management consulting and technology leader in healthcare and life sciences",
-      "importance": 4,
+      "tags": ["healthcare", "analytics", "cloud", "platform"],
       "branding": {
         "logos": {
           "white": "images/company-logos/zs-logo-transparent.png"
@@ -275,10 +149,6 @@
         "colors": {
           "primary": "#eb7200"
         }
-      },
-      "timeline": {
-        "start": "2018-06",
-        "end": "2020-06"
       },
       "role": {
         "title": "Associate Product Manager",
@@ -329,11 +199,77 @@
       ]
     },
     {
+      "id": "spacelabs",
+      "type": "professional",
+      "rank": 4,
+      "name": "Spacelabs Healthcare",
+      "companyUrl": "https://www.spacelabshealthcare.com",
+      "companyDescription": "Leading provider of medical devices and healthcare monitoring solutions",
+      "tags": ["healthcare", "devices", "data-exchange"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/spacelabs-logo-transparent.png"
+        },
+        "colors": {
+          "primary": "#000000"
+        }
+      },
+      "role": {
+        "title": "Product Owner",
+        "level": "Mid"
+      },
+      "overview": {
+        "description": "Led healthcare data exchange and monitoring products strategy during critical COVID-19 period, driving multi-million dollar ARR while ensuring healthcare compliance.",
+        "skillset": {
+          "technical": [
+            "Healthcare Systems",
+            "Data Exchange",
+            "Compliance",
+            "Remote Access",
+            "Device Integration"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Healthcare Compliance",
+            "Vendor Management",
+            "Cost Optimization",
+            "Remote Operations"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Electronic Health Data Exchange System",
+          "period": "2020-2021",
+          "description": "Developed centralized system for healthcare data exchange while maintaining compliance",
+          "impact": [
+            "Significantly improved device throughput efficiency",
+            "Achieved substantial cost reduction while maintaining compliance",
+            "Enhanced data exchange capabilities across medical devices",
+            "Improved healthcare provider operational efficiency"
+          ]
+        },
+        {
+          "title": "Remote Support Infrastructure",
+          "period": "2020",
+          "description": "Built secure remote access infrastructure during COVID-19 crisis",
+          "impact": [
+            "Enabled remote hardware support operations during pandemic",
+            "Substantially improved support efficiency through vendor partnerships",
+            "Maintained critical healthcare operations during lockdown",
+            "Reduced on-site support requirements while maintaining service quality"
+          ]
+        }
+      ]
+    },
+    {
       "id": "tcs",
+      "type": "professional",
+      "rank": 5,
       "name": "Tata Consultancy Services",
       "companyUrl": "https://www.tcs.com",
       "companyDescription": "Global leader in IT services and digital solutions",
-      "importance": 6,
+      "tags": ["enterprise", "automation", "platform"],
       "branding": {
         "logos": {
           "white": "images/company-logos/tcs-logo-transparent.png"
@@ -341,10 +277,6 @@
         "colors": {
           "primary": "#0080c5"
         }
-      },
-      "timeline": {
-        "start": "2010-11",
-        "end": "2018-06"
       },
       "role": {
         "title": "Program Manager & Developer",
@@ -390,6 +322,97 @@
             "Improved documentation efficiency",
             "Enhanced system maintainability",
             "Streamlined documentation processes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datafi",
+      "type": "professional",
+      "rank": 6,
+      "name": "Datafi Labs",
+      "companyUrl": "https://datafi.co/",
+      "companyDescription": "Innovation-focused startup in data access control and governance",
+      "tags": ["startup", "data", "0-to-1"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/datafi-logo-transparent.png"
+        },
+        "colors": {
+          "primary": "#3d9aee"
+        }
+      },
+      "role": {
+        "title": "Product Consultant",
+        "level": "Mid"
+      },
+      "overview": {
+        "description": "Drove product strategy for innovative data access control platform from concept to MVP, securing early customer adoption and funding.",
+        "skillset": {
+          "technical": [
+            "Data Platform",
+            "Access Control",
+            "MVP Development",
+            "Platform Architecture",
+            "Security"
+          ],
+          "functional": [
+            "Product Strategy",
+            "Startup Operations",
+            "Customer Acquisition",
+            "Market Validation",
+            "Stakeholder Management"
+          ]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Unified Data Platform MVP",
+          "period": "2020",
+          "description": "Led development of startup's first unified data platform from concept to MVP",
+          "impact": [
+            "Secured initial pilot customers",
+            "Enabled seed funding round",
+            "Delivered MVP within aggressive timeline",
+            "Established product-market fit through customer validation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pursuit",
+      "type": "personal",
+      "rank": 1,
+      "name": "Pursuit",
+      "companyUrl": "",
+      "companyDescription": "AI-powered job search system",
+      "tags": ["ai", "tool", "job-search"],
+      "branding": {
+        "logos": {
+          "white": ""
+        },
+        "colors": {
+          "primary": "#6366f1"
+        }
+      },
+      "role": {
+        "title": "Creator",
+        "level": "Personal"
+      },
+      "overview": {
+        "description": "Built an AI-powered job search system to streamline the job hunting process.",
+        "skillset": {
+          "technical": ["AI/ML", "Automation", "System Design"],
+          "functional": ["Product Thinking", "Problem Solving"]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Job Search Automation",
+          "description": "End-to-end system for managing job search workflow",
+          "impact": [
+            "Automated repetitive job search tasks",
+            "Integrated AI for application optimization"
           ]
         }
       ]

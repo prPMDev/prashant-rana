@@ -1,8 +1,7 @@
 // Constants and Configurations
 const CONFIG = {
     FETCH_TIMEOUT: 5000,
-    ANIMATION_DURATION: 500,
-    BASE_PATH: '',
+    ANIMATION_DURATION: 200,
     PATHS: {
         WORK_DATA: 'data/work.json'
     }
@@ -16,6 +15,9 @@ const ErrorTypes = {
     UNKNOWN_ERROR: 'UNKNOWN_ERROR'
 };
 
+// State
+let currentView = 'professional';
+
 // Main Initialization
 document.addEventListener('DOMContentLoaded', initializeWork);
 
@@ -24,21 +26,57 @@ async function initializeWork() {
         console.log('Initializing work section...');
         const workData = await fetchWorkData();
 
-        if (!workData?.companies || !Array.isArray(workData.companies)) {
-            throw new Error(createErrorMessage(ErrorTypes.DATA_INVALID, 'missing companies array'));
+        if (!workData?.items || !Array.isArray(workData.items)) {
+            throw new Error(createErrorMessage(ErrorTypes.DATA_INVALID, 'missing items array'));
         }
 
-        if (!validateCompanyData(workData.companies)) {
+        if (!validateItemData(workData.items)) {
             throw new Error(createErrorMessage(ErrorTypes.DATA_INVALID, 'work.json'));
         }
 
-        window.workData = workData; // Store for modal use
+        window.workData = workData;
         console.log('Valid work data received, rendering section...');
-        renderWorkSection(workData.companies);
+
+        initializeToggle();
+        renderWorkSection(currentView);
         initializeEventListeners();
     } catch (error) {
         console.error('Initialization error:', error);
         handleError('Failed to initialize work section', error);
+    }
+}
+
+// Toggle Functions
+function initializeToggle() {
+    const toggleContainer = document.querySelector('.view-toggle');
+    if (!toggleContainer) return;
+
+    toggleContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('toggle-pill')) {
+            const view = e.target.dataset.view;
+            if (view && view !== currentView) {
+                setActiveView(view);
+            }
+        }
+    });
+}
+
+function setActiveView(view) {
+    currentView = view;
+
+    // Update pill states
+    document.querySelectorAll('.toggle-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.view === view);
+    });
+
+    // Fade out, swap content, fade in
+    const workGrid = document.querySelector('.work-grid');
+    if (workGrid) {
+        workGrid.style.opacity = '0';
+        setTimeout(() => {
+            renderWorkSection(view);
+            workGrid.style.opacity = '1';
+        }, CONFIG.ANIMATION_DURATION);
     }
 }
 
@@ -80,41 +118,51 @@ async function fetchWorkData() {
 }
 
 // Rendering Functions
-function renderWorkSection(companies) {
+function renderWorkSection(viewType) {
     const workGrid = document.querySelector('.work-grid');
     if (!workGrid) {
         console.error('Work grid element not found');
         return;
     }
 
-    const sortedCompanies = sortCompaniesByDate(companies);
-    workGrid.innerHTML = sortedCompanies.map(createCompanyTile).join('');
+    const items = window.workData.items
+        .filter(item => item.type === viewType || (viewType === 'professional' && item.type === 'internship'))
+        .sort((a, b) => a.rank - b.rank);
+
+    workGrid.innerHTML = items.map(createItemTile).join('');
+
+    // Re-initialize tile listeners after render
+    initializeTileListeners();
 }
 
-function createCompanyTile(company) {
-    const { id, companyDescription, branding, name, role, timeline } = company;
+function createItemTile(item) {
+    const { id, companyDescription, branding, name, role, tags } = item;
 
-    const imagePath = `images/company-logos/${id}-logo-transparent.png`;
-    console.log(`Loading company logo from: ${imagePath}`);
+    const hasLogo = branding?.logos?.white;
+    const imagePath = hasLogo ? `images/company-logos/${id}-logo-transparent.png` : '';
+
+    const tagsHtml = tags && tags.length > 0
+        ? `<div class="tile-tags">${tags.slice(0, 3).map(tag => `<span class="tile-tag">${tag}</span>`).join('')}</div>`
+        : '';
 
     return `
         <div class="company-tile fade-in" data-company-id="${id}">
             <div class="company-tooltip">${companyDescription}</div>
             <div class="logo-section" style="background-color: ${branding.colors.primary}">
+                ${hasLogo ? `
                 <img
                     src="${imagePath}"
                     alt="${name} logo"
                     class="company-logo"
                     loading="lazy"
                     onerror="handleImageError(this, '${id}')"
-                >
+                >` : `<span style="color: white; font-weight: 600; font-size: 1.2em;">${name}</span>`}
             </div>
             <div class="content-section">
                 <div class="role-header">
                     <p class="role-title">${role.title}</p>
-                    <p class="timeline">${formatTimeline(timeline)}</p>
                 </div>
-                <p class="scope">${company.overview.description}</p>
+                ${tagsHtml}
             </div>
         </div>
     `;
@@ -152,7 +200,7 @@ function createDetailsContent(details) {
                         <div class="achievement-header">
                             <div>
                                 <h3>${achievement.title}</h3>
-                                <span class="period">${achievement.period}</span>
+                                ${achievement.period ? `<span class="period">${achievement.period}</span>` : ''}
                             </div>
                             ${achievement.projectUrl ? `
                                 <a href="${achievement.projectUrl}"
@@ -201,14 +249,12 @@ function initializeModalListeners() {
         closeBtn.addEventListener('click', () => closeModal(modal));
     }
 
-    // Close on outside click
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             closeModal(modal);
         }
     });
 
-    // Close on escape key
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && modal.classList.contains('open')) {
             closeModal(modal);
@@ -218,21 +264,13 @@ function initializeModalListeners() {
 
 // Event Handlers
 function handleTileClick(event) {
-    const companyId = event.currentTarget.dataset.companyId;
-    const companies = document.querySelectorAll('.company-tile');
-    const clickedCompany = Array.from(companies).find(
-        company => company.dataset.companyId === companyId
-    );
+    const itemId = event.currentTarget.dataset.companyId;
+    const itemData = window.workData.items.find(item => item.id === itemId);
 
-    if (clickedCompany) {
-        const companyData = window.workData.companies.find(
-            company => company.id === companyId
-        );
-        if (companyData) {
-            showCompanyDetails(companyData);
-        } else {
-            console.error(`Company data not found for ID: ${companyId}`);
-        }
+    if (itemData) {
+        showCompanyDetails(itemData);
+    } else {
+        console.error(`Item data not found for ID: ${itemId}`);
     }
 }
 
@@ -263,35 +301,31 @@ function closeModal(modal) {
 }
 
 // Validation Functions
-function validateCompanyData(companies) {
+function validateItemData(items) {
     const validationErrors = [];
 
-    companies.forEach(company => {
+    items.forEach(item => {
         const errors = [];
 
-        // Check required fields
-        if (!company.id) errors.push('Missing company ID');
-        if (!company.name) errors.push('Missing company name');
-        if (!company.branding?.colors?.primary) errors.push('Missing branding colors');
-        if (!company.role?.title) errors.push('Missing role title');
-        if (!company.timeline?.start) errors.push('Missing timeline start');
-
-        // Check data structure
-        if (!company.overview?.description) errors.push('Missing overview description');
-        if (!company.overview?.skillset?.technical) errors.push('Missing technical skillset');
-        if (!company.overview?.skillset?.functional) errors.push('Missing functional skillset');
-        if (!Array.isArray(company.achievements)) errors.push('Missing or invalid achievements array');
+        if (!item.id) errors.push('Missing item ID');
+        if (!item.name) errors.push('Missing item name');
+        if (!item.type) errors.push('Missing item type');
+        if (typeof item.rank !== 'number') errors.push('Missing or invalid rank');
+        if (!item.branding?.colors?.primary) errors.push('Missing branding colors');
+        if (!item.role?.title) errors.push('Missing role title');
+        if (!item.overview?.description) errors.push('Missing overview description');
+        if (!Array.isArray(item.achievements)) errors.push('Missing or invalid achievements array');
 
         if (errors.length > 0) {
             validationErrors.push({
-                company: company.id || 'Unknown Company',
+                item: item.id || 'Unknown Item',
                 errors
             });
         }
     });
 
     if (validationErrors.length > 0) {
-        console.error('Company Data Validation Errors:', validationErrors);
+        console.error('Item Data Validation Errors:', validationErrors);
         return false;
     }
 
@@ -314,11 +348,10 @@ function createErrorMessage(type, details) {
     }
 }
 
-function handleImageError(img, companyId) {
-    console.error(`Failed to load image for company: ${companyId}`);
-    img.onerror = null; // Prevent infinite loop
-    img.src = `images/placeholder.png`;
-    showErrorMessage(createErrorMessage(ErrorTypes.IMAGE_LOAD_ERROR, companyId), 'warning');
+function handleImageError(img, itemId) {
+    console.error(`Failed to load image for item: ${itemId}`);
+    img.onerror = null;
+    img.style.display = 'none';
 }
 
 function handleError(message, error) {
@@ -342,32 +375,4 @@ function showErrorMessage(message, type = 'error') {
     workGrid.insertAdjacentElement('beforebegin', errorDiv);
 }
 
-// Utility Functions
-function sortCompaniesByDate(companies) {
-    return companies.sort((a, b) => {
-        if (a.importance !== b.importance) {
-            return a.importance - b.importance;
-        }
-
-        if (a.timeline.end === 'present') return -1;
-        if (b.timeline.end === 'present') return 1;
-
-        return new Date(b.timeline.start) - new Date(a.timeline.start);
-    });
-}
-
-function formatTimeline(timeline) {
-    const formattedStart = formatDate(timeline.start);
-    const formattedEnd = timeline.end === 'present' ? 'Present' : formatDate(timeline.end);
-
-    return `${formattedStart} - ${formattedEnd}`;
-}
-
-function formatDate(dateStr) {
-    const [year, month] = dateStr.split('-');
-    // Just return the year
-    return year;
-}
-
-// Add this for debugging purposes
 console.log('Work.js loaded successfully');
