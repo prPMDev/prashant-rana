@@ -143,15 +143,7 @@ function renderTestimonials(testimonials) {
 function createTestimonialElement(testimonial) {
     const element = document.createElement('div');
     element.className = 'testimonial';
-    element.innerHTML = `
-        <div class="testimonial-content">
-            <h3>${testimonial.name}</h3>
-            <p class="title">(${testimonial.title})</p>
-            <p class="relationship">${testimonial.relationship}</p>
-            <blockquote>"${testimonial.quote}"</blockquote>
-            <a href="https://www.linkedin.com/in/prashant-rana/details/recommendations/?detailScreenTabIndex=0" class="read-more" target="_blank" rel="noopener">Read more →</a>
-        </div>
-    `;
+    element.innerHTML = `<div class="testimonial-content"><h3>${testimonial.name}</h3><p class="title">(${testimonial.title})</p><p class="relationship">${testimonial.relationship}</p><blockquote>"${testimonial.quote}"</blockquote><a href="https://www.linkedin.com/in/prashant-rana/details/recommendations/?detailScreenTabIndex=0" class="read-more" target="_blank" rel="noopener">Read more →</a></div>`;
     return element;
 }
 
