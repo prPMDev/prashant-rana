@@ -124,7 +124,7 @@
       "name": "Oracle",
       "companyUrl": "https://www.oracle.com",
       "companyDescription": "Fortune 100 enterprise software leader in database and cloud solutions",
-      "tags": ["crm", "data", "ml", "enterprise"],
+      "tags": ["api", "data", "platform", "ml", "enterprise"],
       "branding": {
         "logos": {
           "white": "images/company-logos/oracle-logo-transparent.png"
@@ -138,7 +138,7 @@
         "level": "Mid"
       },
       "overview": {
-        "description": "Managed product strategy for Oracle's B2B CRM data platform processing millions of records daily. Focus on big data operations and ML-powered solutions.",
+        "description": "Product strategy for Oracle CX Sales data operations platform — enterprise B2B CRM at scale. Focus on API-driven data management, ML-powered automation, and operational efficiency.",
         "skillset": {
           "technical": [
             "Big Data Processing",
@@ -158,25 +158,41 @@
       },
       "achievements": [
         {
-          "title": "API Framework Enhancement",
-          "period": "2022",
-          "description": "Enhanced multi-source processing capabilities for big data operations",
+          "title": "Alternate Key & External System Linking",
+          "description": "Led initiative to enable external system ID linking for enterprise data imports — eliminating dependency on Oracle primary keys",
+          "links": [
+            {"label": "22C Release Notes", "url": "https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/engagement/releases/22C/22C-sf-automation-wn.htm#T36059"},
+            {"label": "21D Release Notes", "url": "https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/engagement/releases/21D/21D-sf-automation-wn.htm"}
+          ],
           "impact": [
-            "Substantially improved data processing throughput",
-            "Delivered significant annual cost savings per customer",
-            "Implemented ML-powered prediction engine for large-scale operations",
-            "Substantially reduced resource planning overhead for CRM administrators"
+            "Enabled PUID and Original System Reference linking — unlocked $XXX million in at-risk renewals",
+            "Reduced integration complexity for 1:M relationships and Dynamic Choice Lists",
+            "Improved data import success rates for enterprise customers with complex system landscapes"
           ]
         },
         {
-          "title": "Data Insights Platform",
-          "period": "2021",
-          "description": "Built advanced data insights functionality using OCI Data Lake technologies",
+          "title": "ML-Powered Import Prediction",
+          "description": "Shipped ML-based prediction system for import job scheduling and resource allocation",
+          "links": [
+            {"label": "22A Release Notes", "url": "https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/engagement/releases/22A/22A-sf-automation-wn.htm"}
+          ],
           "impact": [
-            "Enabled customers to identify significant data redundancies",
-            "Reduced time-to-insight from months to days",
-            "Improved decision-making capabilities for B2B customers",
-            "Enhanced data quality and processing efficiency"
+            "Built predictive model for import job completion times",
+            "Enabled proactive resource allocation reducing queue wait times",
+            "Saved $XXK per import cycle through optimized scheduling"
+          ]
+        },
+        {
+          "title": "Import/Export Ops Optimization",
+          "description": "Delivered operational efficiency improvements across the data import/export framework",
+          "links": [
+            {"label": "22B Release Notes", "url": "https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/engagement/releases/22B/22B-sf-automation-wn.htm"},
+            {"label": "22C Release Notes", "url": "https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/engagement/releases/22C/22C-sf-automation-wn.htm"}
+          ],
+          "impact": [
+            "Implemented dynamic queue management — reduced support escalations",
+            "Added reusable advanced options — decreased import/export setup time",
+            "Delivered $XXXK annual savings through operational efficiency gains"
           ]
         }
       ]
