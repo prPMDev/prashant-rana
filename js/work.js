@@ -125,6 +125,8 @@ function renderWorkSection(viewType) {
         return;
     }
 
+    workGrid.dataset.view = viewType;
+
     const items = window.workData.items
         .filter(item => item.type === viewType || (viewType === 'professional' && item.type === 'internship'))
         .sort((a, b) => a.rank - b.rank);
