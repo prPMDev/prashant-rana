@@ -12,7 +12,7 @@
       "name": "Avalara",
       "companyUrl": "https://avalara.com",
       "companyDescription": "Leading SaaS provider of tax compliance solutions, serving 30K+ businesses globally",
-      "tags": ["e-commerce", "api", "integrations", "tax"],
+      "tags": ["e-commerce", "api", "integrations", "partnerships", "marketplace"],
       "branding": {
         "logos": {
           "white": "images/company-logos/avalara-logo-transparent.png"
@@ -46,15 +46,23 @@
       },
       "achievements": [
         {
-          "title": "Global Tax Compliance App for Shopify",
+          "title": "Avalara Tax Compliance for Shopify",
           "period": "2023",
           "projectUrl": "https://www.prnewswire.com/news-releases/avalara-expands-partnership-with-shopify-to-enable-global-tax-compliance-for-merchants-302141531.html",
-          "description": "Led end-to-end development and launch of Avalara's tax compliance application for Shopify's global merchant base.",
+          "tags": ["integration", "marketplace", "api"],
+          "videoUrl": "https://www.youtube.com/watch?v=HmfOLeyN7ls",
+          "links": [
+            {"label": "Product", "url": "https://www.avalara.com/us/en/products/integrations/shopify.html"},
+            {"label": "Marketplace", "url": "https://help.shopify.com/en/manual/taxes/tax-apps/avalara"},
+            {"label": "Docs", "url": "https://knowledge.avalara.com/bundle/uqa1710993217954_uqa1710993217954/page/rwu1710993539125.html"}
+          ],
+          "description": "Led end-to-end development and launch of Avalara's compliance app for Shopify — automated determination across 12,000+ jurisdictions with product catalog sync, end-to-end transaction tracking, and code mapping.",
           "impact": [
             "Generated multi-million dollar revenue stream through strategic partnership",
             "Achieved double-digit YoY direct ARR growth",
-            "Significantly reduced merchant integration time",
-            "Implemented automated tax determination for 40+ countries"
+            "Significantly reduced merchant integration time with no-code setup",
+            "Implemented automated determination for 40+ countries",
+            "Built product catalog sync between Shopify and Avalara for seamless code mapping"
           ]
         },
         {

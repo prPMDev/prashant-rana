@@ -214,12 +214,42 @@ function createDetailsContent(details) {
                                 </a>
                             ` : ''}
                         </div>
-                        <p class="description">${achievement.description}</p>
-                        <ul class="impact-list">
-                            ${achievement.impact.map(item => `
-                                <li>${item}</li>
-                            `).join('')}
-                        </ul>
+                        ${achievement.tags?.length ? `
+                            <div class="achievement-tags">
+                                ${achievement.tags.map(tag => `<span class="achievement-tag">${tag}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        <div class="achievement-body ${achievement.videoUrl ? 'has-video' : ''}">
+                            <div class="achievement-content">
+                                <p class="description">${achievement.description}</p>
+                                <ul class="impact-list">
+                                    ${achievement.impact.map(item => `
+                                        <li>${item}</li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                            ${achievement.videoUrl ? `
+                                <div class="achievement-video">
+                                    <div class="video-container">
+                                        <iframe
+                                            src="https://www.youtube.com/embed/${achievement.videoUrl.includes('watch?v=') ? achievement.videoUrl.split('watch?v=')[1].split('&')[0] : achievement.videoUrl}"
+                                            title="${achievement.title} video"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                        ${achievement.links?.length ? `
+                            <div class="achievement-links">
+                                ${achievement.links.map((link, i) => `
+                                    <a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label}</a>${i < achievement.links.length - 1 ? '<span class="link-separator">·</span>' : ''}
+                                `).join('')}
+                            </div>
+                        ` : ''}
                     </div>
                 `).join('')}
             </div>
