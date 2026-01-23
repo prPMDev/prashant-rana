@@ -56,8 +56,8 @@
           ],
           "description": "Led end-to-end development and launch of Avalara's compliance app for Shopify — automated determination across 12,000+ jurisdictions with product catalog sync, end-to-end transaction tracking, and code mapping.",
           "impact": [
-            "Generated multi-million dollar revenue stream through strategic partnership",
-            "Achieved double-digit YoY direct ARR growth",
+            "Generated $XXX million revenue stream through strategic partnership",
+            "Achieved XX% YoY direct ARR growth",
             "Significantly reduced merchant integration time with no-code setup",
             "Implemented automated determination for 40+ countries",
             "Built automated product catalog sync for accurate taxability"
@@ -65,10 +65,9 @@
         },
         {
           "title": "Tax Returns API Enhancement",
-          "period": "2022-2023",
           "description": "Led product improvements for tax returns API across major e-commerce platforms",
           "impact": [
-            "Expanded integration portfolio across Square, Squarespace, and Amazon",
+            "Generated $XX million additional ARR across Square, Squarespace, and Amazon",
             "Strengthened market leadership in e-commerce tax compliance",
             "Dramatically improved catalog processing speed through AI-driven classification",
             "Unlocked mid-market segment through strategic partnership with leading SMB platform"
