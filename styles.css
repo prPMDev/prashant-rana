@@ -60,7 +60,7 @@ header {
 .hero {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -163,7 +163,7 @@ header {
 
 /* Testimonials Section */
 .testimonials {
-    margin: 30px auto;
+    margin: 20px auto;
     text-align: center;
     max-width: 1200px;
     padding: 0;  /* Removed padding here */
@@ -172,7 +172,7 @@ header {
 
 .testimonials h2 {
     font-size: 1.4em;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     color: #333;
     padding: 0 20px;  /* Moved padding to heading */
 }
@@ -180,7 +180,7 @@ header {
 .rating {
     color: #f8d64e;
     font-size: 2em;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
