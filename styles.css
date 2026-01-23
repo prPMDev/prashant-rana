@@ -103,6 +103,18 @@ header {
     color: #c45c5c;
 }
 
+.hero-content .cta-text {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.hero-content .cta-text:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
 /* Pulsating animation */
 .pulse {
     display: inline-block;
