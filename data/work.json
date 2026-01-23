@@ -64,13 +64,37 @@
           ]
         },
         {
-          "title": "Tax Returns API Enhancement",
-          "description": "Led product improvements for tax returns API across major e-commerce platforms",
+          "title": "Tax Returns App Launches/Upgrades",
+          "description": "Led tax returns app launches and upgrades on partner platforms",
+          "links": [
+            {"label": "Square Docs", "url": "https://knowledge.avalara.com/bundle/bwu1669465618357_bwu1669465618357/page/oml1708157227716.html"}
+          ],
           "impact": [
             "Generated $XX million additional ARR across Square, Squarespace, and Amazon",
             "Strengthened market leadership in e-commerce tax compliance",
-            "Dramatically improved catalog processing speed through AI-driven classification",
             "Unlocked mid-market segment through strategic partnership with leading SMB platform"
+          ]
+        },
+        {
+          "title": "Xero Auto Sales Tax Integration",
+          "description": "Launched auto sales tax feature for Xero's accounting platform — automated tax calculations and compliance powered by Avalara",
+          "projectUrl": "https://www.xero.com/us/media-releases/xero-avalara-launch-auto-sales-tax/",
+          "videoUrl": "https://www.youtube.com/watch?v=sVH7wNtPijs",
+          "links": [
+            {"label": "Press Release", "url": "https://www.xero.com/us/media-releases/xero-avalara-launch-auto-sales-tax/"}
+          ],
+          "impact": [
+            "Simplified tax compliance for small businesses on Xero platform",
+            "Automated jurisdiction-specific tax calculations",
+            "Reduced manual tax administration overhead"
+          ]
+        },
+        {
+          "title": "AI-Driven Tax Classification",
+          "description": "Built AI-powered product classification for automated tax code assignment",
+          "impact": [
+            "Dramatically improved catalog processing speed",
+            "Reduced manual tax code mapping effort"
           ]
         }
       ]
