@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="work.html">Work</a>
                             <a href="community.html">Community</a>
                             <a href="reading-list.html">Reading List</a>
-                            <a href="contact.html">Get in Touch</a>
+                            <a href="https://www.linkedin.com/in/prashant-rana/" target="_blank">Get in Touch</a>
                         </nav>
                     </div>
                 </header>

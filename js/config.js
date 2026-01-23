@@ -14,13 +14,6 @@ const SITE_CONFIG = {
         placeholder: '/images/placeholder.png'
     },
 
-    // Contact Form Settings
-    contactForm: {
-        endpoint: "/api/contact",
-        allowedQueryTypes: ["job", "mentorship", "collaboration", "other"],
-        allowedEmailDomains: ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"]
-    },
-
     // Utility function to get correct paths
     getImagePath: function(type, filename) {
         return `${this.baseUrl}${this.paths[type]}${filename}`;
