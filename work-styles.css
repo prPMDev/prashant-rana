@@ -25,9 +25,8 @@
 .view-toggle {
     display: flex;
     justify-content: center;
-    gap: 0;
     margin-bottom: 30px;
-    width: 100%;             /* matches parent section width */
+    width: 100%;
 }
 
 .toggle-pill {
@@ -81,15 +80,17 @@
 
 /* Mobile - single column */
 @media (max-width: 600px) {
-    .work-grid {
+    .work-grid,
+    .work-grid[data-view="personal"] {
         grid-template-columns: 1fr;
     }
-    /* Toggle stays 100% - no override needed */
 }
 
 /* Projects view: limit tile width to ~50% of container */
-.work-grid[data-view="personal"] {
-    grid-template-columns: repeat(auto-fill, minmax(280px, calc(50% - 10px)));
+@media (min-width: 601px) {
+    .work-grid[data-view="personal"] {
+        grid-template-columns: repeat(auto-fill, minmax(280px, calc(50% - 10px)));
+    }
 }
 
 .work-grid.hidden {
@@ -139,7 +140,6 @@
 /* Content Section */
 .content-section {
     padding: 16px;
-    background: white;
 }
 
 .role-header {
@@ -380,6 +380,7 @@
 .impact-list li:last-child {
     margin-bottom: 0;
 }
+
 /* Error Message Styles */
 .error-message {
     width: 100%;
@@ -562,9 +563,8 @@
     .company-tile {
         page-break-inside: avoid;
         break-inside: avoid;
-        margin-bottom: 20px;
         width: 100%;
-        margin: 0 auto;
+        margin: 0 auto 20px;
     }
 
     .achievement-card {
