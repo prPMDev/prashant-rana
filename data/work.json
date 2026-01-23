@@ -463,7 +463,7 @@
         "level": "Personal"
       },
       "overview": {
-        "description": "Built an AI-powered job search system to streamline the job hunting process.",
+        "description": "Building an AI-powered job search system to streamline the job hunting process.",
         "skillset": {
           "technical": ["AI/ML", "Automation", "System Design"],
           "functional": ["Product Thinking", "Problem Solving"]
@@ -493,7 +493,7 @@
       "tags": ["ai", "chrome-extension", "linkedin"],
       "branding": {
         "logos": {
-          "white": "images/company-logos/elevateli-logo.svg"
+          "white": "images/company-logos/elevateli-icon128.png"
         },
         "colors": {
           "primary": "#0077B5"
