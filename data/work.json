@@ -97,6 +97,19 @@
             "Dramatically improved catalog processing speed",
             "Reduced manual tax code mapping effort"
           ]
+        },
+        {
+          "title": "Public Speaking & Thought Leadership",
+          "description": "Industry engagements sharing product and integration expertise",
+          "videoUrl": "https://www.youtube.com/watch?v=uQzpdFPGlbQ",
+          "links": [
+            {"label": "Avalara NEXT 2023", "url": "https://www.youtube.com/watch?v=uQzpdFPGlbQ"},
+            {"label": "Do the Woo Podcast", "url": "https://openchannels.fm/database-developer-to-product-manager/"}
+          ],
+          "impact": [
+            "Speaker at Avalara NEXT 2023 Developer Conference",
+            "Featured on Do the Woo podcast — PM journey and integration strategy"
+          ]
         }
       ]
     },
