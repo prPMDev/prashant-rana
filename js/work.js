@@ -94,7 +94,7 @@ function renderWorkSection(companies) {
 function createCompanyTile(company) {
     const { id, companyDescription, branding, name, role, timeline } = company;
 
-    const imagePath = `${CONFIG.BASE_PATH}/images/company-logos/${id}-logo-transparent.png`;
+    const imagePath = `images/company-logos/${id}-logo-transparent.png`;
     console.log(`Loading company logo from: ${imagePath}`);
 
     return `
@@ -317,7 +317,7 @@ function createErrorMessage(type, details) {
 function handleImageError(img, companyId) {
     console.error(`Failed to load image for company: ${companyId}`);
     img.onerror = null; // Prevent infinite loop
-    img.src = `${CONFIG.BASE_PATH}/images/placeholder.txt`;
+    img.src = `images/placeholder.png`;
     showErrorMessage(createErrorMessage(ErrorTypes.IMAGE_LOAD_ERROR, companyId), 'warning');
 }
 
