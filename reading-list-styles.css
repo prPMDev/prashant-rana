@@ -21,24 +21,32 @@
     color: #666;
 }
 
-/* Type Toggle Pills */
+/* Type Toggle Pills - connected design like work page */
 .type-toggle {
     display: flex;
     justify-content: center;
-    gap: 8px;
     margin-bottom: 24px;
 }
 
 .type-pill {
-    padding: 8px 20px;
+    padding: 10px 20px;
     border: 2px solid #333;
     background: transparent;
     color: #333;
     font-size: 0.9em;
     font-weight: 500;
-    border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
+    border-right: 1px solid #333;
+}
+
+.type-pill:first-child {
+    border-radius: 25px 0 0 25px;
+}
+
+.type-pill:last-child {
+    border-radius: 0 25px 25px 0;
+    border-right: 2px solid #333;
 }
 
 .type-pill:hover {
@@ -50,7 +58,7 @@
     color: #fff;
 }
 
-/* Book Grid Layout - 2 columns base */
+/* Book Grid Layout - 2 columns base, 3 max */
 .book-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -58,17 +66,10 @@
     padding: 10px 0;
 }
 
-/* 3 columns */
+/* 3 columns on wider screens */
 @media (min-width: 900px) {
     .book-grid {
         grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* 4 columns on wide screens */
-@media (min-width: 1200px) {
-    .book-grid {
-        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -113,11 +114,11 @@
 }
 
 .status-label.reading {
-    background-color: #28a745;
+    background-color: #f59e0b;
 }
 
 .status-label.completed {
-    background-color: #6c757d;
+    background-color: #22c55e;
 }
 
 /* Book Image */
@@ -252,14 +253,9 @@
         grid-template-columns: 1fr;
     }
 
-    .type-toggle {
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-
     .type-pill {
-        padding: 6px 14px;
-        font-size: 0.85em;
+        padding: 8px 12px;
+        font-size: 0.8em;
     }
 }
 
