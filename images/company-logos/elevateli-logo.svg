@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none">
+  <!-- E letter -->
+  <text x="10" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="white">E</text>
+
+  <!-- Upward arrow -->
+  <line x1="38" y1="28" x2="52" y2="14" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <polyline points="44,14 52,14 52,22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- ElevateLI text -->
+  <text x="58" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="600" fill="white">levateLI</text>
+</svg>

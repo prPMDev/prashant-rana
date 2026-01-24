@@ -12,7 +12,7 @@
       "name": "Avalara",
       "companyUrl": "https://avalara.com",
       "companyDescription": "Leading SaaS provider of tax compliance solutions, serving 30K+ businesses globally",
-      "tags": ["api", "integrations", "platform", "0-to-1", "scale"],
+      "tags": ["APIs", "integrations", "SDK", "partnerships", "0-to-1"],
       "branding": {
         "logos": {
           "white": "images/company-logos/avalara-logo-transparent.png"
@@ -124,7 +124,7 @@
       "name": "Oracle",
       "companyUrl": "https://www.oracle.com",
       "companyDescription": "Fortune 100 enterprise software leader in database and cloud solutions",
-      "tags": ["api", "data", "platform", "ml", "enterprise"],
+      "tags": ["APIs", "ML/AI", "data pipelines", "CRM", "enterprise"],
       "branding": {
         "logos": {
           "white": "images/company-logos/oracle-logo-transparent.png"
@@ -204,7 +204,7 @@
       "name": "ZS Associates",
       "companyUrl": "https://www.zs.com",
       "companyDescription": "Global management consulting and technology leader in healthcare and life sciences",
-      "tags": ["analytics", "platform", "aws", "0-to-1"],
+      "tags": ["AWS", "ML/AI", "analytics", "0-to-1"],
       "branding": {
         "logos": {
           "white": "images/company-logos/zs-logo-transparent.png"
@@ -269,7 +269,7 @@
       "name": "Spacelabs Healthcare",
       "companyUrl": "https://www.spacelabshealthcare.com",
       "companyDescription": "Leading provider of medical devices and healthcare monitoring solutions",
-      "tags": ["integrations", "data-exchange", "platform", "devices"],
+      "tags": ["device integration", "EHR", "compliance", "IoT"],
       "branding": {
         "logos": {
           "white": "images/company-logos/spacelabs-logo-transparent.png"
@@ -452,7 +452,7 @@
       "name": "Pursuit",
       "companyUrl": "https://github.com/prPMDev/pursuit",
       "companyDescription": "AI-powered job search system",
-      "tags": ["ai", "tool", "job-search"],
+      "tags": ["AI agents", "Python", "automation"],
       "branding": {
         "logos": {
           "white": "images/company-logos/pursuit-logo.svg"
@@ -493,13 +493,13 @@
       "name": "ElevateLI",
       "companyUrl": "https://github.com/prPMDev/elevateli",
       "companyDescription": "LinkedIn profile optimization tool",
-      "tags": ["ai", "chrome-extension", "linkedin"],
+      "tags": ["Chrome extension", "GPT-4", "career tools"],
       "branding": {
         "logos": {
-          "white": "images/company-logos/elevateli-icon128.png"
+          "white": "images/company-logos/elevateli-logo.svg"
         },
         "colors": {
-          "primary": "#0077B5"
+          "primary": "#5B9BD5"
         }
       },
       "role": {
