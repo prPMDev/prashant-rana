@@ -138,7 +138,7 @@
         "level": "Mid"
       },
       "overview": {
-        "description": "Product strategy for Oracle CX Sales data operations platform — enterprise B2B CRM at scale. Focus on API-driven data management, ML-powered automation, and operational efficiency.",
+        "description": "Product strategy for Oracle CX Sales data operations platform — enterprise B2B CRM at scale. Focused on API-driven data management, ML-powered automation, and operational efficiency.",
         "skillset": {
           "technical": [
             "Big Data Processing",
@@ -335,7 +335,7 @@
       "name": "Tata Consultancy Services",
       "companyUrl": "https://www.tcs.com",
       "companyDescription": "Global leader in IT services and digital solutions",
-      "tags": ["enterprise", "automation", "platform"],
+      "tags": ["cloud", "BPaaS", "ERP integration", "automation"],
       "branding": {
         "logos": {
           "white": "images/company-logos/tcs-logo-transparent.png"
@@ -349,7 +349,7 @@
         "level": "Mid"
       },
       "overview": {
-        "description": "Progressed from development to program management, leading P2P automation solutions and enterprise documentation platforms.",
+        "description": "Progressed from development to program management — leading P2P automation implementations for Fortune 500 customers.",
         "skillset": {
           "technical": [
             "Full Stack Development",
@@ -369,25 +369,28 @@
       },
       "achievements": [
         {
-          "title": "TCS TAP™ P2P Automation",
-          "period": "2016-2018",
-          "description": "Led implementation of P2P automation solution for major US corporations",
+          "title": "TCS TAP™ Accounts Payable Platform",
+          "description": "Pre-sales and implementation PM for cloud-based P2P automation — led 4-member team serving Fortune 500 customers",
+          "links": [
+            {"label": "Forrester Recognition", "url": "https://www.prnewswire.com/news-releases/tata-consultancy-services-tap-platform-recognized-as-a-strong-performer-in-eprocurement-300473807.html"},
+            {"label": "Platform Overview", "url": "https://www.tcs.com/content/dam/global-tcs/en/pdfs/insights/blogs/TAP-Procure-to-Pay-1017-1.pdf"}
+          ],
           "impact": [
-            "Delivered multi-million dollar revenue through successful implementations",
-            "Enhanced process automation efficiency for clients",
-            "Improved solution adoption across enterprises",
-            "Streamlined implementation methodology"
+            "Secured $X million in product revenues via cloud SaaS offering",
+            "Reduced deployment timeline by 4 weeks through refined CX processes",
+            "Saved $XXXK in implementation costs"
           ]
         },
         {
-          "title": "Enterprise Documentation Platform",
-          "period": "2010-2016",
-          "description": "Developed and led technical strategy for documentation platform",
+          "title": "TCS MasterCraft™ Documentation Platform",
+          "description": "Built open-source CMS for standardized SaaS product documentation — integrated with MasterCraft™ suite",
+          "links": [
+            {"label": "MasterCraft Product", "url": "https://www.tcs.com/what-we-do/products-platforms/tcs-mastercraft"}
+          ],
           "impact": [
-            "Achieved significant reduction in support costs",
-            "Improved documentation efficiency",
-            "Enhanced system maintainability",
-            "Streamlined documentation processes"
+            "Reduced product support costs by ~15%",
+            "Enabled self-service documentation publishing for global teams",
+            "Foundation for tech writing expertise applied throughout career"
           ]
         }
       ]
@@ -399,7 +402,7 @@
       "name": "Datafi Labs",
       "companyUrl": "https://datafi.co/",
       "companyDescription": "Innovation-focused startup in data access control and governance",
-      "tags": ["startup", "data", "0-to-1"],
+      "tags": ["startup", "data platform", "0-to-1", "MVP"],
       "branding": {
         "logos": {
           "white": "images/company-logos/datafi-logo-transparent.png"
@@ -413,7 +416,7 @@
         "level": "Mid"
       },
       "overview": {
-        "description": "Drove product strategy for innovative data access control platform from concept to MVP, securing early customer adoption and funding.",
+        "description": "Sole PM collaborating with CEO and CTO to shape product vision — concept to MVP in 3 months, securing pilot customers.",
         "skillset": {
           "technical": [
             "Data Platform",
@@ -433,14 +436,15 @@
       },
       "achievements": [
         {
-          "title": "Unified Data Platform MVP",
-          "period": "2020",
-          "description": "Led development of startup's first unified data platform from concept to MVP",
+          "title": "Datafi Cloud Platform MVP",
+          "description": "Conceived and led unified data productivity platform from idea to MVP — for data analysts and business teams",
+          "links": [
+            {"label": "Product", "url": "https://datafi.co/"}
+          ],
           "impact": [
-            "Secured initial pilot customers",
-            "Enabled seed funding round",
-            "Delivered MVP within aggressive timeline",
-            "Established product-market fit through customer validation"
+            "0 to MVP in 3 months as sole PM",
+            "Secured two pilot customers through deep customer insights",
+            "Shaped product vision, strategy, and roadmap with CEO/CTO"
           ]
         }
       ]
