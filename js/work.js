@@ -194,7 +194,7 @@ function createDetailsContent(details) {
                                     </div>
                                 ` : ''}
                             </div>
-                                                    </div>
+                        </div>
                         <div class="achievement-body ${achievement.videoUrl ? 'has-video' : ''}">
                             <div class="achievement-content">
                                 <p class="description">${achievement.description}</p>

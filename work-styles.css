@@ -237,8 +237,8 @@
 
 .modal-content {
     background: white;
-    margin: 40px auto;
-    padding: 30px;
+    margin: 30px auto;
+    padding: 24px;
     max-width: 900px;
     border-radius: 12px;
     position: relative;
@@ -266,52 +266,7 @@
 }
 
 .modal-body {
-    margin-top: 20px;
-}
-
-/* Skillset Container */
-.skillset-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 30px;
-}
-
-.technical-skills,
-.functional-skills {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.skillset-container h3 {
-    font-size: 1.2em;
-    color: #333;
-    margin: 0 0 16px 0;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.skill-tag {
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 0.9em;
-    font-weight: 500;
-    line-height: 1.4;
-}
-
-.skill-tag.technical {
-    background: #e3f2fd;
-    color: #1565c0;
-}
-
-.skill-tag.functional {
-    background: #f3e5f5;
-    color: #7b1fa2;
+    margin-top: 12px;
 }
 
 /* Achievement Cards */
@@ -319,8 +274,8 @@
     background: white;
     border: 1px solid #eee;
     border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 24px;
+    padding: 20px;
+    margin-bottom: 16px;
 }
 
 .achievement-header {
@@ -334,31 +289,6 @@
     font-size: 1.3em;
     color: #333;
     margin: 0 0 4px 0;
-}
-
-.achievement-header .period {
-    font-size: 0.9em;
-    color: #666;
-}
-
-.project-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #0066cc;
-    font-size: 0.9em;
-    padding: 6px 12px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-}
-
-.project-link:hover {
-    background-color: #f0f7ff;
-}
-
-.link-icon {
-    margin-left: 6px;
-    font-size: 1.1em;
 }
 
 .achievement-card .description {
@@ -377,7 +307,7 @@
 .impact-list li {
     position: relative;
     padding-left: 24px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.4;
     color: #555;
 }
@@ -540,16 +470,12 @@
 /* Additional Responsive Styles */
 @media (max-width: 1024px) {
     .modal-content {
-        margin: 30px auto;
-        padding: 24px;
-    }
-
-    .skillset-container {
-        gap: 16px;
+        margin: 24px auto;
+        padding: 20px;
     }
 
     .achievement-card {
-        padding: 20px;
+        padding: 16px;
     }
 }
 
@@ -559,18 +485,13 @@
     }
 
     .modal-content {
-        margin: 20px auto;
-        padding: 20px;
+        margin: 16px auto;
+        padding: 16px;
     }
 
     .modal .close {
         right: 16px;
         top: 16px;
-    }
-
-    .skillset-container {
-        grid-template-columns: 1fr;
-        gap: 16px;
     }
 
     .achievement-header {
@@ -581,30 +502,16 @@
         font-size: 1.2em;
         margin-bottom: 8px;
     }
-
-    .project-link {
-        margin-top: 12px;
-    }
 }
 
 @media (max-width: 480px) {
     .modal-content {
-        margin: 12px;
-        padding: 16px;
-    }
-
-    .technical-skills,
-    .functional-skills {
-        padding: 16px;
-    }
-
-    .skill-tag {
-        font-size: 0.85em;
-        padding: 4px 10px;
+        margin: 8px;
+        padding: 12px;
     }
 
     .achievement-card {
-        padding: 16px;
+        padding: 12px;
     }
 }
 
@@ -616,10 +523,6 @@
 
     .company-tooltip {
         display: none;
-    }
-
-    .project-link {
-        padding: 8px 12px;
     }
 }
 
@@ -638,8 +541,7 @@
         box-shadow: none;
     }
 
-    .close,
-    .project-link {
+    .close {
         display: none;
     }
 
@@ -662,19 +564,11 @@
         page-break-inside: avoid;
         break-inside: avoid;
     }
-
-    .skill-tag {
-        border: 1px solid #ddd;
-    }
 }
 
 /* High Contrast Mode Support */
 @media (forced-colors: active) {
     .company-tile {
-        border: 1px solid CanvasText;
-    }
-
-    .skill-tag {
         border: 1px solid CanvasText;
     }
 
