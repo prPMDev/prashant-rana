@@ -51,7 +51,7 @@ async function loadReadingList() {
 
 function filterBooksByType(books) {
     if (currentType === 'all') return books;
-    return books.filter(book => book.type === currentType);
+    return books.filter(book => book.types && book.types.includes(currentType));
 }
 
 function sortBooks(books) {
