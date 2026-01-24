@@ -194,16 +194,7 @@ function createDetailsContent(details) {
                                     </div>
                                 ` : ''}
                             </div>
-                            ${achievement.projectUrl ? `
-                                <a href="${achievement.projectUrl}"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="project-link"
-                                   title="View Project">
-                                    <span class="link-icon">→</span>
-                                </a>
-                            ` : ''}
-                        </div>
+                                                    </div>
                         <div class="achievement-body ${achievement.videoUrl ? 'has-video' : ''}">
                             <div class="achievement-content">
                                 <p class="description">${achievement.description}</p>
