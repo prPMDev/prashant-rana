@@ -102,6 +102,7 @@ function renderBooks() {
             const statusLabel = book.status === 'reading' ? 'Reading' : 'Read';
 
             bookElement.innerHTML = `
+                <div class="blurb-tooltip">${book.blurb}</div>
                 <div class="book-container">
                     <div class="status-label ${book.status}">
                         ${statusLabel}

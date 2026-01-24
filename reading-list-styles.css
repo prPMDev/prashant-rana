@@ -90,8 +90,47 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.book-item:hover .blurb {
-    -webkit-line-clamp: unset;
+/* Blurb Tooltip - appears on hover */
+.blurb-tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 10px);
+    background: rgba(255, 255, 255, 0.97);
+    color: #333;
+    padding: 12px 16px;
+    font-size: 0.85em;
+    line-height: 1.5;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 20;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.1);
+    pointer-events: none;
+    width: 280px;
+    max-width: 90vw;
+}
+
+.blurb-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.97);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.book-item:hover .blurb-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 8px);
 }
 
 .book-container {
