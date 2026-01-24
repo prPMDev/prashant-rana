@@ -18,19 +18,22 @@
                 <p>Reading shapes our thoughts and approach to life. Here's what's influencing me.</p>
             </div>
 
-            <section class="current-reading">
-                <h2>Currently Reading</h2>
-                <div id="currentlyReading" class="current-books">
-                    <!-- Populated by JavaScript -->
-                </div>
-            </section>
+            <div class="type-toggle">
+                <button class="type-pill active" data-type="all">All</button>
+                <button class="type-pill" data-type="technical">Technical</button>
+                <button class="type-pill" data-type="business">Business</button>
+                <button class="type-pill" data-type="personal">Personal</button>
+            </div>
 
-            <section class="inspired-section">
-                <h2>Inspired By</h2>
-                <div id="inspiredBy" class="book-grid">
-                    <!-- Populated by JavaScript -->
-                </div>
-            </section>
+            <div id="bookGrid" class="book-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <p>Still finding something to read here...</p>
+                <p>Got a recommendation?</p>
+                <a href="https://www.linkedin.com/in/prashantrana/" target="_blank" rel="noopener noreferrer" class="linkedin-cta">Let me know on LinkedIn &rarr;</a>
+            </div>
         </section>
     </main>
 

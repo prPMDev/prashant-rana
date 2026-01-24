@@ -1,26 +1,47 @@
+let currentType = 'all';
+let booksData = null;
+let configData = null;
+
 document.addEventListener('DOMContentLoaded', function() {
     loadReadingList();
+    initializeTypeToggle();
 });
+
+function initializeTypeToggle() {
+    const toggleContainer = document.querySelector('.type-toggle');
+    if (!toggleContainer) return;
+
+    toggleContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('type-pill')) {
+            const type = e.target.dataset.type;
+            if (type && type !== currentType) {
+                setActiveType(type);
+            }
+        }
+    });
+}
+
+function setActiveType(type) {
+    currentType = type;
+    document.querySelectorAll('.type-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.type === type);
+    });
+    renderBooks();
+}
 
 async function loadReadingList() {
     try {
-        // Try relative path without leading slash
-        const response = await fetch('./data/books.json');  // Changed from '/data/books.json'
+        const response = await fetch('./data/books.json');
         if (!response.ok) {
             console.error('Response not ok:', response.status, response.statusText);
             throw new Error('Failed to load books data');
         }
 
         const data = await response.json();
+        booksData = data.books;
+        configData = data.config;
 
-        const currentlyReading = data.books.filter(book => book.status === 'reading')
-            .sort((a, b) => new Date(b.lastStarted) - new Date(a.lastStarted));
-
-        const completedBooks = data.books.filter(book => book.status === 'completed')
-            .sort((a, b) => new Date(b.lastCompleted) - new Date(a.lastCompleted));
-
-        await populateBookList('currentlyReading', currentlyReading, data.config);
-        await populateBookList('inspiredBy', completedBooks, data.config);
+        renderBooks();
 
     } catch (error) {
         console.error('Error loading reading list:', error);
@@ -28,26 +49,62 @@ async function loadReadingList() {
     }
 }
 
-async function populateBookList(elementId, books, config) { // Added config parameter
-    const container = document.getElementById(elementId);
+function filterBooksByType(books) {
+    if (currentType === 'all') return books;
+    return books.filter(book => book.type === currentType);
+}
+
+function sortBooks(books) {
+    return books.sort((a, b) => {
+        // Reading books first, then by date
+        if (a.status === 'reading' && b.status !== 'reading') return -1;
+        if (a.status !== 'reading' && b.status === 'reading') return 1;
+
+        // Within same status, sort by most recent date
+        const dateA = a.status === 'reading' ? new Date(a.lastStarted) : new Date(a.lastCompleted);
+        const dateB = b.status === 'reading' ? new Date(b.lastStarted) : new Date(b.lastCompleted);
+        return dateB - dateA;
+    });
+}
+
+function renderBooks() {
+    if (!booksData || !configData) return;
+
+    const container = document.getElementById('bookGrid');
+    const emptyState = document.getElementById('emptyState');
+
     if (!container) {
-        console.error(`Container #${elementId} not found`);
+        console.error('Container #bookGrid not found');
         return;
     }
 
-    container.innerHTML = ''; // Clear existing content
+    const filteredBooks = filterBooksByType(booksData);
+    const sortedBooks = sortBooks(filteredBooks);
 
-    for (const book of books) {
+    // Handle empty state
+    if (sortedBooks.length === 0) {
+        container.style.display = 'none';
+        if (emptyState) emptyState.style.display = 'block';
+        return;
+    }
+
+    container.style.display = 'grid';
+    if (emptyState) emptyState.style.display = 'none';
+
+    container.innerHTML = '';
+
+    for (const book of sortedBooks) {
         try {
             const bookElement = document.createElement('div');
             bookElement.className = 'book-item';
 
-            const imageUrl = getBookImageUrl(book, config);
+            const imageUrl = getBookImageUrl(book, configData);
+            const statusLabel = book.status === 'reading' ? 'Reading' : 'Read';
 
             bookElement.innerHTML = `
                 <div class="book-container">
-                    <div class="category-label ${book.category.toLowerCase()}">
-                        ${book.category}
+                    <div class="status-label ${book.status}">
+                        ${statusLabel}
                     </div>
                     <div class="book-image">
                         <img
