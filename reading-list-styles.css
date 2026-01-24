@@ -80,22 +80,18 @@
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     border: 1px solid #eee;
-    height: 220px;
 }
 
 .book-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-    height: auto;
-    z-index: 10;
-    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .book-item:hover .blurb {
-    overflow: visible;
+    -webkit-line-clamp: unset;
 }
 
 .book-container {
@@ -103,7 +99,6 @@
     padding: 20px;
     padding-top: 30px;
     gap: 20px;
-    height: 100%;
     position: relative;
 }
 
@@ -177,11 +172,13 @@
 }
 
 .book-info .blurb {
-    font-size: 0.95em;
-    line-height: 1.5;
-    color: #444;
+    font-size: 0.85em;
+    line-height: 1.4;
+    color: #666;
     margin: 0;
-    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
