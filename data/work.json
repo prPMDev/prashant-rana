@@ -269,7 +269,7 @@
       "name": "Spacelabs Healthcare",
       "companyUrl": "https://www.spacelabshealthcare.com",
       "companyDescription": "Leading provider of medical devices and healthcare monitoring solutions",
-      "tags": ["healthcare", "devices", "data-exchange"],
+      "tags": ["integrations", "data-exchange", "platform", "devices"],
       "branding": {
         "logos": {
           "white": "images/company-logos/spacelabs-logo-transparent.png"
@@ -283,7 +283,7 @@
         "level": "Mid"
       },
       "overview": {
-        "description": "Led healthcare data exchange and monitoring products strategy during critical COVID-19 period, driving multi-million dollar ARR while ensuring healthcare compliance.",
+        "description": "Product owner for patient monitoring connectivity solutions — delivering EHR integrations, cloud readiness, and critical system updates during COVID-19.",
         "skillset": {
           "technical": [
             "Healthcare Systems",
@@ -303,25 +303,27 @@
       },
       "achievements": [
         {
-          "title": "Electronic Health Data Exchange System",
-          "period": "2020-2021",
-          "description": "Developed centralized system for healthcare data exchange while maintaining compliance",
+          "title": "XprezzNet™ Connectivity Platform",
+          "description": "Product owner for high-resolution vital signs connectivity solution integrating with major EHR systems",
+          "links": [
+            {"label": "Product Page", "url": "https://spacelabshealthcare.com/products/patient-monitoring-connectivity/networking-and-integration/xprezznet/"}
+          ],
           "impact": [
-            "Significantly improved device throughput efficiency",
-            "Achieved substantial cost reduction while maintaining compliance",
-            "Enhanced data exchange capabilities across medical devices",
-            "Improved healthcare provider operational efficiency"
+            "Multiple releases certified to Epic and Cerner standards",
+            "Prepped platform for cloud deployment and SaaS integration (SafeNSound)",
+            "Enabled third-party device integration via Flexport® interfaces (ventilators, hemodynamic monitors)"
           ]
         },
         {
-          "title": "Remote Support Infrastructure",
-          "period": "2020",
-          "description": "Built secure remote access infrastructure during COVID-19 crisis",
+          "title": "Xhibit Central Station Updates",
+          "description": "Led critical system updates and hardware refresh during COVID-19 microchip crisis",
+          "links": [
+            {"label": "Product Page", "url": "https://spacelabshealthcare.com/products/patient-monitoring-connectivity/surveillance/xhibit-xc48/"}
+          ],
           "impact": [
-            "Enabled remote hardware support operations during pandemic",
-            "Substantially improved support efficiency through vendor partnerships",
-            "Maintained critical healthcare operations during lockdown",
-            "Reduced on-site support requirements while maintaining service quality"
+            "Delivered alarm audio loss correction across deployed hospital systems",
+            "Managed hardware refresh strategy during global chip shortage",
+            "Evaluated secure remote maintenance solutions for field support"
           ]
         }
       ]
