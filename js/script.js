@@ -189,6 +189,18 @@ function startCarouselAutoplay() {
     }, CAROUSEL_CONFIG.autoplayInterval);
 }
 
+function isMobile() {
+    return window.innerWidth <= CAROUSEL_CONFIG.mobileBreakpoint;
+}
+
+function getSlideWidth() {
+    return isMobile() ? 100 : 50; // 100% on mobile (1 visible), 50% on desktop (2 visible)
+}
+
+function getCloneCount() {
+    return isMobile() ? 1 : 2; // Clone 1 on mobile, 2 on desktop
+}
+
 function moveCarousel() {
     const container = document.getElementById('testimonial-container');
     if (!container) {
@@ -197,21 +209,21 @@ function moveCarousel() {
     }
 
     carouselState.currentIndex++;
-    const slideWidth = 50; // Each slide takes 50% of container width
+    const slideWidth = getSlideWidth();
+    const cloneCount = getCloneCount();
 
-    log(`Moving carousel to index ${carouselState.currentIndex}`);
+    log(`Moving carousel to index ${carouselState.currentIndex}, slideWidth: ${slideWidth}%`);
 
     container.style.transition = 'transform 0.5s ease';
     container.style.transform = `translateX(-${carouselState.currentIndex * slideWidth}%)`;
 
     // Reset when reaching cloned elements
-    if (carouselState.currentIndex >= (container.children.length - 2)) {
+    if (carouselState.currentIndex >= (container.children.length - cloneCount)) {
         setTimeout(() => {
             container.style.transition = 'none';
             carouselState.currentIndex = 0;
             container.style.transform = 'translateX(0)';
             container.offsetHeight; // Force reflow
-            container.style.transition = 'transform 0.5s ease';
             log('Reset carousel to beginning');
         }, CAROUSEL_CONFIG.transitionDuration);
     }
