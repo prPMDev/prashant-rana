@@ -329,13 +329,21 @@ header {
     outline: none;
 }
 
-/* Oracle logo needs slightly larger scaling */
+/* Oracle and Couchbase logos need larger scaling */
 .logo-bar-item[title="Oracle"] img {
-    transform: scale(1.15);
+    transform: scale(1.25);
 }
 
 .logo-bar-item[title="Oracle"]:hover img {
-    transform: scale(1.2);
+    transform: scale(1.3);
+}
+
+.logo-bar-item[title="Couchbase"] img {
+    transform: scale(1.25);
+}
+
+.logo-bar-item[title="Couchbase"]:hover img {
+    transform: scale(1.3);
 }
 
 @media (max-width: 500px) {

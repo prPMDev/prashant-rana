@@ -86,10 +86,10 @@
     }
 }
 
-/* Projects view: limit tile width to ~50% of container */
-@media (min-width: 601px) {
+/* Projects view: same 3-column layout as professional */
+@media (min-width: 900px) {
     .work-grid[data-view="personal"] {
-        grid-template-columns: repeat(auto-fill, minmax(280px, calc(50% - 10px)));
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -131,6 +131,11 @@
     max-height: 95%;
     object-fit: contain;
     transition: transform 0.2s ease;
+}
+
+/* Couchbase logo is wide - scale down */
+#couchbase .logo-section img {
+    max-width: 70%;
 }
 
 .company-tile:hover .logo-section img {
