@@ -40,9 +40,35 @@ async function initializeWork() {
         initializeToggle();
         renderWorkSection(currentView);
         initializeEventListeners();
+
+        // Handle anchor scroll after tiles are rendered
+        scrollToAnchorIfPresent();
     } catch (error) {
         console.error('Initialization error:', error);
         handleError('Failed to initialize work section', error);
+    }
+}
+
+// Scroll to anchor element if URL contains hash
+function scrollToAnchorIfPresent() {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const targetId = hash.substring(1); // Remove '#'
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+        // Small delay to ensure DOM is fully rendered
+        setTimeout(() => {
+            const headerOffset = 80; // Account for sticky header
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
 }
 
@@ -152,7 +178,7 @@ function createItemTile(item) {
         : '';
 
     return `
-        <div class="company-tile fade-in" data-company-id="${id}">
+        <div class="company-tile fade-in" id="${id}" data-company-id="${id}">
             <div class="company-tooltip">${companyDescription}</div>
             <div class="logo-section" style="background-color: ${branding.colors.primary}">
                 ${hasLogo ? `

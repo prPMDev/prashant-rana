@@ -1,0 +1,32 @@
+[
+    {
+        "id": "avalara",
+        "name": "Avalara",
+        "logo": "images/company-logos/avalara-logo-transparent.png",
+        "color": "#FF6F00"
+    },
+    {
+        "id": "oracle",
+        "name": "Oracle",
+        "logo": "images/company-logos/oracle-logo-transparent.png",
+        "color": "#C74634"
+    },
+    {
+        "id": "zs",
+        "name": "ZS Associates",
+        "logo": "images/company-logos/zs-logo-transparent.png",
+        "color": "#eb7200"
+    },
+    {
+        "id": "spacelabs",
+        "name": "Spacelabs",
+        "logo": "images/company-logos/spacelabs-logo-transparent.png",
+        "color": "#000000"
+    },
+    {
+        "id": "tcs",
+        "name": "TCS",
+        "logo": "images/company-logos/tcs-logo-transparent.png",
+        "color": "#0080c5"
+    }
+]
