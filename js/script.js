@@ -174,6 +174,17 @@ function setupCarouselControls() {
             log('Carousel resumed');
         });
     }
+
+    // Set up arrow controls
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => moveCarousel(-1));
+    }
+    if (nextButton) {
+        nextButton.addEventListener('click', () => moveCarousel(1));
+    }
 }
 
 function startCarouselAutoplay() {
@@ -201,24 +212,36 @@ function getCloneCount() {
     return isMobile() ? 1 : 2; // Clone 1 on mobile, 2 on desktop
 }
 
-function moveCarousel() {
+function moveCarousel(direction = 1) {
     const container = document.getElementById('testimonial-container');
     if (!container) {
         log('Error: Testimonial container not found during move');
         return;
     }
 
-    carouselState.currentIndex++;
     const slideWidth = getSlideWidth();
     const cloneCount = getCloneCount();
+    const totalSlides = container.children.length;
+
+    carouselState.currentIndex += direction;
+
+    // Handle wrapping for previous button
+    if (carouselState.currentIndex < 0) {
+        carouselState.currentIndex = totalSlides - cloneCount - 1;
+        container.style.transition = 'none';
+        container.style.transform = `translateX(-${carouselState.currentIndex * slideWidth}%)`;
+        container.offsetHeight; // Force reflow
+        log('Wrapped to end');
+        return;
+    }
 
     log(`Moving carousel to index ${carouselState.currentIndex}, slideWidth: ${slideWidth}%`);
 
     container.style.transition = 'transform 0.5s ease';
     container.style.transform = `translateX(-${carouselState.currentIndex * slideWidth}%)`;
 
-    // Reset when reaching cloned elements
-    if (carouselState.currentIndex >= (container.children.length - cloneCount)) {
+    // Reset when reaching cloned elements (forward direction)
+    if (carouselState.currentIndex >= (totalSlides - cloneCount)) {
         setTimeout(() => {
             container.style.transition = 'none';
             carouselState.currentIndex = 0;
