@@ -60,7 +60,7 @@ function scrollToAnchorIfPresent() {
     if (targetElement) {
         // Small delay to ensure DOM is fully rendered
         setTimeout(() => {
-            const headerOffset = 80; // Account for sticky header
+            const headerOffset = 60; // Account for sticky header
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 

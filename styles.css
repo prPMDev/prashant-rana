@@ -298,7 +298,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: var(--logo-gap);
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     background-color: #fff;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -313,14 +313,14 @@ header {
 .logo-bar-item img {
     width: clamp(var(--logo-size-min), var(--logo-size-preferred), var(--logo-size-max));
     height: auto;
-    filter: grayscale(100%);
-    opacity: 0.8;
+    filter: invert(1) grayscale(100%);
+    opacity: 0.7;
     transition: filter 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
 }
 
 .logo-bar-item:hover img,
 .logo-bar-item:focus img {
-    filter: grayscale(0%);
+    filter: invert(1) grayscale(0%);
     opacity: 1;
     transform: scale(1.05);
 }

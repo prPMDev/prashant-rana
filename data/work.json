@@ -531,6 +531,93 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sap-concur",
+      "type": "internship",
+      "rank": 7,
+      "name": "SAP Concur",
+      "companyUrl": "https://www.concur.com",
+      "companyDescription": "Leading SaaS provider of travel and expense management solutions for enterprises",
+      "tags": ["internal tools", "AI chatbot", "0-to-1", "MBA"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/SAP-logo-white.jpg"
+        },
+        "colors": {
+          "primary": "#0070F2"
+        }
+      },
+      "role": {
+        "title": "Product Manager Intern",
+        "level": "Intern"
+      },
+      "overview": {
+        "description": "MBA intern for Internal Tools group managing organization-wide Agile and DevOps platforms. Built and launched a support portal serving 5000+ users.",
+        "skillset": {
+          "technical": ["SAP Conversational AI", "Portal Development", "KPI Frameworks"],
+          "functional": ["Product Launch", "User Adoption", "Documentation"]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Support Portal Launch",
+          "description": "Conceptualized, built, and launched a new support portal product streamlining support requests from 5000+ users",
+          "impact": [
+            "Achieved 80% global user adoption at launch",
+            "Reduced response time by 4x through 2 major portal changes",
+            "Defined 9 KPIs to monitor customer experience and product performance"
+          ]
+        },
+        {
+          "title": "SAP Conversational AI Chatbot PoC",
+          "description": "Built a proof-of-concept chatbot to respond to user FAQs using SAP Conversational AI",
+          "impact": [
+            "Aimed to boost developer productivity by 10%",
+            "Created recorded demos and user-facing documentation for adoption"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "couchbase",
+      "type": "personal",
+      "rank": 3,
+      "name": "Couchbase",
+      "companyUrl": "https://www.couchbase.com",
+      "companyDescription": "Leader in the $40bn database industry, developing the Couchbase NoSQL database system",
+      "tags": ["strategy", "marketing", "MBA", "consulting"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/couchbase-logo-transparent.png"
+        },
+        "colors": {
+          "primary": "#EA2328"
+        }
+      },
+      "role": {
+        "title": "MBA Strategy Consultant",
+        "level": "Personal"
+      },
+      "overview": {
+        "description": "MBA consulting engagement delivering actionable web marketing strategy recommendations to grow organic engagement.",
+        "skillset": {
+          "technical": ["Web Analytics", "Competitive Analysis", "Marketing Strategy"],
+          "functional": ["Strategy Consulting", "Data Modeling", "Executive Presentation"]
+        }
+      },
+      "achievements": [
+        {
+          "title": "Web Marketing Strategy Pivot",
+          "description": "Developed and delivered strategic recommendations pivoting the 2019-20 marketing plan",
+          "impact": [
+            "Presented strategy directly to CMO and leadership team",
+            "6 actionable recommendations on web marketing strategy",
+            "Targeted ~30% growth in organic engagement (230k+ unique impressions)",
+            "Built competitive analysis scorecard benchmarking against 3 key competitors"
+          ]
+        }
+      ]
     }
   ]
 }

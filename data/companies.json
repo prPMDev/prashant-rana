@@ -28,5 +28,17 @@
         "name": "TCS",
         "logo": "images/company-logos/tcs-logo-transparent.png",
         "color": "#0080c5"
+    },
+    {
+        "id": "sap-concur",
+        "name": "SAP Concur",
+        "logo": "images/company-logos/SAP-logo-white.jpg",
+        "color": "#0070F2"
+    },
+    {
+        "id": "couchbase",
+        "name": "Couchbase",
+        "logo": "images/company-logos/couchbase-logo-transparent.png",
+        "color": "#EA2328"
     }
 ]
