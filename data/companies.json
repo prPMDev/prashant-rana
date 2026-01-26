@@ -32,13 +32,13 @@
     {
         "id": "sap-concur",
         "name": "SAP Concur",
-        "logo": "images/company-logos/SAP-logo-white.png",
+        "logo": "images/company-logos/SAP-logo-transparent.png",
         "color": "#0070F2"
     },
     {
         "id": "couchbase",
         "name": "Couchbase",
-        "logo": "images/company-logos/couchbase-logo-transparent.png",
+        "logo": "images/company-logos/couchbase-logo-transparent-2.png",
         "color": "#EA2328"
     }
 ]
