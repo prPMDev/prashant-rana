@@ -222,7 +222,7 @@ header {
     z-index: 10;
 }
 
-.carousel:hover .carousel-arrow {
+.testimonials:hover .carousel-arrow {
     opacity: 1;
 }
 
@@ -231,8 +231,8 @@ header {
     border-color: #333;
 }
 
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
+.carousel-prev { left: -50px; }
+.carousel-next { right: -50px; }
 
 .testimonial {
     flex: 0 0 50%;
