@@ -65,40 +65,31 @@
     max-width: clamp(320px, 90vw, 1400px);
     margin: 20px auto;
     padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 20px;
     transition: opacity 0.2s ease;
 }
 
-/* Tile sizing */
-.work-grid .company-tile {
-    flex: 0 1 calc(33.333% - 14px);
-    min-width: 280px;
-    max-width: 400px;
-}
-
-/* 2-column on medium screens */
-@media (max-width: 900px) {
-    .work-grid .company-tile {
-        flex: 0 1 calc(50% - 10px);
+/* 3-column on wide screens */
+@media (min-width: 900px) {
+    .work-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 /* Mobile - single column */
 @media (max-width: 600px) {
-    .work-grid .company-tile,
-    .work-grid[data-view="personal"] .company-tile {
-        flex: 0 1 100%;
+    .work-grid,
+    .work-grid[data-view="personal"] {
+        grid-template-columns: 1fr;
     }
 }
 
-/* Projects view: limit tile width */
+/* Projects view: limit tile width to ~50% of container */
 @media (min-width: 601px) {
-    .work-grid[data-view="personal"] .company-tile {
-        flex: 0 1 calc(50% - 10px);
-        max-width: 450px;
+    .work-grid[data-view="personal"] {
+        grid-template-columns: repeat(auto-fill, minmax(280px, calc(50% - 10px)));
     }
 }
 
