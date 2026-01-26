@@ -68,6 +68,11 @@ function scrollToAnchorIfPresent() {
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+
+            // Auto-open modal after scroll completes
+            setTimeout(() => {
+                targetElement.click();
+            }, 500);
         }, 100);
     }
 }
