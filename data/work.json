@@ -48,7 +48,7 @@
         {
           "title": "Avalara Tax Compliance for Shopify",
           "projectUrl": "https://www.prnewswire.com/news-releases/avalara-expands-partnership-with-shopify-to-enable-global-tax-compliance-for-merchants-302141531.html",
-          "videoUrl": "https://www.youtube.com/watch?v=HmfOLeyN7ls",
+          "videoUrl": "https://www.youtube.com/watch?v=s3-lz2Cm2OI",
           "links": [
             {"label": "Product", "url": "https://www.avalara.com/us/en/products/integrations/shopify.html"},
             {"label": "Marketplace", "url": "https://help.shopify.com/en/manual/taxes/tax-apps/avalara"},
@@ -61,6 +61,17 @@
             "Reduced merchant integration time to minutes with no-code setup",
             "Automated tax determination across 40+ countries",
             "Built automated product catalog sync for accurate taxability"
+          ]
+        },
+        {
+          "title": "Self-Service Purchase Portal",
+          "videoUrl": "https://www.youtube.com/watch?v=HmfOLeyN7ls",
+          "description": "Designed B2C-like self-service purchase experience within B2B integration flow — resolved executive conflict and delivered in 2 weeks.",
+          "impact": [
+            "Achieved 70%+ conversion rate (3x typical B2B benchmark)",
+            "Reduced time-to-value from 3 months to under 1 month",
+            "Freed 15,000+ hours for high-value sales work",
+            "Model adopted for other e-commerce integrations"
           ]
         },
         {
@@ -107,10 +118,12 @@
           "description": "Industry engagements sharing product and integration expertise",
           "videoUrl": "https://www.youtube.com/watch?v=uQzpdFPGlbQ",
           "links": [
+            {"label": "Partner Product Updates Webinar", "url": "https://www.youtube.com/watch?v=u9FBrIyFB3g"},
             {"label": "Avalara NEXT 2023", "url": "https://www.youtube.com/watch?v=uQzpdFPGlbQ"},
             {"label": "Do the Woo Podcast", "url": "https://openchannels.fm/database-developer-to-product-manager/"}
           ],
           "impact": [
+            "Presented at Avalara Partner Product Updates webinar",
             "Speaker at Avalara NEXT 2023 Developer Conference",
             "Featured on Do the Woo podcast — PM journey and integration strategy"
           ]
