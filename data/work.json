@@ -56,10 +56,10 @@
           ],
           "description": "Led end-to-end development and launch of Avalara's compliance app for Shopify — automated determination across 12,000+ jurisdictions with product catalog sync, end-to-end transaction tracking, and code mapping.",
           "impact": [
-            "Generated $XXX million revenue stream through strategic partnership",
-            "Achieved XX% YoY direct ARR growth",
-            "Significantly reduced merchant integration time with no-code setup",
-            "Implemented automated determination for 40+ countries",
+            "Became top-performing partner integration by revenue",
+            "Outpaced competitor who had 6-month head start",
+            "Reduced merchant integration time to minutes with no-code setup",
+            "Automated tax determination across 40+ countries",
             "Built automated product catalog sync for accurate taxability"
           ]
         },
@@ -71,9 +71,9 @@
             {"label": "Squarespace", "url": "https://www.squarespace.com/extensions/details/avalara"}
           ],
           "impact": [
-            "Generated $XX million additional ARR across Square, Squarespace, and Amazon",
+            "Expanded revenue across Square, Squarespace, and Amazon integrations",
             "Strengthened market leadership in e-commerce tax compliance",
-            "Unlocked mid-market segment through strategic partnership with leading SMB platform"
+            "Unlocked mid-market segment through strategic SMB platform partnership"
           ]
         },
         {
@@ -165,7 +165,7 @@
             {"label": "21D Release Notes", "url": "https://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/r13/wn/engagement/releases/21D/21D-sf-automation-wn.htm"}
           ],
           "impact": [
-            "Enabled PUID and Original System Reference linking — unlocked $XXX million in at-risk renewals",
+            "Enabled PUID and Original System Reference linking — prevented churn for enterprise customers",
             "Reduced integration complexity for 1:M relationships and Dynamic Choice Lists",
             "Improved data import success rates for enterprise customers with complex system landscapes"
           ]
@@ -179,7 +179,7 @@
           "impact": [
             "Built predictive model for import job completion times",
             "Enabled proactive resource allocation reducing queue wait times",
-            "Saved $XXK per import cycle through optimized scheduling"
+            "Reduced cost per import cycle through ML-optimized scheduling"
           ]
         },
         {
@@ -192,7 +192,7 @@
           "impact": [
             "Implemented dynamic queue management — reduced support escalations",
             "Added reusable advanced options — decreased import/export setup time",
-            "Delivered $XXXK annual savings through operational efficiency gains"
+            "Delivered measurable annual savings through operational efficiency"
           ]
         }
       ]
@@ -254,7 +254,7 @@
           "title": "Javelin Application Catalyst",
           "description": "Prebuilt application templates integrating web frameworks and Iron Python for rapid analytics deployment",
           "impact": [
-            "Generated $XXXK in new ARR within first year",
+            "Generated new revenue stream within first year of launch",
             "Reduced deployment costs by ~60%",
             "Accelerated custom analytics application development",
             "Stabilized platform and transitioned to maintenance mode"
@@ -376,9 +376,9 @@
             {"label": "Platform Overview", "url": "https://www.tcs.com/content/dam/global-tcs/en/pdfs/insights/blogs/TAP-Procure-to-Pay-1017-1.pdf"}
           ],
           "impact": [
-            "Secured $X million in product revenues via cloud SaaS offering",
+            "Drove product revenue growth via cloud SaaS offering",
             "Reduced deployment timeline by 4 weeks through refined CX processes",
-            "Saved $XXXK in implementation costs"
+            "Cut implementation costs through process optimization"
           ]
         },
         {
