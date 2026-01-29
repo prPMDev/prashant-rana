@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prpmdev.github.io/prashant-rana/sitemap.xml
