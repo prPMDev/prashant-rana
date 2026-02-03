@@ -1,9 +1,10 @@
 // Configuration
 const CAROUSEL_CONFIG = {
     autoplayInterval: 5000,
+    mobileAutoplayInterval: 8000, // Slower on mobile for reading
     transitionDuration: 500,
     mobileBreakpoint: 768,
-    debug: true // Enable debug logging
+    debug: false
 };
 
 // Global state
@@ -193,11 +194,15 @@ function startCarouselAutoplay() {
         clearInterval(carouselState.interval);
     }
 
+    const interval = isMobile()
+        ? CAROUSEL_CONFIG.mobileAutoplayInterval
+        : CAROUSEL_CONFIG.autoplayInterval;
+
     carouselState.interval = setInterval(() => {
         if (!carouselState.isPaused) {
             moveCarousel();
         }
-    }, CAROUSEL_CONFIG.autoplayInterval);
+    }, interval);
 }
 
 function isMobile() {

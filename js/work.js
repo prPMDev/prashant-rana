@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', initializeWork);
 
 async function initializeWork() {
     try {
-        console.log('Initializing work section...');
         const workData = await fetchWorkData();
 
         if (!workData?.items || !Array.isArray(workData.items)) {
@@ -35,7 +34,6 @@ async function initializeWork() {
         }
 
         window.workData = workData;
-        console.log('Valid work data received, rendering section...');
 
         initializeToggle();
         renderWorkSection(currentView);
@@ -117,8 +115,6 @@ async function fetchWorkData() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), CONFIG.FETCH_TIMEOUT);
 
-        console.log(`Attempting to fetch work data from: ${CONFIG.PATHS.WORK_DATA}`);
-
         const response = await fetch(CONFIG.PATHS.WORK_DATA, {
             signal: controller.signal
         });
@@ -133,7 +129,6 @@ async function fetchWorkData() {
         }
 
         const data = await response.json();
-        console.log('Successfully fetched work data');
         return data;
     } catch (error) {
         console.error('Fetch error details:', error);
@@ -407,4 +402,3 @@ function showErrorMessage(message, type = 'error') {
     workGrid.insertAdjacentElement('beforebegin', errorDiv);
 }
 
-console.log('Work.js loaded successfully');
