@@ -7,6 +7,17 @@
   },
   "books": [
     {
+      "title": "The Coming Wave",
+      "author": "Mustafa Suleyman, Michael Bhaskar",
+      "googleBooksId": "a-26EAAAQBAJ",
+      "rating": 0,
+      "blurb": "Reading for perspective on AI from someone who actually built it. Suleyman co-founded DeepMind — when he talks about containment as the biggest dilemma, it's not theoretical.",
+      "types": ["technical"],
+      "status": "reading",
+      "lastStarted": "2025-01-15",
+      "readCount": 1
+    },
+    {
       "title": "The Lean Product Playbook",
       "author": "Dan Olsen",
       "googleBooksId": "dCOsBwAAQBAJ",
