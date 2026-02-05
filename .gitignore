@@ -14,9 +14,12 @@ node_modules/
 npm-debug.log*
 
 # Claude Code (private, not committed)
-CLAUDE.md
-claude.md
-.claude/
+/CLAUDE.md
+/claude.md
+/.claude/
 
 # Troubleshooting screenshots
 troubleshooting/
+
+# Demo script (local only)
+demoscript.md
