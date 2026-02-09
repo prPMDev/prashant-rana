@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const footerPlaceholder = document.getElementById('footer-placeholder');
             if (footerPlaceholder) {
                 footerPlaceholder.innerHTML = data;
+                const yearSpan = document.getElementById('footer-year');
+                if (yearSpan) yearSpan.textContent = new Date().getFullYear();
             } else {
                 console.error('Footer placeholder not found');
             }
