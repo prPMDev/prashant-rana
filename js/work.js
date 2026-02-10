@@ -201,7 +201,99 @@ function createItemTile(item) {
     `;
 }
 
+// Product Layout Renderers
+function createProductLayout(sections) {
+    return `
+        <div class="details-container product-layout">
+            ${sections.map(section => renderProductSection(section)).join('')}
+        </div>
+    `;
+}
+
+function renderProductSection(section) {
+    switch (section.type) {
+        case 'hero': return renderHeroSection(section);
+        case 'grid': return renderGridSection(section);
+        case 'text': return renderTextSection(section);
+        case 'chips': return renderChipsSection(section);
+        case 'list': return renderListSection(section);
+        default: return '';
+    }
+}
+
+function renderHeroSection(section) {
+    const linksHtml = section.links?.length ? `
+        <div class="achievement-links">
+            ${section.links.map((link, i) => `
+                <a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label}</a>${i < section.links.length - 1 ? '<span class="link-separator">·</span>' : ''}
+            `).join('')}
+        </div>
+    ` : '';
+
+    return `
+        <div class="product-hero">
+            <h3>${section.title}</h3>
+            <p class="description">${section.description}</p>
+            ${linksHtml}
+        </div>
+    `;
+}
+
+function renderGridSection(section) {
+    const colClass = section.columns === 2 ? 'product-grid-2col' : 'product-grid-2col';
+    return `
+        <div class="achievement-card">
+            <div class="achievement-header"><div><h3>${section.title}</h3></div></div>
+            <div class="${colClass}">
+                ${section.items.map(item => `
+                    <div class="product-grid-item">
+                        <h4>${item.title}</h4>
+                        <p class="description">${item.description}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderTextSection(section) {
+    return `
+        <div class="achievement-card">
+            <div class="achievement-header"><div><h3>${section.title}</h3></div></div>
+            <p class="description">${section.description}</p>
+        </div>
+    `;
+}
+
+function renderChipsSection(section) {
+    return `
+        <div class="achievement-card">
+            <div class="achievement-header"><div><h3>${section.title}</h3></div></div>
+            <div class="product-chips">
+                ${section.items.map(item => `<span class="tile-tag">${item}</span>`).join('')}
+            </div>
+            ${section.caption ? `<p class="product-chips-caption">${section.caption}</p>` : ''}
+        </div>
+    `;
+}
+
+function renderListSection(section) {
+    return `
+        <div class="achievement-card">
+            <div class="achievement-header"><div><h3>${section.title}</h3></div></div>
+            ${section.description ? `<p class="description">${section.description}</p>` : ''}
+            <ul class="impact-list">
+                ${section.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+}
+
 function createDetailsContent(details) {
+    if (details.layout === 'product' && Array.isArray(details.sections)) {
+        return createProductLayout(details.sections);
+    }
+
     const { achievements } = details;
 
     return `

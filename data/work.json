@@ -463,6 +463,100 @@
       ]
     },
     {
+      "id": "my-portfolio-kit",
+      "type": "personal",
+      "rank": 0,
+      "name": "My Portfolio Kit",
+      "companyUrl": "https://prpmdev.github.io/my-portfolio-kit/",
+      "companyDescription": "Build your portfolio with AI — and learn how AI works along the way",
+      "tags": ["Claude Code", "AI skills", "open source", "prompt engineering"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/my-portfolio-kit-logo.svg"
+        },
+        "colors": {
+          "primary": "#2d2d2d"
+        }
+      },
+      "role": {
+        "title": "Creator",
+        "level": "Personal"
+      },
+      "overview": {
+        "description": "Templates pull you into design decisions. No-code tools hide everything. Built Claude Code skills that handle the craft — copywriting, voice, design, strategy — so you focus on your story.",
+        "skillset": {
+          "technical": ["Claude Code Skills", "Prompt Engineering", "GitHub Pages", "HTML/CSS/JS"],
+          "functional": ["Content Strategy", "Product Positioning", "Developer Experience"]
+        }
+      },
+      "achievements": [],
+      "layout": "product",
+      "sections": [
+        {
+          "type": "hero",
+          "title": "My Portfolio Kit",
+          "description": "Build your portfolio with AI — and learn how AI works along the way.",
+          "links": [
+            {"label": "Live Site", "url": "https://prpmdev.github.io/my-portfolio-kit/"},
+            {"label": "GitHub", "url": "https://github.com/prPMDev/my-portfolio-kit"}
+          ]
+        },
+        {
+          "type": "grid",
+          "title": "The Friction That Kept Me Stuck",
+          "columns": 2,
+          "items": [
+            {
+              "title": "Templates",
+              "description": "You pick a template, then spend hours making it your own. Design decisions pull you away from content. You end up building a website instead of telling your story."
+            },
+            {
+              "title": "No-code builders",
+              "description": "Their agents, their directives. One change and the entire design shifts. You walk away thinking you've learned how AI works — you haven't."
+            },
+            {
+              "title": "LinkedIn",
+              "description": "Beholden to their structure. The colors, the layout, the text — none of it reflects you as a personality."
+            },
+            {
+              "title": "Custom code",
+              "description": "Good for fundamentals. But slow, context lost, and boiling the ocean across millions of templates trying to figure out what works."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "The Idea",
+          "description": "A portfolio doesn't need to be a 20-page fancy application. It should be like your resume — a few pages that define who you are and give depth that isn't possible in a single resume line. The colors you pick, the layout, the text — it reflects your personality. And you should be able to swap things out freely."
+        },
+        {
+          "type": "chips",
+          "title": "What I Built",
+          "items": ["Copywriting", "Voice Checking", "Content Strategy", "Design", "SEO", "Quality Gates"],
+          "caption": "Each skill has directives you control. Not hidden behind abstraction layers. Your story, your way."
+        },
+        {
+          "type": "list",
+          "title": "Why Skills Solved What Agents Didn't",
+          "description": "Started with custom Claude agents — one per task. Defining boundaries between them was the challenge.",
+          "items": [
+            "Skills are modular and scoped by design — each does one thing with clear boundaries",
+            "Fork any skill, chain them, swap one out without breaking the rest",
+            "The structure stays stable — like editing a resume section without reformatting the whole document"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "What I Learned About Working With AI",
+          "items": [
+            "Define your voice or it'll default to generic — without tone directives, AI produces 'professional' filler that sounds like everyone else",
+            "Context matters more than prompting — chunked execution with clear scope beats one massive prompt",
+            "AI should not tell your story for you — it can structure, refine, and format, but the raw material has to be yours"
+          ]
+        }
+      ]
+    },
+    {
       "id": "pursuit",
       "type": "personal",
       "rank": 1,
