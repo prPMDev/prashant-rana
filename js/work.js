@@ -240,7 +240,7 @@ function renderHeroSection(section) {
 }
 
 function renderGridSection(section) {
-    const colClass = section.columns === 2 ? 'product-grid-2col' : 'product-grid-2col';
+    const colClass = 'product-grid-2col';
     return `
         <div class="achievement-card">
             <div class="achievement-header"><div><h3>${section.title}</h3></div></div>
@@ -290,7 +290,7 @@ function renderListSection(section) {
 }
 
 function createDetailsContent(details) {
-    if (details.layout === 'product' && Array.isArray(details.sections)) {
+    if (details.layout === 'product' && Array.isArray(details.sections) && details.sections.length > 0) {
         return createProductLayout(details.sections);
     }
 
