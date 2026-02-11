@@ -240,6 +240,7 @@ function renderHeroSection(section) {
                     src="${section.iframeUrl}"
                     title="${section.title} demo"
                     sandbox="allow-scripts"
+                    scrolling="no"
                     loading="lazy">
                 </iframe>
             </div>
