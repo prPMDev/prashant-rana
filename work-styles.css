@@ -65,6 +65,15 @@
     background: #f0f0f0;
 }
 
+.toggle-pill:focus-visible {
+    outline: 2px solid #333;
+    outline-offset: 2px;
+}
+
+.toggle-pill.active:focus-visible {
+    outline-color: #666;
+}
+
 .toggle-pill.active {
     background: #333;
     color: #fff;

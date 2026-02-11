@@ -81,8 +81,9 @@ function initializeToggle() {
     if (!toggleContainer) return;
 
     toggleContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('toggle-pill')) {
-            const view = e.target.dataset.view;
+        const pill = e.target.closest('.toggle-pill');
+        if (pill) {
+            const view = pill.dataset.view;
             if (view && view !== currentView) {
                 setActiveView(view);
             }
@@ -95,7 +96,9 @@ function setActiveView(view) {
 
     // Update pill states
     document.querySelectorAll('.toggle-pill').forEach(pill => {
-        pill.classList.toggle('active', pill.dataset.view === view);
+        const isActive = pill.dataset.view === view;
+        pill.classList.toggle('active', isActive);
+        pill.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
     // Fade out, swap content, fade in
