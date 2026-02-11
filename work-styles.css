@@ -39,6 +39,16 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.toggle-pill svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
 }
 
 .toggle-pill:first-child {
