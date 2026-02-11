@@ -233,11 +233,27 @@ function renderHeroSection(section) {
         </div>
     ` : '';
 
+    const iframeHtml = section.iframeUrl ? `
+        <div class="product-demo">
+            <div class="product-demo-container">
+                <iframe
+                    src="${section.iframeUrl}"
+                    title="${section.title} demo"
+                    sandbox="allow-scripts"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    ` : '';
+
     return `
-        <div class="product-hero">
-            <h3>${section.title}</h3>
-            <p class="description">${section.description}</p>
-            ${linksHtml}
+        <div class="product-hero ${section.iframeUrl ? 'has-demo' : ''}">
+            <div class="product-hero-content">
+                <h3>${section.title}</h3>
+                <p class="description">${section.description}</p>
+                ${linksHtml}
+            </div>
+            ${iframeHtml}
         </div>
     `;
 }

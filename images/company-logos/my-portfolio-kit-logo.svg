@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 80" fill="none">
   <!-- Package icon (hexagonal box) -->
-  <path d="M30 20 L50 10 L70 20 L70 48 L50 58 L30 48 Z" stroke="white" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
-  <line x1="50" y1="10" x2="50" y2="58" stroke="white" stroke-width="2.5"/>
-  <line x1="30" y1="20" x2="50" y2="30" stroke="white" stroke-width="2.5"/>
-  <line x1="70" y1="20" x2="50" y2="30" stroke="white" stroke-width="2.5"/>
+  <path d="M25 20 L45 10 L65 20 L65 48 L45 58 L25 48 Z" stroke="white" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+  <line x1="45" y1="10" x2="45" y2="58" stroke="white" stroke-width="2.5"/>
+  <line x1="25" y1="20" x2="45" y2="30" stroke="white" stroke-width="2.5"/>
+  <line x1="65" y1="20" x2="45" y2="30" stroke="white" stroke-width="2.5"/>
 
   <!-- PORTFOLIO KIT text -->
-  <text x="85" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="white" letter-spacing="1">PORTFOLIO KIT</text>
+  <text x="78" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="white" letter-spacing="1">PORTFOLIO KIT</text>
 </svg>

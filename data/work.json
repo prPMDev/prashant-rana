@@ -496,6 +496,7 @@
           "type": "hero",
           "title": "My Portfolio Kit",
           "description": "Build your portfolio with AI — and learn how AI works along the way.",
+          "iframeUrl": "https://prpmdev.github.io/my-portfolio-kit/",
           "links": [
             {"label": "Live Site", "url": "https://prpmdev.github.io/my-portfolio-kit/"},
             {"label": "GitHub", "url": "https://github.com/prPMDev/my-portfolio-kit"}
