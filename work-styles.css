@@ -282,6 +282,9 @@
     text-align: center;
     border-radius: 50%;
     transition: all 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .modal .close:hover {
@@ -427,16 +430,9 @@
 
 /* Product Layout Styles */
 .product-hero {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #eee;
-}
-
-.product-hero.has-demo {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    align-items: start;
 }
 
 .product-hero h3 {
@@ -449,13 +445,45 @@
     font-size: 1em;
     line-height: 1.5;
     color: #444;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+/* Split layout: content left, demo right */
+.product-split {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.product-split h3 {
+    font-size: 1.15em;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.product-split-item {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    line-height: 1.45;
+    color: #444;
+}
+
+.product-split-item:last-child {
+    margin-bottom: 0;
+}
+
+.product-split-item strong {
+    color: #333;
+    display: block;
+    margin-bottom: 2px;
 }
 
 .product-demo-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     border-radius: 8px;
     border: 1px solid #eee;
@@ -468,9 +496,18 @@
     left: 0;
     width: 1200px;
     height: 900px;
-    transform: scale(0.24);
+    transform: scale(0.3);
     transform-origin: top left;
     border: 0;
+}
+
+.product-demo-link {
+    display: none;
+    color: #0066cc;
+    font-size: 0.95em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 0;
 }
 
 .product-grid-2col {
@@ -516,8 +553,16 @@
 }
 
 @media (max-width: 768px) {
-    .product-hero.has-demo {
+    .product-split {
         grid-template-columns: 1fr;
+    }
+
+    .product-demo-container {
+        display: none;
+    }
+
+    .product-demo-link {
+        display: inline-block;
     }
 
     .product-grid-2col {

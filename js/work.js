@@ -176,12 +176,16 @@ function createItemTile(item) {
         ? `<div class="tile-tags">${tags.slice(0, 3).map(tag => `<span class="tile-tag">${tag}</span>`).join('')}</div>`
         : '';
 
+    const escapedDescription = overview?.description
+        ? overview.description.replace(/"/g, '&quot;')
+        : '';
+
     const descriptionHtml = overview?.description
-        ? `<p class="tile-description" title="${overview.description}">${overview.description}</p>`
+        ? `<p class="tile-description" title="${escapedDescription}">${overview.description}</p>`
         : '';
 
     return `
-        <div class="company-tile fade-in" id="${id}" data-company-id="${id}">
+        <div class="company-tile fade-in" id="${id}" data-company-id="${id}" tabindex="0" role="button" aria-label="${name} — ${role.title}">
             <div class="company-tooltip">${companyDescription}</div>
             <div class="logo-section" style="background-color: ${branding.colors.primary}">
                 ${hasLogo ? `
@@ -216,6 +220,7 @@ function createProductLayout(sections) {
 function renderProductSection(section) {
     switch (section.type) {
         case 'hero': return renderHeroSection(section);
+        case 'split': return renderSplitSection(section);
         case 'grid': return renderGridSection(section);
         case 'text': return renderTextSection(section);
         case 'chips': return renderChipsSection(section);
@@ -233,28 +238,39 @@ function renderHeroSection(section) {
         </div>
     ` : '';
 
-    const iframeHtml = section.iframeUrl ? `
-        <div class="product-demo">
-            <div class="product-demo-container">
-                <iframe
-                    src="${section.iframeUrl}"
-                    title="${section.title} demo"
-                    sandbox="allow-scripts"
-                    scrolling="no"
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    ` : '';
-
     return `
-        <div class="product-hero ${section.iframeUrl ? 'has-demo' : ''}">
-            <div class="product-hero-content">
+        <div class="product-hero">
+            <h3>${section.title}</h3>
+            <p class="description">${section.description}</p>
+            ${linksHtml}
+        </div>
+    `;
+}
+
+function renderSplitSection(section) {
+    return `
+        <div class="product-split">
+            <div class="product-split-content">
                 <h3>${section.title}</h3>
-                <p class="description">${section.description}</p>
-                ${linksHtml}
+                ${section.items.map(item => `
+                    <div class="product-split-item">
+                        <strong>${item.title}</strong>
+                        <span>${item.description}</span>
+                    </div>
+                `).join('')}
             </div>
-            ${iframeHtml}
+            ${section.iframeUrl ? `
+                <div class="product-demo-container">
+                    <iframe
+                        src="${section.iframeUrl}"
+                        title="${section.title} live preview"
+                        sandbox="allow-scripts"
+                        scrolling="no"
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <a href="${section.iframeUrl}" target="_blank" rel="noopener noreferrer" class="product-demo-link">View Live Site &rarr;</a>
+            ` : ''}
         </div>
     `;
 }
@@ -373,6 +389,12 @@ function initializeEventListeners() {
 function initializeTileListeners() {
     document.querySelectorAll('.company-tile').forEach(tile => {
         tile.addEventListener('click', handleTileClick);
+        tile.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleTileClick(e);
+            }
+        });
     });
 }
 
