@@ -18,6 +18,14 @@ npm-debug.log*
 /claude.md
 /.claude/
 
+# Secrets and credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+credentials*.json
+
 # Troubleshooting screenshots
 troubleshooting/
 
