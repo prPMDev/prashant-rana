@@ -60,7 +60,7 @@ header {
 .hero {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 14px;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -331,10 +331,27 @@ header {
     justify-content: center;
     align-items: center;
     gap: var(--logo-gap);
-    padding: 1rem;
+    padding: 0.65rem 1rem;
     background-color: #fff;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 6px;
+}
+
+.project-bar {
+    margin-bottom: 14px;
+}
+
+.project-bar .logo-bar-item img {
+    width: clamp(50px, 10vw, 90px);
+}
+
+.bar-label {
+    font-size: 0.7em;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin-right: 4px;
 }
 
 .logo-bar-item {
@@ -382,7 +399,7 @@ header {
 @media (max-width: 500px) {
     .logo-bar {
         gap: 12px;
-        padding: 0.75rem;
+        padding: 0.5rem 0.75rem;
         overflow-x: auto;
         justify-content: center;
         -webkit-overflow-scrolling: touch;
@@ -395,6 +412,11 @@ header {
 
     .logo-bar-item img {
         width: 35px;
+        flex-shrink: 0;
+    }
+
+    .bar-label {
+        font-size: 0.6em;
         flex-shrink: 0;
     }
 }

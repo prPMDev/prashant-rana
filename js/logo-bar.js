@@ -40,7 +40,8 @@ function renderLogoBar(container, companies) {
         </a>
     `).join('');
 
-    container.innerHTML = logosHtml;
+    // Preserve existing children (e.g. bar-label) and append logos
+    container.insertAdjacentHTML('beforeend', logosHtml);
 }
 
 // Logo bar component ready
