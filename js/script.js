@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     log('DOM Content Loaded');
     initializeImages();
     initializeTestimonials();
-    loadHeaderFooter();
     calculateYears();
 });
 
@@ -45,33 +44,6 @@ function calculateYears() {
 
     if (techEl) techEl.textContent = techYears;
     if (pmEl) pmEl.textContent = pmYears;
-}
-
-function loadHeaderFooter() {
-    log('Loading header and footer');
-    // Load header
-    fetch('header.html')
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-            log('Header loaded');
-        })
-        .catch(error => log('Error loading header:', error));
-
-    // Load footer
-    fetch('footer.html')
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-            log('Footer loaded');
-        })
-        .catch(error => log('Error loading footer:', error));
 }
 
 function initializeImages() {
