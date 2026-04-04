@@ -1,36 +1,58 @@
 // Logo Bar Component
-// Reusable component for displaying company logos with links to work page
+// Renders company and project logo bars from JSON data
 
 const LOGO_BAR_CONFIG = {
-    dataPath: 'data/companies.json',
-    workPagePath: 'work.html'
+    companies: {
+        dataPath: 'data/companies.json',
+        containerId: 'logo-bar',
+        linkBase: 'work.html#'
+    },
+    projects: {
+        dataPath: 'data/projects.json',
+        containerId: 'project-bar'
+    }
 };
 
-document.addEventListener('DOMContentLoaded', initializeLogoBar);
+document.addEventListener('DOMContentLoaded', () => {
+    initializeLogoBar();
+    initializeProjectBar();
+});
+
+async function fetchJson(path) {
+    const response = await fetch(path);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${path}: ${response.status}`);
+    }
+    return response.json();
+}
 
 async function initializeLogoBar() {
-    const container = document.getElementById('logo-bar');
+    const container = document.getElementById(LOGO_BAR_CONFIG.companies.containerId);
     if (!container) return;
 
     try {
-        const companies = await fetchCompanies();
+        const companies = await fetchJson(LOGO_BAR_CONFIG.companies.dataPath);
         renderLogoBar(container, companies);
     } catch (error) {
         console.error('Failed to initialize logo bar:', error);
     }
 }
 
-async function fetchCompanies() {
-    const response = await fetch(LOGO_BAR_CONFIG.dataPath);
-    if (!response.ok) {
-        throw new Error(`Failed to fetch companies: ${response.status}`);
+async function initializeProjectBar() {
+    const container = document.getElementById(LOGO_BAR_CONFIG.projects.containerId);
+    if (!container) return;
+
+    try {
+        const projects = await fetchJson(LOGO_BAR_CONFIG.projects.dataPath);
+        renderProjectBar(container, projects);
+    } catch (error) {
+        console.error('Failed to initialize project bar:', error);
     }
-    return response.json();
 }
 
 function renderLogoBar(container, companies) {
     const logosHtml = companies.map(company => `
-        <a href="${LOGO_BAR_CONFIG.workPagePath}#${company.id}"
+        <a href="${LOGO_BAR_CONFIG.companies.linkBase}${company.id}"
            class="logo-bar-item"
            title="${company.name}"
            aria-label="View ${company.name} work">
@@ -40,8 +62,22 @@ function renderLogoBar(container, companies) {
         </a>
     `).join('');
 
-    // Preserve existing children (e.g. bar-label) and append logos
     container.insertAdjacentHTML('beforeend', logosHtml);
 }
 
-// Logo bar component ready
+function renderProjectBar(container, projects) {
+    const logosHtml = projects.map(project => `
+        <a href="${project.url}"
+           class="logo-bar-item"
+           title="${project.name}"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="View ${project.name}">
+            <img src="${project.logo}"
+                 alt="${project.name}"
+                 loading="lazy">
+        </a>
+    `).join('');
+
+    container.insertAdjacentHTML('beforeend', logosHtml);
+}

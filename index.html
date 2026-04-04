@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) - hostname check blocks spam/ghost traffic -->
+    <!-- Site config + Google tag (gtag.js) - hostname check blocks spam/ghost traffic -->
+    <script src="js/site-config.js"></script>
     <script>
-      var defined_hostnames = ['prpmdev.github.io', 'localhost'];
-      if (defined_hostnames.some(function(h) { return location.hostname.indexOf(h) > -1; })) {
+      if (SITE_CONFIG.ga.allowedHostnames.includes(location.hostname)) {
         var s = document.createElement('script');
         s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VS1PHJX1YL';
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + SITE_CONFIG.ga.measurementId;
         document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-VS1PHJX1YL');
+        gtag('config', SITE_CONFIG.ga.measurementId);
       }
     </script>
     <meta charset="UTF-8">
@@ -106,15 +106,6 @@
 
         <section id="project-bar" class="logo-bar project-bar" aria-label="Side projects">
             <span class="bar-label">Side projects</span>
-            <a href="https://prpmdev.github.io/my-portfolio-kit/" class="logo-bar-item" title="My Portfolio Kit" target="_blank" rel="noopener noreferrer" aria-label="View My Portfolio Kit">
-                <img src="images/company-logos/my-portfolio-kit-logo.svg" alt="My Portfolio Kit" loading="lazy">
-            </a>
-            <a href="https://github.com/prPMDev/pursuit" class="logo-bar-item" title="Pursuit" target="_blank" rel="noopener noreferrer" aria-label="View Pursuit">
-                <img src="images/company-logos/pursuit-logo.svg" alt="Pursuit" loading="lazy">
-            </a>
-            <a href="https://github.com/prPMDev/elevateli" class="logo-bar-item" title="ElevateLI" target="_blank" rel="noopener noreferrer" aria-label="View ElevateLI">
-                <img src="images/company-logos/elevateli-logo.svg" alt="ElevateLI" loading="lazy">
-            </a>
         </section>
 
         <!-- Testimonials Section -->

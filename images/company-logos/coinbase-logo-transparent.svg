@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="white">
+  <circle cx="40" cy="40" r="32" fill="none" stroke="white" stroke-width="4"/>
+  <path d="M40 20c-11 0-20 9-20 20s9 20 20 20 20-9 20-20h-8c0 6.6-5.4 12-12 12s-12-5.4-12-12 5.4-12 12-12c4.4 0 8.3 2.4 10.4 6h8.8C56.4 25.2 48.8 20 40 20z"/>
+  <text x="90" y="52" font-family="Arial, sans-serif" font-size="42" font-weight="600" fill="white">coinbase</text>
+</svg>

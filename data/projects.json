@@ -1,0 +1,23 @@
+[
+    {
+        "id": "my-portfolio-kit",
+        "name": "My Portfolio Kit",
+        "logo": "images/company-logos/my-portfolio-kit-logo.svg",
+        "url": "https://prpmdev.github.io/my-portfolio-kit/",
+        "color": "#2d2d2d"
+    },
+    {
+        "id": "pursuit",
+        "name": "Pursuit",
+        "logo": "images/company-logos/pursuit-logo.svg",
+        "url": "https://github.com/prPMDev/pursuit",
+        "color": "#6366f1"
+    },
+    {
+        "id": "elevateli",
+        "name": "ElevateLI",
+        "logo": "images/company-logos/elevateli-logo.svg",
+        "url": "https://github.com/prPMDev/elevateli",
+        "color": "#5B9BD5"
+    }
+]

@@ -343,6 +343,7 @@ header {
 
 .project-bar .logo-bar-item img {
     width: clamp(50px, 10vw, 90px);
+    opacity: 0.85;
 }
 
 .bar-label {

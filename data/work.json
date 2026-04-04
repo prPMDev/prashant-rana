@@ -6,6 +6,35 @@
   },
   "items": [
     {
+      "id": "coinbase",
+      "type": "draft",
+      "rank": 0,
+      "name": "Coinbase",
+      "companyUrl": "https://www.coinbase.com",
+      "companyDescription": "TODO: One-line description of Coinbase role",
+      "tags": ["TODO"],
+      "branding": {
+        "logos": {
+          "white": "images/company-logos/coinbase-logo-transparent.svg"
+        },
+        "colors": {
+          "primary": "#0052FF"
+        }
+      },
+      "role": {
+        "title": "TODO: Role Title",
+        "level": "TODO"
+      },
+      "overview": {
+        "description": "TODO: 2-3 sentence overview of what you do at Coinbase.",
+        "skillset": {
+          "technical": ["TODO"],
+          "functional": ["TODO"]
+        }
+      },
+      "achievements": []
+    },
+    {
       "id": "avalara",
       "type": "professional",
       "rank": 1,
@@ -552,8 +581,8 @@
       "rank": 1,
       "name": "Pursuit",
       "companyUrl": "https://github.com/prPMDev/pursuit",
-      "companyDescription": "AI-powered job search system",
-      "tags": ["AI agents", "Python", "automation"],
+      "companyDescription": "Quality-focused job search system. 5 great fits beat 50 noise applications.",
+      "tags": ["AI agents", "Node.js", "ATS integration", "automation"],
       "branding": {
         "logos": {
           "white": "images/company-logos/pursuit-logo.svg"
@@ -567,22 +596,41 @@
         "level": "Personal"
       },
       "overview": {
-        "description": "Building an AI-powered job search system to streamline the job hunting process.",
+        "description": "Open-source job search system built on an anti-mass-apply philosophy. AI evaluates jobs so you don't have to triage hundreds of listings. Local-first, privacy-first, multi-provider AI (Claude, GPT, Gemini).",
         "skillset": {
-          "technical": ["AI/ML", "Automation", "System Design"],
-          "functional": ["Product Thinking", "Problem Solving"]
+          "technical": ["Node.js", "Express", "Claude API", "Puppeteer", "ATS APIs"],
+          "functional": ["Product Architecture", "Developer Experience", "Workflow Automation", "AI Prompt Engineering"]
         }
       },
       "achievements": [
         {
-          "title": "Job Search Automation",
-          "description": "End-to-end system for managing job search workflow",
+          "title": "Unified ATS Integration",
+          "description": "Built ats-index: a unified adapter for fetching jobs from Greenhouse, Ashby, and Lever ATS platforms without browser automation or login credentials.",
           "links": [
             {"label": "GitHub", "url": "https://github.com/prPMDev/pursuit"}
           ],
           "impact": [
-            "Automated repetitive job search tasks",
-            "Integrated AI for application optimization"
+            "Full job descriptions in markdown from 3 ATS platforms via public APIs",
+            "Company watchlist with automatic job fetching",
+            "No browser required, no cookies, no login"
+          ]
+        },
+        {
+          "title": "AI Scanner and Evaluator",
+          "description": "Two-stage AI pipeline: Scanner filters jobs into Consider/Maybe/Pass with explanations and risk tags. Evaluator does deep analysis on shortlisted roles with match scoring, level fit, and red flag detection.",
+          "impact": [
+            "Multi-provider support: Claude, GPT, Gemini with temperature 0.2 for deterministic scoring",
+            "Distinguishes experience domains from aspiration domains in profile matching",
+            "Follow-up question system for deeper role analysis"
+          ]
+        },
+        {
+          "title": "Resume Upload and Profile System",
+          "description": "Conversational onboarding wizard that captures professional identity. PDF resume upload parses to markdown for AI context. Profile drives all scanning and evaluation decisions.",
+          "impact": [
+            "PDF-to-markdown parsing for direct AI consumption",
+            "Guided setup with mandatory field validation",
+            "Identity-based matching over keyword matching"
           ]
         }
       ],
